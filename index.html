@@ -169,6 +169,7 @@
     color: var(--accent);
     margin-bottom: 32px;
     animation: fadeDown 0.8s ease both;
+    white-space: nowrap;
   }
   .hero-badge::before {
     content: '';
@@ -184,10 +185,10 @@
 
   .hero-title {
     font-family: 'Orbitron', monospace;
-    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-size: clamp(1.8rem, 4vw, 3.4rem);
     font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
     margin-bottom: 24px;
     animation: fadeDown 0.8s 0.15s ease both;
   }
@@ -363,59 +364,97 @@
     align-items: center;
   }
 
-  .about-visual {
-    position: relative;
+  .about-visual { position: relative; }
+
+  .about-imgs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 12px;
   }
-  .about-hexgrid {
-    width: 100%;
-    aspect-ratio: 1;
-    max-width: 480px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .hex-ring {
-    position: absolute;
+  .about-img-card {
+    border-radius: 12px;
+    overflow: hidden;
     border: 1px solid var(--border);
-    border-radius: 50%;
-    animation: rotateSlow linear infinite;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
   }
-  .hex-ring:nth-child(1) { width: 80%; height: 80%; animation-duration: 30s; }
-  .hex-ring:nth-child(2) { width: 60%; height: 60%; animation-duration: 20s; animation-direction: reverse; }
-  .hex-ring:nth-child(3) { width: 40%; height: 40%; animation-duration: 15s; }
-  @keyframes rotateSlow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  .about-img-card:hover { border-color: var(--card-img-accent, var(--accent)); transform: translateY(-3px); }
+  .about-img-card:first-child { grid-column: 1 / -1; }
+  .about-img-card--ai   { background: #09080f; --card-img-accent: #a855f7; }
+  .about-img-card--security { background: #0f0808; --card-img-accent: #ff4040; }
+  .about-img-card--infra    { background: #080d14; --card-img-accent: #00d2ff; }
+
+  /* AI logos card */
+  .ai-logos-card {
+    padding: 24px 24px 20px;
   }
-  .hex-center {
-    width: 140px; height: 140px;
-    background: linear-gradient(135deg, rgba(0,102,204,0.3), rgba(0,210,255,0.1));
-    border: 1px solid var(--accent);
-    border-radius: 50%;
+  .ai-logos-card-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #a855f7;
+    margin-bottom: 16px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-family: 'Orbitron', monospace;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--accent);
-    text-align: center;
-    box-shadow: 0 0 40px rgba(0,210,255,0.2);
-    position: relative;
-    z-index: 1;
+    gap: 8px;
+  }
+  .ai-logos-card-title::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: #a855f7;
+  }
+  .ai-logos-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .ai-chip {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.04);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.8);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .ai-chip:hover {
+    border-color: var(--chip-color, rgba(255,255,255,0.2));
+    background: rgba(255,255,255,0.07);
+  }
+  .ai-chip-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--chip-color, #fff);
+    flex-shrink: 0;
   }
 
-  .dot-orbit {
-    position: absolute;
-    width: 10px; height: 10px;
-    background: var(--accent);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent);
+  /* Datacenter & Security SVG cards */
+  .card-art {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
-  .hex-ring:nth-child(1) .dot-orbit { top: -5px; left: calc(50% - 5px); }
-  .hex-ring:nth-child(2) .dot-orbit { top: -5px; left: calc(50% - 5px); background: var(--accent3); box-shadow: 0 0 10px var(--accent3); }
+  .card-art-wrap {
+    position: relative;
+  }
+  .card-art-label {
+    position: absolute;
+    bottom: 14px; left: 16px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+  }
 
   .stats-row {
     display: grid;
@@ -901,6 +940,32 @@
     transform: translateY(-2px);
     box-shadow: 0 0 40px rgba(0,210,255,0.35);
   }
+  .form-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+  [data-fs-success] {
+    display: none;
+    margin-top: 16px;
+    padding: 14px 18px;
+    border-radius: 6px;
+    background: rgba(0,210,255,0.08);
+    border: 1px solid rgba(0,210,255,0.3);
+    color: #00d2ff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+  }
+  [data-fs-error] {
+    display: none;
+    margin-top: 5px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: #ff6060;
+  }
+  [data-fs-error].fs-error-visible { display: block; }
 
   /* ─── FOOTER ─── */
   footer {
@@ -947,7 +1012,7 @@
     .about-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
     .services-grid { grid-template-columns: 1fr; }
     .stats-row { grid-template-columns: repeat(3, 1fr); }
-    .about-visual { display: none; }
+    .about-imgs { grid-template-rows: 180px 130px; }
     footer { padding: 24px; flex-direction: column; text-align: center; }
     .why-visual { grid-template-columns: 1fr 1fr; }
     .why-card:nth-child(2), .why-card:nth-child(4) { margin-top: 0; }
@@ -985,12 +1050,12 @@
   <div class="hero-content">
     <div class="hero-badge">Buenos Aires, Argentina</div>
     <h1 class="hero-title">
-      Infraestructura segura<br>
-      <span class="line2">para el futuro digital</span>
+      Hacemos que tu tecnología<br>
+      <span class="line2">funcione, se proteja y crezca con IA</span>
     </h1>
     <p class="hero-sub">
-      Protegemos y potenciamos tu negocio con soluciones IT de alto rendimiento:
-      infraestructura física y cloud, ciberseguridad avanzada e inteligencia artificial.
+      Infraestructura IT, ciberseguridad e inteligencia artificial —
+      todo desde un solo equipo especializado.
     </p>
     <div class="hero-actions">
       <a href="#services" class="btn-primary">Ver servicios</a>
@@ -1009,15 +1074,17 @@
     <div class="about-grid">
       <div class="reveal-left">
         <div class="section-label">Sobre nosotros</div>
-        <h2 class="section-title">Expertos en <em>Soluciones IT</em> integrales</h2>
+        <h2 class="section-title">Un solo equipo para <em>toda tu tecnología</em></h2>
         <p class="section-desc">
-          Somos Del Security, empresa especializada en diseñar, implementar y mantener
-          infraestructuras tecnológicas de alto nivel. Trabajamos con empresas que necesitan
-          confiabilidad, seguridad y escalabilidad en cada capa de su operación digital.
+          Somos Del Security, empresa IT con base en Buenos Aires especializada en
+          infraestructura, ciberseguridad y — ahora — inteligencia artificial. Trabajamos
+          con empresas que necesitan que su tecnología funcione bien, esté protegida
+          y les dé ventaja competitiva real.
         </p>
         <p class="section-desc" style="margin-top:16px;">
-          Desde el cableado de red hasta la implementación de servicios con inteligencia artificial,
-          acompañamos a nuestros clientes en cada etapa de su transformación tecnológica.
+          Empezamos sosteniendo servidores, datacenters, UPS y redes. Con esa base,
+          sumamos ciberseguridad y auditorías IT. Hoy integramos IA directamente sobre
+          esa infraestructura — sin intermediarios, sin improvisar.
         </p>
         <div class="stats-row" style="margin-top:40px;">
           <div class="stat-item reveal" style="transition-delay:0.1s">
@@ -1035,11 +1102,153 @@
         </div>
       </div>
       <div class="about-visual reveal-right">
-        <div class="about-hexgrid">
-          <div class="hex-ring"><div class="dot-orbit"></div></div>
-          <div class="hex-ring"><div class="dot-orbit"></div></div>
-          <div class="hex-ring"></div>
-          <div class="hex-center">DEL<br>SECURITY</div>
+        <div class="about-imgs">
+
+          <!-- IA: logos de modelos -->
+          <div class="about-img-card about-img-card--ai">
+            <div class="ai-logos-card">
+              <div class="ai-logos-card-title">Modelos con los que trabajamos</div>
+              <div class="ai-logos-row">
+                <div class="ai-chip" style="--chip-color:#10a37f">
+                  <div class="ai-chip-dot"></div>OpenAI
+                </div>
+                <div class="ai-chip" style="--chip-color:#8e75ff">
+                  <div class="ai-chip-dot"></div>Google Gemini
+                </div>
+                <div class="ai-chip" style="--chip-color:#cc785c">
+                  <div class="ai-chip-dot"></div>Anthropic Claude
+                </div>
+                <div class="ai-chip" style="--chip-color:#0668e1">
+                  <div class="ai-chip-dot"></div>Meta Llama
+                </div>
+                <div class="ai-chip" style="--chip-color:#ff7000">
+                  <div class="ai-chip-dot"></div>Mistral AI
+                </div>
+                <div class="ai-chip" style="--chip-color:#7c8cf8">
+                  <div class="ai-chip-dot"></div>Ollama
+                </div>
+                <div class="ai-chip" style="--chip-color:#e44d26">
+                  <div class="ai-chip-dot"></div>DeepSeek
+                </div>
+                <div class="ai-chip" style="--chip-color:#00b4d8">
+                  <div class="ai-chip-dot"></div>n8n Workflows
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seguridad: SVG inline -->
+          <div class="about-img-card about-img-card--security">
+            <div class="card-art-wrap">
+              <svg class="card-art" viewBox="0 0 220 170" xmlns="http://www.w3.org/2000/svg">
+                <rect width="220" height="170" fill="#0f0808"/>
+                <!-- nodos de red -->
+                <circle cx="110" cy="72" r="22" fill="none" stroke="#ff4040" stroke-width="1.2" opacity="0.6"/>
+                <circle cx="110" cy="72" r="14" fill="none" stroke="#ff4040" stroke-width="0.8" opacity="0.4"/>
+                <circle cx="110" cy="72" r="6" fill="#ff4040" opacity="0.9"/>
+                <!-- líneas de conexión -->
+                <line x1="110" y1="72" x2="40" y2="38" stroke="#ff4040" stroke-width="0.8" opacity="0.35"/>
+                <line x1="110" y1="72" x2="180" y2="35" stroke="#ff4040" stroke-width="0.8" opacity="0.35"/>
+                <line x1="110" y1="72" x2="32" y2="118" stroke="#ff4040" stroke-width="0.8" opacity="0.35"/>
+                <line x1="110" y1="72" x2="188" y2="120" stroke="#ff4040" stroke-width="0.8" opacity="0.35"/>
+                <line x1="110" y1="72" x2="110" y2="148" stroke="#ff4040" stroke-width="0.8" opacity="0.35"/>
+                <!-- nodos exteriores -->
+                <circle cx="40"  cy="38"  r="5" fill="#ff4040" opacity="0.7"/>
+                <circle cx="180" cy="35"  r="5" fill="#ff4040" opacity="0.5"/>
+                <circle cx="32"  cy="118" r="5" fill="#ff4040" opacity="0.7"/>
+                <circle cx="188" cy="120" r="5" fill="#ff4040" opacity="0.5"/>
+                <circle cx="110" cy="148" r="5" fill="#ff4040" opacity="0.6"/>
+                <!-- pulso animado -->
+                <circle cx="110" cy="72" r="28" fill="none" stroke="#ff4040" stroke-width="0.6" opacity="0.2">
+                  <animate attributeName="r" from="22" to="44" dur="2s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" from="0.4" to="0" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <!-- escudo -->
+                <path d="M110 20 L126 28 L126 46 Q126 58 110 64 Q94 58 94 46 L94 28 Z" fill="none" stroke="#ff6060" stroke-width="1.4" opacity="0.5"/>
+                <text x="110" y="50" text-anchor="middle" font-size="11" fill="#ff4040" font-family="monospace" opacity="0.8">✓</text>
+              </svg>
+              <div class="card-art-label">Ciberseguridad</div>
+            </div>
+          </div>
+
+          <!-- Infraestructura: SVG datacenter inline -->
+          <div class="about-img-card about-img-card--infra">
+            <div class="card-art-wrap">
+              <svg class="card-art" viewBox="0 0 220 170" xmlns="http://www.w3.org/2000/svg">
+                <rect width="220" height="170" fill="#080d14"/>
+                <!-- rack izquierdo -->
+                <rect x="20" y="15" width="80" height="140" rx="3" fill="#0d1520" stroke="#1a3050" stroke-width="1"/>
+                <!-- unidades rack izquierdo -->
+                <rect x="26" y="22" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
+                <circle cx="34" cy="29" r="3" fill="#00d2ff"><animate attributeName="opacity" values="1;0.3;1" dur="2.1s" repeatCount="indefinite"/></circle>
+                <circle cx="44" cy="29" r="3" fill="#00cc66"/>
+                <rect x="54" y="26" width="34" height="3" rx="1" fill="#1a3050"/>
+                <rect x="54" y="26" width="20" height="3" rx="1" fill="#00d2ff" opacity="0.6"/>
+
+                <rect x="26" y="40" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
+                <circle cx="34" cy="47" r="3" fill="#00cc66"/>
+                <circle cx="44" cy="47" r="3" fill="#00cc66"/>
+                <rect x="54" y="44" width="34" height="3" rx="1" fill="#1a3050"/>
+                <rect x="54" y="44" width="28" height="3" rx="1" fill="#00cc66" opacity="0.5"/>
+
+                <rect x="26" y="58" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
+                <circle cx="34" cy="65" r="3" fill="#ff9500"><animate attributeName="opacity" values="1;0.4;1" dur="1.4s" repeatCount="indefinite"/></circle>
+                <circle cx="44" cy="65" r="3" fill="#00cc66"/>
+                <rect x="54" y="62" width="34" height="3" rx="1" fill="#1a3050"/>
+                <rect x="54" y="62" width="16" height="3" rx="1" fill="#ff9500" opacity="0.6"/>
+
+                <rect x="26" y="76" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
+                <circle cx="34" cy="83" r="3" fill="#00d2ff"/>
+                <circle cx="44" cy="83" r="3" fill="#00d2ff"><animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/></circle>
+                <rect x="54" y="80" width="34" height="3" rx="1" fill="#1a3050"/>
+                <rect x="54" y="80" width="30" height="3" rx="1" fill="#00d2ff" opacity="0.5"/>
+
+                <rect x="26" y="94" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
+                <circle cx="34" cy="101" r="3" fill="#00cc66"/>
+                <circle cx="44" cy="101" r="3" fill="#00cc66"/>
+                <rect x="54" y="98" width="34" height="3" rx="1" fill="#1a3050"/>
+                <rect x="54" y="98" width="22" height="3" rx="1" fill="#00cc66" opacity="0.5"/>
+
+                <!-- rack derecho -->
+                <rect x="120" y="15" width="80" height="140" rx="3" fill="#0d1520" stroke="#1a3050" stroke-width="1"/>
+                <rect x="126" y="22" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
+                <circle cx="134" cy="29" r="3" fill="#00cc66"/>
+                <circle cx="144" cy="29" r="3" fill="#00d2ff"><animate attributeName="opacity" values="1;0.2;1" dur="2.5s" repeatCount="indefinite"/></circle>
+                <rect x="154" y="26" width="34" height="3" rx="1" fill="#1a3050"/>
+                <rect x="154" y="26" width="24" height="3" rx="1" fill="#00cc66" opacity="0.5"/>
+
+                <rect x="126" y="40" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
+                <circle cx="134" cy="47" r="3" fill="#ff4040"><animate attributeName="opacity" values="1;0.3;1" dur="1.2s" repeatCount="indefinite"/></circle>
+                <circle cx="144" cy="47" r="3" fill="#00cc66"/>
+                <rect x="154" y="44" width="34" height="3" rx="1" fill="#1a3050"/>
+                <rect x="154" y="44" width="10" height="3" rx="1" fill="#ff4040" opacity="0.7"/>
+
+                <rect x="126" y="58" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
+                <circle cx="134" cy="65" r="3" fill="#00d2ff"/>
+                <circle cx="144" cy="65" r="3" fill="#00cc66"/>
+                <rect x="154" y="62" width="34" height="3" rx="1" fill="#1a3050"/>
+                <rect x="154" y="62" width="26" height="3" rx="1" fill="#00d2ff" opacity="0.5"/>
+
+                <rect x="126" y="76" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
+                <circle cx="134" cy="83" r="3" fill="#00cc66"/>
+                <circle cx="144" cy="83" r="3" fill="#ff9500"><animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/></circle>
+                <rect x="154" y="80" width="34" height="3" rx="1" fill="#1a3050"/>
+                <rect x="154" y="80" width="18" height="3" rx="1" fill="#ff9500" opacity="0.6"/>
+
+                <rect x="126" y="94" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
+                <circle cx="134" cy="101" r="3" fill="#00d2ff"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle>
+                <circle cx="144" cy="101" r="3" fill="#00cc66"/>
+                <rect x="154" y="98" width="34" height="3" rx="1" fill="#1a3050"/>
+                <rect x="154" y="98" width="32" height="3" rx="1" fill="#00d2ff" opacity="0.4"/>
+
+                <!-- cables en el piso -->
+                <path d="M60 155 Q110 145 160 155" stroke="#0d2040" stroke-width="3" fill="none"/>
+                <path d="M45 158 Q110 148 175 158" stroke="#0a1828" stroke-width="2" fill="none"/>
+              </svg>
+              <div class="card-art-label">Infraestructura</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -1051,10 +1260,10 @@
   <div class="container">
     <div class="services-header">
       <div class="section-label reveal">Servicios</div>
-      <h2 class="section-title reveal">Todo lo que tu infraestructura <em>necesita</em></h2>
+      <h2 class="section-title reveal">Todo lo que tu empresa <em>necesita</em>, en un solo lugar</h2>
       <p class="section-desc reveal">
-        Soluciones end-to-end para que tu negocio opere con la máxima eficiencia,
-        seguridad y disponibilidad.
+        Desde la infraestructura física hasta la inteligencia artificial —
+        sin depender de múltiples proveedores ni perder el control de tu tecnología.
       </p>
     </div>
     <div class="services-grid">
@@ -1221,34 +1430,34 @@
     <div class="why-grid">
       <div class="reveal-left">
         <div class="section-label">Por qué elegirnos</div>
-        <h2 class="section-title">Tecnología de vanguardia con <em>respaldo real</em></h2>
+        <h2 class="section-title">Experiencia real,<br><em>resultados concretos</em></h2>
         <div class="why-list">
           <div class="why-item">
             <div class="why-check">✓</div>
             <div>
-              <div class="why-item-title">Enfoque integral</div>
-              <div class="why-item-desc">Cubrimos toda la cadena IT: desde el hardware físico hasta los servicios en la nube y la inteligencia artificial.</div>
+              <div class="why-item-title">Un solo proveedor para todo</div>
+              <div class="why-item-desc">Infraestructura, seguridad e IA en un mismo equipo. Sin coordinación entre múltiples vendors ni brechas entre capas.</div>
             </div>
           </div>
           <div class="why-item">
             <div class="why-check">✓</div>
             <div>
-              <div class="why-item-title">Equipo certificado</div>
-              <div class="why-item-desc">Profesionales con certificaciones en las principales plataformas cloud y estándares de ciberseguridad.</div>
+              <div class="why-item-title">IA que no expone tus datos</div>
+              <div class="why-item-desc">Implementamos modelos de lenguaje que corren dentro de tu infraestructura. Tu información confidencial no sale a ningún servicio externo.</div>
             </div>
           </div>
           <div class="why-item">
             <div class="why-check">✓</div>
             <div>
-              <div class="why-item-title">Soporte continuo</div>
-              <div class="why-item-desc">Monitoreo y asistencia técnica disponible para garantizar la operación sin interrupciones de tu infraestructura.</div>
+              <div class="why-item-title">Base técnica comprobada</div>
+              <div class="why-item-desc">Años de experiencia en infraestructura crítica y ciberseguridad respaldan cada implementación. No improvisamos sobre lo que no conocemos.</div>
             </div>
           </div>
           <div class="why-item">
             <div class="why-check">✓</div>
             <div>
-              <div class="why-item-title">Soluciones a medida</div>
-              <div class="why-item-desc">Analizamos tu operación real y diseñamos arquitecturas que se adaptan a tus necesidades y presupuesto.</div>
+              <div class="why-item-title">Adaptado a tu operación real</div>
+              <div class="why-item-desc">Analizamos cómo trabaja tu empresa antes de proponer cualquier solución. Nada genérico, nada que no puedas usar desde el primer día.</div>
             </div>
           </div>
         </div>
@@ -1296,7 +1505,7 @@
             <div class="contact-icon">📧</div>
             <div>
               <div class="contact-item-label">Email</div>
-              <div class="contact-item-value"><a href="mailto:pablo@delsecurity.com.ar">pablo@delsecurity.com.ar</a></div>
+              <div class="contact-item-value"><a href="mailto:info@delsecurity.com.ar">info@delsecurity.com.ar</a></div>
             </div>
           </div>
           <div class="contact-item">
@@ -1316,29 +1525,36 @@
         </div>
       </div>
       <div class="contact-form reveal-right">
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Nombre</label>
-            <input type="text" class="form-input" placeholder="Tu nombre">
+        <div data-fs-success>¡Consulta enviada! Te respondemos a la brevedad.</div>
+        <form id="contactForm" action="https://formspree.io/f/xrervdpo" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Nombre</label>
+              <input type="text" name="nombre" class="form-input" placeholder="Tu nombre" data-fs-field required>
+              <span data-fs-error="nombre"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Empresa</label>
+              <input type="text" name="empresa" class="form-input" placeholder="Tu empresa" data-fs-field>
+            </div>
           </div>
           <div class="form-group">
-            <label class="form-label">Empresa</label>
-            <input type="text" class="form-input" placeholder="Tu empresa">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-input" placeholder="tu@empresa.com" data-fs-field required>
+            <span data-fs-error="email"></span>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-input" placeholder="tu@empresa.com">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Servicio de interés</label>
-          <input type="text" class="form-input" placeholder="Infraestructura, Cloud, Ciberseguridad, IA...">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Mensaje</label>
-          <textarea class="form-textarea" placeholder="Contanos sobre tu proyecto o necesidad..."></textarea>
-        </div>
-        <button class="form-submit" onclick="alert('¡Mensaje recibido! Nos pondremos en contacto a la brevedad.')">Enviar consulta</button>
+          <div class="form-group">
+            <label class="form-label">Servicio de interés</label>
+            <input type="text" name="servicio" class="form-input" placeholder="Infraestructura, Cloud, Ciberseguridad, IA..." data-fs-field>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mensaje</label>
+            <textarea name="mensaje" class="form-textarea" placeholder="Contanos sobre tu proyecto o necesidad..." data-fs-field required></textarea>
+            <span data-fs-error="mensaje"></span>
+          </div>
+          <div data-fs-error style="margin-top:8px;"></div>
+          <button type="submit" class="form-submit" data-fs-submit-btn>Enviar consulta</button>
+        </form>
       </div>
     </div>
   </div>
@@ -1427,6 +1643,11 @@
     });
   }, { threshold: 0.08 });
   serviceCards.forEach(card => staggerObserver.observe(card));
+
+  /* ─── CONTACT FORM (Formspree SDK) ─── */
+  window.formspree = window.formspree || function() { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contactForm', formId: 'xrervdpo' });
 </script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
