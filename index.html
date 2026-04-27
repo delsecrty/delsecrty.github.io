@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Del Security — Soluciones IT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #050508;
+    --bg2: #080b12;
+    --surface: rgba(255,255,255,0.04);
+    --border: rgba(0, 210, 255, 0.12);
+    --accent: #00d2ff;
+    --accent2: #0066cc;
+    --accent3: #7b2fff;
+    --text: #e8edf5;
+    --muted: #6b7a99;
+    --max: 1200px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 3px; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 40px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.4s, backdrop-filter 0.4s, border-bottom 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(5, 5, 8, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--accent);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    padding: 9px 22px;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    color: var(--accent) !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: rgba(0,210,255,0.1) !important; }
+
+  /* ─── HERO ─── */
+  #hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-decorations {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,210,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,210,255,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridMove 20s linear infinite;
+  }
+  @keyframes gridMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(60px); }
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 500px;
+    background: radial-gradient(ellipse at center, rgba(0, 102, 204, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-glow2 {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    width: 400px;
+    height: 300px;
+    background: radial-gradient(ellipse at center, rgba(123, 47, 255, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 90px 24px 60px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 18px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: rgba(0,210,255,0.06);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+    animation: fadeDown 0.8s ease both;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+  }
+
+  .hero-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    animation: fadeDown 0.8s 0.15s ease both;
+  }
+  .hero-title .line2 {
+    display: block;
+    background: linear-gradient(90deg, var(--accent), var(--accent3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 44px;
+    line-height: 1.8;
+    animation: fadeDown 0.8s 0.3s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeDown 0.8s 0.45s ease both;
+  }
+
+  .btn-primary {
+    padding: 14px 36px;
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 30px rgba(0,210,255,0.25);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 50px rgba(0,210,255,0.45);
+  }
+
+  .btn-ghost {
+    padding: 14px 36px;
+    background: transparent;
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: fadeDown 1s 0.8s ease both;
+  }
+  .hero-scroll-hint span {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    animation: scrollDown 1.8s ease infinite;
+  }
+  @keyframes scrollDown {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── SECTIONS COMMON ─── */
+  section { padding: 120px 40px; position: relative; }
+  .container { max-width: var(--max); margin: 0 auto; }
+
+  .section-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .section-title em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--accent), var(--accent3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-desc {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.8;
+  }
+
+  /* ─── REVEAL ANIMATIONS ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--bg2); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+  .about-hexgrid {
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 480px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hex-ring {
+    position: absolute;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    animation: rotateSlow linear infinite;
+  }
+  .hex-ring:nth-child(1) { width: 80%; height: 80%; animation-duration: 30s; }
+  .hex-ring:nth-child(2) { width: 60%; height: 60%; animation-duration: 20s; animation-direction: reverse; }
+  .hex-ring:nth-child(3) { width: 40%; height: 40%; animation-duration: 15s; }
+  @keyframes rotateSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .hex-center {
+    width: 140px; height: 140px;
+    background: linear-gradient(135deg, rgba(0,102,204,0.3), rgba(0,210,255,0.1));
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0,210,255,0.2);
+    position: relative;
+    z-index: 1;
+  }
+
+  .dot-orbit {
+    position: absolute;
+    width: 10px; height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent);
+  }
+  .hex-ring:nth-child(1) .dot-orbit { top: -5px; left: calc(50% - 5px); }
+  .hex-ring:nth-child(2) .dot-orbit { top: -5px; left: calc(50% - 5px); background: var(--accent3); box-shadow: 0 0 10px var(--accent3); }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .stat-item {
+    text-align: center;
+    padding: 24px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    transition: border-color 0.3s;
+  }
+  .stat-item:hover { border-color: var(--accent); }
+  .stat-number {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ─── SERVICES ─── */
+  #services {
+    background: var(--bg);
+  }
+  .services-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+  .services-header .section-label { justify-content: center; }
+  .services-header .section-label::before { display: none; }
+  .services-header .section-desc { margin: 0 auto; text-align: center; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    padding: 48px 40px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s, box-shadow 0.35s;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--card-accent, var(--accent)), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--card-accent, var(--accent));
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(0,210,255,0.08);
+  }
+  .service-card:hover::before { opacity: 1; }
+
+  .service-card--infra    { --card-accent: #00d2ff; }
+  .service-card--cloud   { --card-accent: #0066cc; }
+  .service-card--ciber   { --card-accent: #ff4040; }
+  .service-card--audit   { --card-accent: #00cc88; grid-column: 1 / -1; }
+  .service-card--ai      { --card-accent: #a855f7; grid-column: 1 / -1; }
+
+  /* ─── FEATURED AI CARD ─── */
+  .service-card--ai {
+    padding: 56px 48px;
+    background: linear-gradient(135deg, rgba(123,47,255,0.12) 0%, rgba(0,210,255,0.06) 50%, rgba(5,5,8,0) 100%);
+    border-color: rgba(168,85,247,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card--ai::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(168,85,247,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .service-card--ai:hover {
+    border-color: rgba(168,85,247,0.6);
+    box-shadow: 0 20px 80px rgba(168,85,247,0.15), 0 0 60px rgba(0,210,255,0.06);
+  }
+  .ai-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+  .ai-header-text { flex: 1; min-width: 260px; }
+  .ai-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    background: rgba(168,85,247,0.15);
+    border: 1px solid rgba(168,85,247,0.4);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #c084fc;
+    margin-bottom: 14px;
+  }
+  .ai-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: #a855f7;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  .service-card--ai .service-title {
+    font-size: 1.7rem;
+    background: linear-gradient(90deg, #c084fc, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .ai-capabilities {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .ai-cap {
+    padding: 20px 18px;
+    border: 1px solid rgba(168,85,247,0.18);
+    border-radius: 10px;
+    background: rgba(168,85,247,0.05);
+    transition: border-color 0.3s, background 0.3s, transform 0.3s;
+  }
+  .ai-cap:hover { border-color: rgba(168,85,247,0.4); background: rgba(168,85,247,0.1); transform: translateY(-3px); }
+  .ai-cap-icon { font-size: 1.6rem; margin-bottom: 10px; }
+  .ai-cap-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #c084fc;
+    margin-bottom: 6px;
+  }
+  .ai-cap-desc { font-size: 0.81rem; color: var(--muted); line-height: 1.6; }
+
+  @media (max-width: 900px) {
+    .service-card--audit, .service-card--ai { grid-column: auto; }
+    .ai-capabilities { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .ai-capabilities { grid-template-columns: 1fr; }
+  }
+
+  .audit-subgrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 28px;
+  }
+  .audit-item {
+    padding: 20px 20px;
+    border: 1px solid rgba(0,204,136,0.12);
+    border-radius: 8px;
+    background: rgba(0,204,136,0.04);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .service-card:hover .audit-item {
+    border-color: rgba(0,204,136,0.25);
+    background: rgba(0,204,136,0.07);
+  }
+  .audit-item-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .audit-item-title::before {
+    content: '';
+    width: 4px; height: 4px;
+    background: #00cc88;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .audit-item-desc {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  @media (min-width: 901px) and (max-width: 1100px) {
+    .audit-subgrid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .service-icon {
+    width: 60px; height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    font-size: 1.6rem;
+    background: rgba(0,210,255,0.08);
+    border: 1px solid var(--border);
+    transition: transform 0.3s;
+  }
+  .service-card:hover .service-icon { transform: scale(1.1); }
+
+  .service-card:nth-child(1) .service-icon { background: rgba(0,210,255,0.1); }
+  .service-card:nth-child(2) .service-icon { background: rgba(0,102,204,0.12); }
+  .service-card:nth-child(3) .service-icon { background: rgba(255,64,64,0.1); }
+  .service-card:nth-child(4) .service-icon { background: rgba(123,47,255,0.1); }
+  .service-card:nth-child(5) .service-icon { background: rgba(0,204,136,0.1); }
+  .service-card:nth-child(6) .service-icon { background: rgba(255,149,0,0.1); }
+
+  .service-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+  .service-desc {
+    font-size: 0.93rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .service-tag {
+    padding: 4px 12px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .service-card:hover .service-tag {
+    border-color: var(--card-accent, var(--accent));
+    color: var(--card-accent, var(--accent));
+  }
+
+  .service-bg-number {
+    position: absolute;
+    bottom: -10px; right: 20px;
+    font-family: 'Orbitron', monospace;
+    font-size: 7rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.02);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ─── WHY ─── */
+  #why {
+    background: var(--bg2);
+    position: relative;
+    overflow: hidden;
+  }
+  .why-bg {
+    position: absolute;
+    top: 0; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(ellipse, rgba(0,102,204,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .why-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 36px;
+  }
+  .why-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .why-item:hover {
+    border-color: var(--border);
+    background: var(--surface);
+  }
+  .why-check {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(0,210,255,0.1);
+    border: 1px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1rem;
+    margin-top: 2px;
+  }
+  .why-item-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin-bottom: 4px;
+  }
+  .why-item-desc { font-size: 0.9rem; color: var(--muted); }
+
+  .why-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .why-card {
+    padding: 30px 24px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  .why-card:hover { transform: translateY(-4px); }
+  .why-card:nth-child(2) { margin-top: 28px; }
+  .why-card:nth-child(4) { margin-top: 28px; }
+  .why-card-icon { font-size: 2rem; margin-bottom: 12px; }
+  .why-card-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .why-card-desc { font-size: 0.83rem; color: var(--muted); }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-bg-glow {
+    position: absolute;
+    bottom: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(ellipse, rgba(0,102,204,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 36px;
+  }
+  .contact-item {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .contact-icon {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+  .contact-item-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .contact-item-value {
+    font-size: 0.97rem;
+    color: var(--text);
+  }
+  .contact-item-value a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-item-value a:hover { color: var(--accent); }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .form-input, .form-textarea {
+    padding: 13px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.93rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    resize: none;
+  }
+  .form-input:focus, .form-textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0,210,255,0.1);
+  }
+  .form-textarea { height: 120px; }
+  .form-submit {
+    padding: 14px 36px;
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 30px rgba(0,210,255,0.2);
+  }
+  .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(0,210,255,0.35);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 40px;
+    background: var(--bg2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-logo {
+    font-family: 'Orbitron', monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--accent); }
+  .footer-copy {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ─── PARALLAX ─── */
+  .parallax-el { will-change: transform; }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 900px) {
+    section { padding: 80px 24px; }
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .about-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: repeat(3, 1fr); }
+    .about-visual { display: none; }
+    footer { padding: 24px; flex-direction: column; text-align: center; }
+    .why-visual { grid-template-columns: 1fr 1fr; }
+    .why-card:nth-child(2), .why-card:nth-child(4) { margin-top: 0; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-title { font-size: 2.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .stats-row { grid-template-columns: 1fr; }
+    .why-visual { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">DEL<span>SECURITY</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">Nosotros</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#why">Por qué elegirnos</a></li>
+    <li><a href="#contact" class="nav-cta">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-decorations">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">Buenos Aires, Argentina</div>
+    <h1 class="hero-title">
+      Infraestructura segura<br>
+      <span class="line2">para el futuro digital</span>
+    </h1>
+    <p class="hero-sub">
+      Protegemos y potenciamos tu negocio con soluciones IT de alto rendimiento:
+      infraestructura física y cloud, ciberseguridad avanzada e inteligencia artificial.
+    </p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Ver servicios</a>
+      <a href="#contact" class="btn-ghost">Hablar con un experto</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal-left">
+        <div class="section-label">Sobre nosotros</div>
+        <h2 class="section-title">Expertos en <em>Soluciones IT</em> integrales</h2>
+        <p class="section-desc">
+          Somos Del Security, empresa especializada en diseñar, implementar y mantener
+          infraestructuras tecnológicas de alto nivel. Trabajamos con empresas que necesitan
+          confiabilidad, seguridad y escalabilidad en cada capa de su operación digital.
+        </p>
+        <p class="section-desc" style="margin-top:16px;">
+          Desde el cableado de red hasta la implementación de servicios con inteligencia artificial,
+          acompañamos a nuestros clientes en cada etapa de su transformación tecnológica.
+        </p>
+        <div class="stats-row" style="margin-top:40px;">
+          <div class="stat-item reveal" style="transition-delay:0.1s">
+            <div class="stat-number" data-target="10">0</div>
+            <div class="stat-label">Años de experiencia</div>
+          </div>
+          <div class="stat-item reveal" style="transition-delay:0.2s">
+            <div class="stat-number" data-target="99">0</div>
+            <div class="stat-label">% Uptime garantizado</div>
+          </div>
+          <div class="stat-item reveal" style="transition-delay:0.3s">
+            <div class="stat-number" data-target="24">0</div>
+            <div class="stat-label">Hs. Soporte</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual reveal-right">
+        <div class="about-hexgrid">
+          <div class="hex-ring"><div class="dot-orbit"></div></div>
+          <div class="hex-ring"><div class="dot-orbit"></div></div>
+          <div class="hex-ring"></div>
+          <div class="hex-center">DEL<br>SECURITY</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="section-label reveal">Servicios</div>
+      <h2 class="section-title reveal">Todo lo que tu infraestructura <em>necesita</em></h2>
+      <p class="section-desc reveal">
+        Soluciones end-to-end para que tu negocio opere con la máxima eficiencia,
+        seguridad y disponibilidad.
+      </p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card service-card--infra reveal" style="transition-delay:0.05s">
+        <div class="service-icon">🏗️</div>
+        <h3 class="service-title">Infraestructura Física</h3>
+        <p class="service-desc">
+          Diseño e implementación de data centers y salas de servidores con condiciones
+          ambientales óptimas: control de temperatura y humedad, sistemas de alimentación
+          ininterrumpida, gestión eléctrica y cableado estructurado de red.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">Temperatura y Humedad</span>
+          <span class="service-tag">UPS & Eléctrica</span>
+          <span class="service-tag">Cableado Estructurado</span>
+          <span class="service-tag">Rack & Servidores</span>
+        </div>
+        <div class="service-bg-number">01</div>
+      </div>
+
+      <div class="service-card service-card--cloud reveal" style="transition-delay:0.15s">
+        <div class="service-icon">☁️</div>
+        <h3 class="service-title">Infraestructura Cloud & Virtualización</h3>
+        <p class="service-desc">
+          Administración de entornos Cloud (Google Cloud, AWS, Azure) e infraestructura
+          virtualizada. Gestión de Windows Server con Active Directory y GPOs, entornos
+          Linux (Debian/Ubuntu) y plataformas de virtualización empresariales.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">Google Cloud</span>
+          <span class="service-tag">AWS / Azure</span>
+          <span class="service-tag">Hyper-V / VMware</span>
+          <span class="service-tag">Windows Server / AD</span>
+          <span class="service-tag">Linux Debian/Ubuntu</span>
+        </div>
+        <div class="service-bg-number">02</div>
+      </div>
+
+      <div class="service-card service-card--ciber reveal" style="transition-delay:0.25s">
+        <div class="service-icon">🛡️</div>
+        <h3 class="service-title">Ciberseguridad</h3>
+        <p class="service-desc">
+          Protección integral de infraestructuras: análisis de vulnerabilidades, penetration
+          testing, gestión de incidentes y políticas de seguridad. Evaluación física y lógica,
+          administración de firewalls de última generación e implementación de IPS/IDS.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">Check Point</span>
+          <span class="service-tag">Fortinet</span>
+          <span class="service-tag">Mikrotik</span>
+          <span class="service-tag">IPS / IDS</span>
+          <span class="service-tag">Pentest</span>
+          <span class="service-tag">Gestión de Incidentes</span>
+        </div>
+        <div class="service-bg-number">03</div>
+      </div>
+
+      <div class="service-card service-card--audit reveal" style="transition-delay:0.35s">
+        <div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
+          <div class="service-icon" style="flex-shrink:0;">📋</div>
+          <div style="flex:1; min-width:260px;">
+            <h3 class="service-title">Auditoría, Riesgos y Compliance</h3>
+            <p class="service-desc" style="margin-bottom:0;">
+              Evaluación integral de controles de TI bajo marcos internacionales reconocidos.
+              Identificamos brechas, gestionamos riesgos y acompañamos a las organizaciones
+              en el cumplimiento de sus obligaciones de seguridad y gobierno tecnológico.
+            </p>
+          </div>
+          <div class="service-tags" style="width:100%; margin-top:4px;">
+            <span class="service-tag">ISO 27001</span>
+            <span class="service-tag">NIST</span>
+            <span class="service-tag">COBIT / ITIL</span>
+            <span class="service-tag">PCI-DSS</span>
+            <span class="service-tag">SOX</span>
+            <span class="service-tag">Gap Analysis</span>
+            <span class="service-tag">Matriz de Riesgos</span>
+            <span class="service-tag">BCP / DRP</span>
+          </div>
+        </div>
+        <div class="audit-subgrid">
+          <div class="audit-item">
+            <div class="audit-item-title">Ciberseguridad y Seguridad de la Información</div>
+            <div class="audit-item-desc">Análisis de informes de pentesting, identificación de brechas, evaluación de resistencia frente a amenazas y verificación de planes BCP/DRP para servicios críticos.</div>
+          </div>
+          <div class="audit-item">
+            <div class="audit-item-title">Infraestructura On-Premise y Comunicaciones</div>
+            <div class="audit-item-desc">Evaluación de firewalls, segmentación LAN/WAN, encriptación en tránsito, controles de acceso físico y lógico, redes inalámbricas y sistemas de monitoreo interno.</div>
+          </div>
+          <div class="audit-item">
+            <div class="audit-item-title">Aplicaciones y Bases de Datos</div>
+            <div class="audit-item-desc">Auditoría de sistemas críticos y ERPs (SAP), evaluación de segregación de funciones (SoD), integridad en bases de datos Oracle/SQL y políticas de acceso en Windows y Linux.</div>
+          </div>
+          <div class="audit-item">
+            <div class="audit-item-title">Cumplimiento Normativo (Compliance Corporativo)</div>
+            <div class="audit-item-desc">Auditorías bajo PCI-DSS, SOX y marcos de cumplimiento financiero. Gap Analysis para identificar diferencias entre controles actuales y mejores prácticas del mercado.</div>
+          </div>
+          <div class="audit-item">
+            <div class="audit-item-title">Tecnologías Emergentes e IA Local</div>
+            <div class="audit-item-desc">Gobierno y seguridad de modelos LLM on-premise: privacidad de datos, controles de acceso, revisión de arquitectura, orquestadores y manejo de información corporativa confidencial.</div>
+          </div>
+          <div class="audit-item">
+            <div class="audit-item-title">Data Analytics aplicado a la Auditoría</div>
+            <div class="audit-item-desc">Auditoría continua mediante Python, PowerBI, IDEA y SQL. Detección de anomalías, prevención de fraude y análisis de grandes volúmenes de datos transaccionales de forma automatizada.</div>
+          </div>
+        </div>
+        <div class="service-bg-number">05</div>
+      </div>
+
+      <!-- ─── IA FEATURED ─── -->
+      <div class="service-card service-card--ai reveal" style="transition-delay:0.55s">
+        <div class="ai-header">
+          <div class="service-icon" style="flex-shrink:0; background:rgba(168,85,247,0.12); border-color:rgba(168,85,247,0.3);">🤖</div>
+          <div class="ai-header-text">
+            <div class="ai-badge">Servicio Diferencial</div>
+            <h3 class="service-title">Implementación de Servicios con Inteligencia Artificial</h3>
+            <p class="service-desc" style="margin-bottom:0; max-width:800px;">
+              Diseñamos e implementamos soluciones de IA adaptadas a la realidad operativa de cada organización.
+              Nuestra ventaja clave: modelos de lenguaje que corren 100% dentro de tu infraestructura, sin enviar
+              datos al exterior — eliminando el riesgo de fuga de información confidencial.
+            </p>
+          </div>
+        </div>
+        <div class="ai-capabilities">
+          <div class="ai-cap">
+            <div class="ai-cap-icon">🏠</div>
+            <div class="ai-cap-title">IA Local & On-Premise</div>
+            <div class="ai-cap-desc">Despliegue de modelos LLM en entornos virtualizados internos (Hyper-V, VMware). Tus datos nunca salen de tu infraestructura.</div>
+          </div>
+          <div class="ai-cap">
+            <div class="ai-cap-icon">⚙️</div>
+            <div class="ai-cap-title">Automatización de Procesos</div>
+            <div class="ai-cap-desc">Identificación y automatización de tareas repetitivas mediante IA. Reducción de tiempos operativos y errores humanos.</div>
+          </div>
+          <div class="ai-cap">
+            <div class="ai-cap-icon">🔍</div>
+            <div class="ai-cap-title">Análisis e Inteligencia</div>
+            <div class="ai-cap-desc">Análisis predictivo, detección de anomalías y soporte a la toma de decisiones basado en los datos reales de tu negocio.</div>
+          </div>
+          <div class="ai-cap">
+            <div class="ai-cap-icon">🔗</div>
+            <div class="ai-cap-title">Integración & Consultoría</div>
+            <div class="ai-cap-desc">Conexión de modelos IA con tus sistemas existentes (ERP, bases de datos, aplicativos). Acompañamiento desde el diseño hasta la puesta en producción.</div>
+          </div>
+        </div>
+        <div class="service-tags" style="margin-top:28px;">
+          <span class="service-tag">Modelos LLM Locales</span>
+          <span class="service-tag">Privacidad de Datos</span>
+          <span class="service-tag">Automatización</span>
+          <span class="service-tag">Análisis Predictivo</span>
+          <span class="service-tag">RAG / Embeddings</span>
+          <span class="service-tag">Integración con ERP</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY ─── -->
+<section id="why">
+  <div class="why-bg"></div>
+  <div class="container">
+    <div class="why-grid">
+      <div class="reveal-left">
+        <div class="section-label">Por qué elegirnos</div>
+        <h2 class="section-title">Tecnología de vanguardia con <em>respaldo real</em></h2>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <div class="why-item-title">Enfoque integral</div>
+              <div class="why-item-desc">Cubrimos toda la cadena IT: desde el hardware físico hasta los servicios en la nube y la inteligencia artificial.</div>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <div class="why-item-title">Equipo certificado</div>
+              <div class="why-item-desc">Profesionales con certificaciones en las principales plataformas cloud y estándares de ciberseguridad.</div>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <div class="why-item-title">Soporte continuo</div>
+              <div class="why-item-desc">Monitoreo y asistencia técnica disponible para garantizar la operación sin interrupciones de tu infraestructura.</div>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <div class="why-item-title">Soluciones a medida</div>
+              <div class="why-item-desc">Analizamos tu operación real y diseñamos arquitecturas que se adaptan a tus necesidades y presupuesto.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why-visual reveal-right">
+        <div class="why-card">
+          <div class="why-card-icon">⚡</div>
+          <div class="why-card-title">Alta disponibilidad</div>
+          <div class="why-card-desc">Infraestructuras diseñadas para funcionar sin interrupciones</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card-icon">🔐</div>
+          <div class="why-card-title">Seguridad Zero Trust</div>
+          <div class="why-card-desc">Nada pasa sin verificación. Cada acceso es autenticado</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card-icon">📈</div>
+          <div class="why-card-title">Escalabilidad</div>
+          <div class="why-card-desc">Tu infraestructura crece con tu negocio sin fricciones</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card-icon">🎯</div>
+          <div class="why-card-title">Consultoría experta</div>
+          <div class="why-card-desc">Asesoramos antes, durante y después de cada proyecto</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="contact-bg-glow"></div>
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal-left">
+        <div class="section-label">Contacto</div>
+        <h2 class="section-title">Hablemos de tu <em>proyecto</em></h2>
+        <p class="section-desc">
+          Contanos qué necesitás y un especialista de Del Security te responde
+          con una propuesta adaptada a tu operación.
+        </p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-value"><a href="mailto:pablo@delsecurity.com.ar">pablo@delsecurity.com.ar</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-item-label">Teléfono</div>
+              <div class="contact-item-value"><a href="tel:+541140275043">+54 11 4027-5043</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-item-label">Ubicación</div>
+              <div class="contact-item-value">Buenos Aires, Argentina</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal-right">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-input" placeholder="Tu nombre">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Empresa</label>
+            <input type="text" class="form-input" placeholder="Tu empresa">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="tu@empresa.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Servicio de interés</label>
+          <input type="text" class="form-input" placeholder="Infraestructura, Cloud, Ciberseguridad, IA...">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Mensaje</label>
+          <textarea class="form-textarea" placeholder="Contanos sobre tu proyecto o necesidad..."></textarea>
+        </div>
+        <button class="form-submit" onclick="alert('¡Mensaje recibido! Nos pondremos en contacto a la brevedad.')">Enviar consulta</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <a href="#hero" class="footer-logo">DEL<span>SECURITY</span></a>
+  <span class="footer-copy">© 2026 Del Security — Buenos Aires, Argentina</span>
+  <div class="footer-links">
+    <a href="#services">Servicios</a>
+    <a href="#about">Nosotros</a>
+    <a href="#contact">Contacto</a>
+  </div>
+</footer>
+
+<script>
+  /* ─── NAV SCROLL ─── */
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  /* ─── INTERSECTION OBSERVER: REVEAL ─── */
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  /* ─── COUNTER ANIMATION ─── */
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const duration = 1800;
+    const start = performance.now();
+    function step(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+
+  /* ─── PARALLAX ─── */
+  const heroGlow = document.querySelector('.hero-glow');
+  const heroGlow2 = document.querySelector('.hero-glow2');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (heroGlow) heroGlow.style.transform = `translate(-50%, calc(-50% + ${y * 0.25}px))`;
+        if (heroGlow2) heroGlow2.style.transform = `translateY(${y * 0.15}px)`;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  /* ─── STAGGER SERVICES ─── */
+  const serviceCards = document.querySelectorAll('.service-card');
+  const staggerObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        staggerObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  serviceCards.forEach(card => staggerObserver.observe(card));
+</script>
+</body>
+</html>
