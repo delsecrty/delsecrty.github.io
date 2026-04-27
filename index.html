@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -33,12 +33,12 @@
     overflow-x: hidden;
   }
 
-  /* ─── SCROLLBAR ─── */
+  /* â”€â”€â”€ SCROLLBAR â”€â”€â”€ */
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 3px; }
 
-  /* ─── NAV ─── */
+  /* â”€â”€â”€ NAV â”€â”€â”€ */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -96,7 +96,7 @@
   .nav-cta::after { display: none !important; }
   .nav-cta:hover { background: rgba(0,210,255,0.1) !important; }
 
-  /* ─── HERO ─── */
+  /* â”€â”€â”€ HERO â”€â”€â”€ */
   #hero {
     position: relative;
     height: 100vh;
@@ -291,7 +291,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ─── SECTIONS COMMON ─── */
+  /* â”€â”€â”€ SECTIONS COMMON â”€â”€â”€ */
   section { padding: 120px 40px; position: relative; }
   .container { max-width: var(--max); margin: 0 auto; }
 
@@ -334,7 +334,7 @@
     line-height: 1.8;
   }
 
-  /* ─── REVEAL ANIMATIONS ─── */
+  /* â”€â”€â”€ REVEAL ANIMATIONS â”€â”€â”€ */
   .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -354,7 +354,7 @@
   }
   .reveal-right.visible { opacity: 1; transform: translateX(0); }
 
-  /* ─── ABOUT ─── */
+  /* â”€â”€â”€ ABOUT â”€â”€â”€ */
   #about { background: var(--bg2); }
 
   .about-grid {
@@ -369,7 +369,7 @@
   .about-imgs {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: 280px 200px;
     gap: 12px;
   }
   .about-img-card {
@@ -378,6 +378,19 @@
     border: 1px solid var(--border);
     position: relative;
     transition: border-color 0.3s, transform 0.3s;
+  }
+  .about-photo {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .about-img-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 70px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.72));
+    pointer-events: none;
   }
   .about-img-card:hover { border-color: var(--card-img-accent, var(--accent)); transform: translateY(-3px); }
   .about-img-card:first-child { grid-column: 1 / -1; }
@@ -487,7 +500,7 @@
     color: var(--muted);
   }
 
-  /* ─── SERVICES ─── */
+  /* â”€â”€â”€ SERVICES â”€â”€â”€ */
   #services {
     background: var(--bg);
   }
@@ -537,7 +550,7 @@
   .service-card--audit   { --card-accent: #00cc88; grid-column: 1 / -1; }
   .service-card--ai      { --card-accent: #a855f7; grid-column: 1 / -1; }
 
-  /* ─── FEATURED AI CARD ─── */
+  /* â”€â”€â”€ FEATURED AI CARD â”€â”€â”€ */
   .service-card--ai {
     padding: 56px 48px;
     background: linear-gradient(135deg, rgba(123,47,255,0.12) 0%, rgba(0,210,255,0.06) 50%, rgba(5,5,8,0) 100%);
@@ -595,37 +608,65 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .ai-capabilities {
+  .ai-intro {
+    font-size: 0.97rem;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 860px;
+    margin-bottom: 0;
+  }
+  .ai-intro strong { color: rgba(255,255,255,0.75); font-weight: 600; }
+
+  .ai-services-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 36px;
+    border: 1px solid rgba(168,85,247,0.15);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .ai-svc {
+    padding: 22px 24px;
+    background: rgba(168,85,247,0.03);
+    border-right: 1px solid rgba(168,85,247,0.1);
+    border-bottom: 1px solid rgba(168,85,247,0.1);
+    transition: background 0.25s;
+    display: flex;
     gap: 16px;
-    margin-top: 4px;
+    align-items: flex-start;
   }
-  .ai-cap {
-    padding: 20px 18px;
-    border: 1px solid rgba(168,85,247,0.18);
-    border-radius: 10px;
-    background: rgba(168,85,247,0.05);
-    transition: border-color 0.3s, background 0.3s, transform 0.3s;
-  }
-  .ai-cap:hover { border-color: rgba(168,85,247,0.4); background: rgba(168,85,247,0.1); transform: translateY(-3px); }
-  .ai-cap-icon { font-size: 1.6rem; margin-bottom: 10px; }
-  .ai-cap-title {
+  .ai-svc:nth-child(even) { border-right: none; }
+  .ai-svc:nth-last-child(-n+2) { border-bottom: none; }
+  .ai-svc:hover { background: rgba(168,85,247,0.08); }
+
+  .ai-svc-body { flex: 1; }
+  .ai-svc-title {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 0.88rem;
+    font-size: 1rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
-    color: #c084fc;
-    margin-bottom: 6px;
+    letter-spacing: 0.03em;
+    color: var(--text);
+    margin-bottom: 2px;
+    line-height: 1.3;
   }
-  .ai-cap-desc { font-size: 0.81rem; color: var(--muted); line-height: 1.6; }
+  .ai-svc-sub {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #a855f7;
+    margin-bottom: 6px;
+    opacity: 0.8;
+  }
+  .ai-svc-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
 
   @media (max-width: 900px) {
     .service-card--audit, .service-card--ai { grid-column: auto; }
-    .ai-capabilities { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 480px) {
-    .ai-capabilities { grid-template-columns: 1fr; }
+    .ai-services-grid { grid-template-columns: 1fr; }
+    .ai-svc { border-right: none; }
+    .ai-svc:nth-last-child(-n+2) { border-bottom: 1px solid rgba(168,85,247,0.1); }
+    .ai-svc:last-child { border-bottom: none; }
   }
 
   .audit-subgrid {
@@ -741,7 +782,7 @@
     user-select: none;
   }
 
-  /* ─── WHY ─── */
+  /* â”€â”€â”€ WHY â”€â”€â”€ */
   #why {
     background: var(--bg2);
     position: relative;
@@ -829,7 +870,7 @@
   }
   .why-card-desc { font-size: 0.83rem; color: var(--muted); }
 
-  /* ─── CONTACT ─── */
+  /* â”€â”€â”€ CONTACT â”€â”€â”€ */
   #contact {
     background: var(--bg);
     position: relative;
@@ -967,7 +1008,7 @@
   }
   [data-fs-error].fs-error-visible { display: block; }
 
-  /* ─── FOOTER ─── */
+  /* â”€â”€â”€ FOOTER â”€â”€â”€ */
   footer {
     border-top: 1px solid var(--border);
     padding: 32px 40px;
@@ -1001,10 +1042,10 @@
   }
   .footer-links a:hover { color: var(--accent); }
 
-  /* ─── PARALLAX ─── */
+  /* â”€â”€â”€ PARALLAX â”€â”€â”€ */
   .parallax-el { will-change: transform; }
 
-  /* ─── MOBILE ─── */
+  /* â”€â”€â”€ MOBILE â”€â”€â”€ */
   @media (max-width: 900px) {
     section { padding: 80px 24px; }
     nav { padding: 0 24px; }
@@ -1012,7 +1053,7 @@
     .about-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
     .services-grid { grid-template-columns: 1fr; }
     .stats-row { grid-template-columns: repeat(3, 1fr); }
-    .about-imgs { grid-template-rows: 180px 130px; }
+    .about-imgs { grid-template-rows: 200px 150px; }
     footer { padding: 24px; flex-direction: column; text-align: center; }
     .why-visual { grid-template-columns: 1fr 1fr; }
     .why-card:nth-child(2), .why-card:nth-child(4) { margin-top: 0; }
@@ -1029,7 +1070,7 @@
 </head>
 <body>
 
-<!-- ─── NAV ─── -->
+<!-- â”€â”€â”€ NAV â”€â”€â”€ -->
 <nav id="mainNav">
   <a href="#hero" class="nav-logo">DEL<span>SECURITY</span></a>
   <ul class="nav-links">
@@ -1040,7 +1081,7 @@
   </ul>
 </nav>
 
-<!-- ─── HERO ─── -->
+<!-- â”€â”€â”€ HERO â”€â”€â”€ -->
 <section id="hero">
   <div class="hero-decorations">
     <div class="hero-grid"></div>
@@ -1068,7 +1109,7 @@
   </div>
 </section>
 
-<!-- ─── ABOUT ─── -->
+<!-- â”€â”€â”€ ABOUT â”€â”€â”€ -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
@@ -1104,149 +1145,22 @@
       <div class="about-visual reveal-right">
         <div class="about-imgs">
 
-          <!-- IA: logos de modelos -->
+          <!-- IA: foto real -->
           <div class="about-img-card about-img-card--ai">
-            <div class="ai-logos-card">
-              <div class="ai-logos-card-title">Modelos con los que trabajamos</div>
-              <div class="ai-logos-row">
-                <div class="ai-chip" style="--chip-color:#10a37f">
-                  <div class="ai-chip-dot"></div>OpenAI
-                </div>
-                <div class="ai-chip" style="--chip-color:#8e75ff">
-                  <div class="ai-chip-dot"></div>Google Gemini
-                </div>
-                <div class="ai-chip" style="--chip-color:#cc785c">
-                  <div class="ai-chip-dot"></div>Anthropic Claude
-                </div>
-                <div class="ai-chip" style="--chip-color:#0668e1">
-                  <div class="ai-chip-dot"></div>Meta Llama
-                </div>
-                <div class="ai-chip" style="--chip-color:#ff7000">
-                  <div class="ai-chip-dot"></div>Mistral AI
-                </div>
-                <div class="ai-chip" style="--chip-color:#7c8cf8">
-                  <div class="ai-chip-dot"></div>Ollama
-                </div>
-                <div class="ai-chip" style="--chip-color:#e44d26">
-                  <div class="ai-chip-dot"></div>DeepSeek
-                </div>
-                <div class="ai-chip" style="--chip-color:#00b4d8">
-                  <div class="ai-chip-dot"></div>n8n Workflows
-                </div>
-              </div>
-            </div>
+            <img src="assets/about-ai.jpg" alt="Modelos de Inteligencia Artificial" class="about-photo">
+            <div class="card-art-label">Inteligencia Artificial</div>
           </div>
 
-          <!-- Seguridad: SVG inline -->
+          <!-- Seguridad: foto real -->
           <div class="about-img-card about-img-card--security">
-            <div class="card-art-wrap">
-              <svg class="card-art" viewBox="0 0 220 170" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="170" fill="#0f0808"/>
-                <!-- nodos de red -->
-                <circle cx="110" cy="72" r="22" fill="none" stroke="#ff4040" stroke-width="1.2" opacity="0.6"/>
-                <circle cx="110" cy="72" r="14" fill="none" stroke="#ff4040" stroke-width="0.8" opacity="0.4"/>
-                <circle cx="110" cy="72" r="6" fill="#ff4040" opacity="0.9"/>
-                <!-- líneas de conexión -->
-                <line x1="110" y1="72" x2="40" y2="38" stroke="#ff4040" stroke-width="0.8" opacity="0.35"/>
-                <line x1="110" y1="72" x2="180" y2="35" stroke="#ff4040" stroke-width="0.8" opacity="0.35"/>
-                <line x1="110" y1="72" x2="32" y2="118" stroke="#ff4040" stroke-width="0.8" opacity="0.35"/>
-                <line x1="110" y1="72" x2="188" y2="120" stroke="#ff4040" stroke-width="0.8" opacity="0.35"/>
-                <line x1="110" y1="72" x2="110" y2="148" stroke="#ff4040" stroke-width="0.8" opacity="0.35"/>
-                <!-- nodos exteriores -->
-                <circle cx="40"  cy="38"  r="5" fill="#ff4040" opacity="0.7"/>
-                <circle cx="180" cy="35"  r="5" fill="#ff4040" opacity="0.5"/>
-                <circle cx="32"  cy="118" r="5" fill="#ff4040" opacity="0.7"/>
-                <circle cx="188" cy="120" r="5" fill="#ff4040" opacity="0.5"/>
-                <circle cx="110" cy="148" r="5" fill="#ff4040" opacity="0.6"/>
-                <!-- pulso animado -->
-                <circle cx="110" cy="72" r="28" fill="none" stroke="#ff4040" stroke-width="0.6" opacity="0.2">
-                  <animate attributeName="r" from="22" to="44" dur="2s" repeatCount="indefinite"/>
-                  <animate attributeName="opacity" from="0.4" to="0" dur="2s" repeatCount="indefinite"/>
-                </circle>
-                <!-- escudo -->
-                <path d="M110 20 L126 28 L126 46 Q126 58 110 64 Q94 58 94 46 L94 28 Z" fill="none" stroke="#ff6060" stroke-width="1.4" opacity="0.5"/>
-                <text x="110" y="50" text-anchor="middle" font-size="11" fill="#ff4040" font-family="monospace" opacity="0.8">✓</text>
-              </svg>
-              <div class="card-art-label">Ciberseguridad</div>
-            </div>
+            <img src="assets/about-security.jpg" alt="Ciberseguridad" class="about-photo">
+            <div class="card-art-label">Ciberseguridad</div>
           </div>
 
-          <!-- Infraestructura: SVG datacenter inline -->
+          <!-- Infraestructura: foto real -->
           <div class="about-img-card about-img-card--infra">
-            <div class="card-art-wrap">
-              <svg class="card-art" viewBox="0 0 220 170" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="170" fill="#080d14"/>
-                <!-- rack izquierdo -->
-                <rect x="20" y="15" width="80" height="140" rx="3" fill="#0d1520" stroke="#1a3050" stroke-width="1"/>
-                <!-- unidades rack izquierdo -->
-                <rect x="26" y="22" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
-                <circle cx="34" cy="29" r="3" fill="#00d2ff"><animate attributeName="opacity" values="1;0.3;1" dur="2.1s" repeatCount="indefinite"/></circle>
-                <circle cx="44" cy="29" r="3" fill="#00cc66"/>
-                <rect x="54" y="26" width="34" height="3" rx="1" fill="#1a3050"/>
-                <rect x="54" y="26" width="20" height="3" rx="1" fill="#00d2ff" opacity="0.6"/>
-
-                <rect x="26" y="40" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
-                <circle cx="34" cy="47" r="3" fill="#00cc66"/>
-                <circle cx="44" cy="47" r="3" fill="#00cc66"/>
-                <rect x="54" y="44" width="34" height="3" rx="1" fill="#1a3050"/>
-                <rect x="54" y="44" width="28" height="3" rx="1" fill="#00cc66" opacity="0.5"/>
-
-                <rect x="26" y="58" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
-                <circle cx="34" cy="65" r="3" fill="#ff9500"><animate attributeName="opacity" values="1;0.4;1" dur="1.4s" repeatCount="indefinite"/></circle>
-                <circle cx="44" cy="65" r="3" fill="#00cc66"/>
-                <rect x="54" y="62" width="34" height="3" rx="1" fill="#1a3050"/>
-                <rect x="54" y="62" width="16" height="3" rx="1" fill="#ff9500" opacity="0.6"/>
-
-                <rect x="26" y="76" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
-                <circle cx="34" cy="83" r="3" fill="#00d2ff"/>
-                <circle cx="44" cy="83" r="3" fill="#00d2ff"><animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/></circle>
-                <rect x="54" y="80" width="34" height="3" rx="1" fill="#1a3050"/>
-                <rect x="54" y="80" width="30" height="3" rx="1" fill="#00d2ff" opacity="0.5"/>
-
-                <rect x="26" y="94" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
-                <circle cx="34" cy="101" r="3" fill="#00cc66"/>
-                <circle cx="44" cy="101" r="3" fill="#00cc66"/>
-                <rect x="54" y="98" width="34" height="3" rx="1" fill="#1a3050"/>
-                <rect x="54" y="98" width="22" height="3" rx="1" fill="#00cc66" opacity="0.5"/>
-
-                <!-- rack derecho -->
-                <rect x="120" y="15" width="80" height="140" rx="3" fill="#0d1520" stroke="#1a3050" stroke-width="1"/>
-                <rect x="126" y="22" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
-                <circle cx="134" cy="29" r="3" fill="#00cc66"/>
-                <circle cx="144" cy="29" r="3" fill="#00d2ff"><animate attributeName="opacity" values="1;0.2;1" dur="2.5s" repeatCount="indefinite"/></circle>
-                <rect x="154" y="26" width="34" height="3" rx="1" fill="#1a3050"/>
-                <rect x="154" y="26" width="24" height="3" rx="1" fill="#00cc66" opacity="0.5"/>
-
-                <rect x="126" y="40" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
-                <circle cx="134" cy="47" r="3" fill="#ff4040"><animate attributeName="opacity" values="1;0.3;1" dur="1.2s" repeatCount="indefinite"/></circle>
-                <circle cx="144" cy="47" r="3" fill="#00cc66"/>
-                <rect x="154" y="44" width="34" height="3" rx="1" fill="#1a3050"/>
-                <rect x="154" y="44" width="10" height="3" rx="1" fill="#ff4040" opacity="0.7"/>
-
-                <rect x="126" y="58" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
-                <circle cx="134" cy="65" r="3" fill="#00d2ff"/>
-                <circle cx="144" cy="65" r="3" fill="#00cc66"/>
-                <rect x="154" y="62" width="34" height="3" rx="1" fill="#1a3050"/>
-                <rect x="154" y="62" width="26" height="3" rx="1" fill="#00d2ff" opacity="0.5"/>
-
-                <rect x="126" y="76" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
-                <circle cx="134" cy="83" r="3" fill="#00cc66"/>
-                <circle cx="144" cy="83" r="3" fill="#ff9500"><animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/></circle>
-                <rect x="154" y="80" width="34" height="3" rx="1" fill="#1a3050"/>
-                <rect x="154" y="80" width="18" height="3" rx="1" fill="#ff9500" opacity="0.6"/>
-
-                <rect x="126" y="94" width="68" height="14" rx="2" fill="#0a1828" stroke="#1e3a5a" stroke-width="0.8"/>
-                <circle cx="134" cy="101" r="3" fill="#00d2ff"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle>
-                <circle cx="144" cy="101" r="3" fill="#00cc66"/>
-                <rect x="154" y="98" width="34" height="3" rx="1" fill="#1a3050"/>
-                <rect x="154" y="98" width="32" height="3" rx="1" fill="#00d2ff" opacity="0.4"/>
-
-                <!-- cables en el piso -->
-                <path d="M60 155 Q110 145 160 155" stroke="#0d2040" stroke-width="3" fill="none"/>
-                <path d="M45 158 Q110 148 175 158" stroke="#0a1828" stroke-width="2" fill="none"/>
-              </svg>
-              <div class="card-art-label">Infraestructura</div>
-            </div>
+            <img src="assets/about-datacenter.jpg" alt="Data center e infraestructura" class="about-photo">
+            <div class="card-art-label">Infraestructura</div>
           </div>
 
         </div>
@@ -1255,7 +1169,7 @@
   </div>
 </section>
 
-<!-- ─── SERVICES ─── -->
+<!-- â”€â”€â”€ SERVICES â”€â”€â”€ -->
 <section id="services">
   <div class="container">
     <div class="services-header">
@@ -1269,7 +1183,7 @@
     <div class="services-grid">
 
       <div class="service-card service-card--infra reveal" style="transition-delay:0.05s">
-        <div class="service-icon">🏗️</div>
+        <div class="service-icon">&#x1F3D7;&#xFE0F;</div>
         <h3 class="service-title">Infraestructura Física</h3>
         <p class="service-desc">
           Diseño e implementación de data centers y salas de servidores con condiciones
@@ -1286,7 +1200,7 @@
       </div>
 
       <div class="service-card service-card--cloud reveal" style="transition-delay:0.15s">
-        <div class="service-icon">☁️</div>
+        <div class="service-icon">&#x2601;&#xFE0F;</div>
         <h3 class="service-title">Infraestructura Cloud & Virtualización</h3>
         <p class="service-desc">
           Administración de entornos Cloud (Google Cloud, AWS, Azure) e infraestructura
@@ -1304,7 +1218,7 @@
       </div>
 
       <div class="service-card service-card--ciber reveal" style="transition-delay:0.25s">
-        <div class="service-icon">🛡️</div>
+        <div class="service-icon">&#x1F6E1;&#xFE0F;</div>
         <h3 class="service-title">Ciberseguridad</h3>
         <p class="service-desc">
           Protección integral de infraestructuras: análisis de vulnerabilidades, penetration
@@ -1324,7 +1238,7 @@
 
       <div class="service-card service-card--audit reveal" style="transition-delay:0.35s">
         <div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
-          <div class="service-icon" style="flex-shrink:0;">📋</div>
+          <div class="service-icon" style="flex-shrink:0;">&#x1F4CB;</div>
           <div style="flex:1; min-width:260px;">
             <h3 class="service-title">Auditoría, Riesgos y Compliance</h3>
             <p class="service-desc" style="margin-bottom:0;">
@@ -1373,49 +1287,96 @@
         <div class="service-bg-number">05</div>
       </div>
 
-      <!-- ─── IA FEATURED ─── -->
+      <!-- â”€â”€â”€ IA FEATURED â”€â”€â”€ -->
       <div class="service-card service-card--ai reveal" style="transition-delay:0.55s">
         <div class="ai-header">
-          <div class="service-icon" style="flex-shrink:0; background:rgba(168,85,247,0.12); border-color:rgba(168,85,247,0.3);">🤖</div>
+          <div class="service-icon" style="flex-shrink:0; background:rgba(168,85,247,0.12); border-color:rgba(168,85,247,0.3);">&#x1F916;</div>
           <div class="ai-header-text">
-            <div class="ai-badge">Servicio Diferencial</div>
-            <h3 class="service-title">Implementación de Servicios con Inteligencia Artificial</h3>
-            <p class="service-desc" style="margin-bottom:0; max-width:800px;">
-              Diseñamos e implementamos soluciones de IA adaptadas a la realidad operativa de cada organización.
-              Nuestra ventaja clave: modelos de lenguaje que corren 100% dentro de tu infraestructura, sin enviar
-              datos al exterior — eliminando el riesgo de fuga de información confidencial.
+            <div class="ai-badge">Soluciones IA para escalar su negocio</div>
+            <h3 class="service-title">Inteligencia Artificial Aplicada</h3>
+            <p class="ai-intro">
+              En un mercado donde los márgenes se acortan y la eficiencia es innegociable,
+              nuestras soluciones de IA están diseñadas con un único propósito:
+              <strong>auditar las fugas de capital, automatizar tareas que consumen el tiempo de su equipo
+              y convertir su infraestructura digital en su activo más rentable.</strong>
+              No ofrecemos tecnología por tecnología — le ofrecemos resultados medibles.
             </p>
           </div>
         </div>
-        <div class="ai-capabilities">
-          <div class="ai-cap">
-            <div class="ai-cap-icon">🏠</div>
-            <div class="ai-cap-title">IA Local & On-Premise</div>
-            <div class="ai-cap-desc">Despliegue de modelos LLM en entornos virtualizados internos (Hyper-V, VMware). Tus datos nunca salen de tu infraestructura.</div>
+
+        <div class="ai-services-grid">
+          <div class="ai-svc">
+
+            <div class="ai-svc-body">
+              <div class="ai-svc-title">Experiencias Web Inmersivas 3D</div>
+              <div class="ai-svc-sub">Diseño Premium orientado a la Conversión</div>
+              <div class="ai-svc-desc">Sitios corporativos con scrolling dinámico y profundidad 3D que retienen la atención y posicionan su marca en la categoría premium de su sector.</div>
+            </div>
           </div>
-          <div class="ai-cap">
-            <div class="ai-cap-icon">⚙️</div>
-            <div class="ai-cap-title">Automatización de Procesos</div>
-            <div class="ai-cap-desc">Identificación y automatización de tareas repetitivas mediante IA. Reducción de tiempos operativos y errores humanos.</div>
+          <div class="ai-svc">
+
+            <div class="ai-svc-body">
+              <div class="ai-svc-title">Despliegue Ágil de Marca Personal</div>
+              <div class="ai-svc-sub">De Audiencia a Ecosistema Propio</div>
+              <div class="ai-svc-desc">Transformamos su capital social en infraestructura digital. Convertimos su contenido de Instagram y redes en un sitio web profesional para dejar de depender del algoritmo.</div>
+            </div>
           </div>
-          <div class="ai-cap">
-            <div class="ai-cap-icon">🔍</div>
-            <div class="ai-cap-title">Análisis e Inteligencia</div>
-            <div class="ai-cap-desc">Análisis predictivo, detección de anomalías y soporte a la toma de decisiones basado en los datos reales de tu negocio.</div>
+          <div class="ai-svc">
+            <div class="ai-svc-body">
+              <div class="ai-svc-title">Auditoría Algorítmica de Meta Ads</div>
+              <div class="ai-svc-sub">Maximización del ROI</div>
+              <div class="ai-svc-desc">Auditoría profunda de su embudo publicitario: creatividades, copywriting y fricción en landing pages. Detectamos fugas de presupuesto para generar leads cualificados a menor costo.</div>
+            </div>
           </div>
-          <div class="ai-cap">
-            <div class="ai-cap-icon">🔗</div>
-            <div class="ai-cap-title">Integración & Consultoría</div>
-            <div class="ai-cap-desc">Conexión de modelos IA con tus sistemas existentes (ERP, bases de datos, aplicativos). Acompañamiento desde el diseño hasta la puesta en producción.</div>
+          <div class="ai-svc">
+            <div class="ai-svc-body">
+              <div class="ai-svc-title">Auditoría Técnica SEO Pro</div>
+              <div class="ai-svc-sub">Dominio Orgánico y Visibilidad</div>
+              <div class="ai-svc-desc">Escaneamos la arquitectura de su web, identificamos cuellos de botella técnicos y entregamos un plan para dominar las palabras clave de su nicho sin pagar publicidad.</div>
+            </div>
           </div>
-        </div>
-        <div class="service-tags" style="margin-top:28px;">
-          <span class="service-tag">Modelos LLM Locales</span>
-          <span class="service-tag">Privacidad de Datos</span>
-          <span class="service-tag">Automatización</span>
-          <span class="service-tag">Análisis Predictivo</span>
-          <span class="service-tag">RAG / Embeddings</span>
-          <span class="service-tag">Integración con ERP</span>
+          <div class="ai-svc">
+            <div class="ai-svc-body">
+              <div class="ai-svc-title">Desarrollo Ágil de Software y Apps</div>
+              <div class="ai-svc-sub">Soluciones a Medida sin Fricción</div>
+              <div class="ai-svc-desc">Digitalizamos su modelo de negocio con programación asistida por IA. Herramientas, portales o apps que resuelven problemas específicos y reducen costos a largo plazo.</div>
+            </div>
+          </div>
+          <div class="ai-svc">
+            <div class="ai-svc-body">
+              <div class="ai-svc-title">Business Intelligence Automatizado</div>
+              <div class="ai-svc-sub">Decisiones Basadas en Datos</div>
+              <div class="ai-svc-desc">Procesamos sus métricas y bases de datos para transformarlas en tableros visuales interactivos. Visibilidad total sobre sus KPIs para decisiones estratégicas con precisión quirúrgica.</div>
+            </div>
+          </div>
+          <div class="ai-svc">
+            <div class="ai-svc-body">
+              <div class="ai-svc-title">Síntesis y Auditoría Documental</div>
+              <div class="ai-svc-sub">Eficiencia Operativa a Gran Escala</div>
+              <div class="ai-svc-desc">Agentes de IA para lectura, auditoría y síntesis de grandes volúmenes de texto (contratos, historiales, normativas). Resúmenes ejecutivos en minutos.</div>
+            </div>
+          </div>
+          <div class="ai-svc">
+            <div class="ai-svc-body">
+              <div class="ai-svc-title">Optimización de Workflows</div>
+              <div class="ai-svc-sub">Escalabilidad sin Estrés Operativo</div>
+              <div class="ai-svc-desc">Identificamos y automatizamos los procesos repetitivos que ahogan a su equipo. Conectamos su ecosistema de software para eliminar el error humano y liberar tiempo estratégico.</div>
+            </div>
+          </div>
+          <div class="ai-svc">
+            <div class="ai-svc-body">
+              <div class="ai-svc-title">Sistemas de Reporteo Autónomo</div>
+              <div class="ai-svc-sub">Visibilidad en Tiempo Real</div>
+              <div class="ai-svc-desc">Agentes inteligentes que extraen métricas periódicamente y redactan informes ejecutivos automatizados. Stakeholders informados sin destinar horas-hombre a la recolección de datos.</div>
+            </div>
+          </div>
+          <div class="ai-svc">
+            <div class="ai-svc-body">
+              <div class="ai-svc-title">Consultoría: Kits de IA a Medida</div>
+              <div class="ai-svc-sub">Clonación de su Know-How</div>
+              <div class="ai-svc-desc">Entrenamos modelos exclusivos para su empresa que replican sus procesos más exitosos. Activos digitales escalables que trabajan 24/7 con el estándar de sus mejores talentos.</div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1423,7 +1384,7 @@
   </div>
 </section>
 
-<!-- ─── WHY ─── -->
+<!-- â”€â”€â”€ WHY â”€â”€â”€ -->
 <section id="why">
   <div class="why-bg"></div>
   <div class="container">
@@ -1433,28 +1394,28 @@
         <h2 class="section-title">Experiencia real,<br><em>resultados concretos</em></h2>
         <div class="why-list">
           <div class="why-item">
-            <div class="why-check">✓</div>
+            <div class="why-check">&#x2713;</div>
             <div>
               <div class="why-item-title">Un solo proveedor para todo</div>
               <div class="why-item-desc">Infraestructura, seguridad e IA en un mismo equipo. Sin coordinación entre múltiples vendors ni brechas entre capas.</div>
             </div>
           </div>
           <div class="why-item">
-            <div class="why-check">✓</div>
+            <div class="why-check">&#x2713;</div>
             <div>
               <div class="why-item-title">IA que no expone tus datos</div>
               <div class="why-item-desc">Implementamos modelos de lenguaje que corren dentro de tu infraestructura. Tu información confidencial no sale a ningún servicio externo.</div>
             </div>
           </div>
           <div class="why-item">
-            <div class="why-check">✓</div>
+            <div class="why-check">&#x2713;</div>
             <div>
               <div class="why-item-title">Base técnica comprobada</div>
               <div class="why-item-desc">Años de experiencia en infraestructura crítica y ciberseguridad respaldan cada implementación. No improvisamos sobre lo que no conocemos.</div>
             </div>
           </div>
           <div class="why-item">
-            <div class="why-check">✓</div>
+            <div class="why-check">&#x2713;</div>
             <div>
               <div class="why-item-title">Adaptado a tu operación real</div>
               <div class="why-item-desc">Analizamos cómo trabaja tu empresa antes de proponer cualquier solución. Nada genérico, nada que no puedas usar desde el primer día.</div>
@@ -1464,22 +1425,22 @@
       </div>
       <div class="why-visual reveal-right">
         <div class="why-card">
-          <div class="why-card-icon">⚡</div>
+          <div class="why-card-icon">&#x26A1;</div>
           <div class="why-card-title">Alta disponibilidad</div>
           <div class="why-card-desc">Infraestructuras diseñadas para funcionar sin interrupciones</div>
         </div>
         <div class="why-card">
-          <div class="why-card-icon">🔐</div>
+          <div class="why-card-icon">&#x1F510;</div>
           <div class="why-card-title">Seguridad Zero Trust</div>
           <div class="why-card-desc">Nada pasa sin verificación. Cada acceso es autenticado</div>
         </div>
         <div class="why-card">
-          <div class="why-card-icon">📈</div>
+          <div class="why-card-icon">&#x1F4C8;</div>
           <div class="why-card-title">Escalabilidad</div>
           <div class="why-card-desc">Tu infraestructura crece con tu negocio sin fricciones</div>
         </div>
         <div class="why-card">
-          <div class="why-card-icon">🎯</div>
+          <div class="why-card-icon">&#x1F3AF;</div>
           <div class="why-card-title">Consultoría experta</div>
           <div class="why-card-desc">Asesoramos antes, durante y después de cada proyecto</div>
         </div>
@@ -1488,7 +1449,7 @@
   </div>
 </section>
 
-<!-- ─── CONTACT ─── -->
+<!-- â”€â”€â”€ CONTACT â”€â”€â”€ -->
 <section id="contact">
   <div class="contact-bg-glow"></div>
   <div class="container">
@@ -1502,21 +1463,21 @@
         </p>
         <div class="contact-info">
           <div class="contact-item">
-            <div class="contact-icon">📧</div>
+            <div class="contact-icon">&#x1F4E7;</div>
             <div>
               <div class="contact-item-label">Email</div>
               <div class="contact-item-value"><a href="mailto:info@delsecurity.com.ar">info@delsecurity.com.ar</a></div>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon">📞</div>
+            <div class="contact-icon">&#x1F4DE;</div>
             <div>
               <div class="contact-item-label">Teléfono</div>
-              <div class="contact-item-value"><a href="tel:+541140275043">+54 11 4027-5043</a></div>
+              <div class="contact-item-value"><a href="https://wa.me/5491140275043" target="_blank" rel="noopener">+54 11 4027-5043 (WhatsApp)</a></div>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon">📍</div>
+            <div class="contact-icon">&#x1F4CD;</div>
             <div>
               <div class="contact-item-label">Ubicación</div>
               <div class="contact-item-value">Buenos Aires, Argentina</div>
@@ -1560,7 +1521,7 @@
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
+<!-- â”€â”€â”€ FOOTER â”€â”€â”€ -->
 <footer>
   <a href="#hero" class="footer-logo">DEL<span>SECURITY</span></a>
   <span class="footer-copy">© 2026 Del Security — Buenos Aires, Argentina</span>
@@ -1572,13 +1533,13 @@
 </footer>
 
 <script>
-  /* ─── NAV SCROLL ─── */
+  /* â”€â”€â”€ NAV SCROLL â”€â”€â”€ */
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 
-  /* ─── INTERSECTION OBSERVER: REVEAL ─── */
+  /* â”€â”€â”€ INTERSECTION OBSERVER: REVEAL â”€â”€â”€ */
   const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1590,7 +1551,7 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => observer.observe(el));
 
-  /* ─── COUNTER ANIMATION ─── */
+  /* â”€â”€â”€ COUNTER ANIMATION â”€â”€â”€ */
   function animateCounter(el) {
     const target = parseInt(el.dataset.target);
     const duration = 1800;
@@ -1616,7 +1577,7 @@
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
 
-  /* ─── PARALLAX ─── */
+  /* â”€â”€â”€ PARALLAX â”€â”€â”€ */
   const heroGlow = document.querySelector('.hero-glow');
   const heroGlow2 = document.querySelector('.hero-glow2');
   let ticking = false;
@@ -1632,7 +1593,7 @@
     }
   }, { passive: true });
 
-  /* ─── STAGGER SERVICES ─── */
+  /* â”€â”€â”€ STAGGER SERVICES â”€â”€â”€ */
   const serviceCards = document.querySelectorAll('.service-card');
   const staggerObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -1644,10 +1605,11 @@
   }, { threshold: 0.08 });
   serviceCards.forEach(card => staggerObserver.observe(card));
 
-  /* ─── CONTACT FORM (Formspree SDK) ─── */
+  /* â”€â”€â”€ CONTACT FORM (Formspree SDK) â”€â”€â”€ */
   window.formspree = window.formspree || function() { (formspree.q = formspree.q || []).push(arguments); };
   formspree('initForm', { formElement: '#contactForm', formId: 'xrervdpo' });
 </script>
 <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
+
