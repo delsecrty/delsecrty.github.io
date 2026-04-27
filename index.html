@@ -619,7 +619,7 @@
 
   .ai-services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 2px;
     margin-top: 36px;
     border: 1px solid rgba(168,85,247,0.15);
@@ -663,10 +663,13 @@
 
   @media (max-width: 900px) {
     .service-card--audit, .service-card--ai { grid-column: auto; }
-    .ai-services-grid { grid-template-columns: 1fr; }
+    .ai-services-grid { grid-template-columns: repeat(2, 1fr); }
     .ai-svc { border-right: none; }
     .ai-svc:nth-last-child(-n+2) { border-bottom: 1px solid rgba(168,85,247,0.1); }
     .ai-svc:last-child { border-bottom: none; }
+  }
+  @media (max-width: 480px) {
+    .ai-services-grid { grid-template-columns: 1fr; }
   }
 
   .audit-subgrid {
@@ -727,6 +730,24 @@
     transition: transform 0.3s;
   }
   .service-card:hover .service-icon { transform: scale(1.1); }
+
+  .service-card-img {
+    width: 100%;
+    margin-bottom: 28px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.03);
+    text-align: center;
+    line-height: 0;
+  }
+  .service-card-img img {
+    height: 110px;
+    width: auto;
+    max-width: 100%;
+    display: inline-block;
+    border-radius: 6px;
+    transition: transform 0.5s ease;
+  }
+  .service-card:hover .service-card-img img { transform: scale(1.04); }
 
   .service-card:nth-child(1) .service-icon { background: rgba(0,210,255,0.1); }
   .service-card:nth-child(2) .service-icon { background: rgba(0,102,204,0.12); }
@@ -1183,7 +1204,7 @@
     <div class="services-grid">
 
       <div class="service-card service-card--infra reveal" style="transition-delay:0.05s">
-        <div class="service-icon">&#x1F3D7;&#xFE0F;</div>
+        <div class="service-card-img"><img src="assets/svc-infra.jpg" alt="Infraestructura Física"></div>
         <h3 class="service-title">Infraestructura Física</h3>
         <p class="service-desc">
           Diseño e implementación de data centers y salas de servidores con condiciones
@@ -1200,7 +1221,7 @@
       </div>
 
       <div class="service-card service-card--cloud reveal" style="transition-delay:0.15s">
-        <div class="service-icon">&#x2601;&#xFE0F;</div>
+        <div class="service-card-img"><img src="assets/svc-cloud.jpg" alt="Infraestructura Cloud"></div>
         <h3 class="service-title">Infraestructura Cloud & Virtualización</h3>
         <p class="service-desc">
           Administración de entornos Cloud (Google Cloud, AWS, Azure) e infraestructura
@@ -1218,7 +1239,7 @@
       </div>
 
       <div class="service-card service-card--ciber reveal" style="transition-delay:0.25s">
-        <div class="service-icon">&#x1F6E1;&#xFE0F;</div>
+        <div class="service-card-img"><img src="assets/svc-ciber.jpg" alt="Ciberseguridad"></div>
         <h3 class="service-title">Ciberseguridad</h3>
         <p class="service-desc">
           Protección integral de infraestructuras: análisis de vulnerabilidades, penetration
@@ -1237,8 +1258,8 @@
       </div>
 
       <div class="service-card service-card--audit reveal" style="transition-delay:0.35s">
+        <div class="service-card-img"><img src="assets/svc-audit.jpg" alt="Auditoría y Compliance"></div>
         <div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
-          <div class="service-icon" style="flex-shrink:0;">&#x1F4CB;</div>
           <div style="flex:1; min-width:260px;">
             <h3 class="service-title">Auditoría, Riesgos y Compliance</h3>
             <p class="service-desc" style="margin-bottom:0;">
@@ -1289,8 +1310,8 @@
 
       <!-- â”€â”€â”€ IA FEATURED â”€â”€â”€ -->
       <div class="service-card service-card--ai reveal" style="transition-delay:0.55s">
+        <div class="service-card-img"><img src="assets/svc-ai.jpg" alt="Inteligencia Artificial"></div>
         <div class="ai-header">
-          <div class="service-icon" style="flex-shrink:0; background:rgba(168,85,247,0.12); border-color:rgba(168,85,247,0.3);">&#x1F916;</div>
           <div class="ai-header-text">
             <div class="ai-badge">Soluciones IA para escalar su negocio</div>
             <h3 class="service-title">Inteligencia Artificial Aplicada</h3>
