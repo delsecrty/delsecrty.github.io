@@ -136,17 +136,19 @@
   /* â”€â”€â”€ HERO â”€â”€â”€ */
   .scroll-video-hero {
     position: relative;
-    min-height: 100vh;
   }
   .scroll-video-sticky {
     position: relative;
-    min-height: 100vh;
     width: 100%;
+    padding-top: 78px;
   }
   .scroll-video-sticky video {
     display: block;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 78px);
     height: auto;
+    margin: 0 auto;
     background: var(--bg);
   }
   .hero-grid {
