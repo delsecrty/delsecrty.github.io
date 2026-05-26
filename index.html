@@ -127,6 +127,11 @@
   }
   .nav-cta::after { display: none !important; }
   .nav-cta:hover { background: rgba(0,210,255,0.1) !important; }
+  .lang-toggle { display: flex; align-items: center; gap: 4px; }
+  .lang-btn { background: none; border: none; font-family: 'Rajdhani', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); cursor: pointer; padding: 4px 8px; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+  .lang-btn.active { color: var(--accent); background: rgba(0,210,255,0.08); }
+  .lang-btn:hover:not(.active) { color: var(--text); }
+  .lang-sep { color: rgba(0,210,255,0.2); font-size: 0.8rem; pointer-events: none; }
 
   /* â”€â”€â”€ HERO â”€â”€â”€ */
   .scroll-video-hero {
@@ -1167,6 +1172,11 @@
     <li><a href="#why">Por qué elegirnos</a></li>
     <li><a href="#contact" class="nav-cta">Contacto</a></li>
   </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
 </nav>
 
 <!-- â”€â”€â”€ HERO â”€â”€â”€ -->
@@ -1734,6 +1744,245 @@
   /* â”€â”€â”€ CONTACT FORM (Formspree SDK) â”€â”€â”€ */
   window.formspree = window.formspree || function() { (formspree.q = formspree.q || []).push(arguments); };
   formspree('initForm', { formElement: '#contactForm', formId: 'xrervdpo' });
+
+  /* â”€â”€â”€ LANGUAGE SWITCHER â”€â”€â”€ */
+  var translations = {
+    es: {
+      nav: ['Nosotros', 'Servicios', 'Por qué elegirnos', 'Contacto'],
+      aboutLabel: 'Quiénes somos',
+      aboutTitle: 'Del Security: Arquitectura robusta para<br><em>una era impulsada por IA</em>',
+      aboutDescs: [
+        'En Del Security, no creemos en soluciones mágicas ni en implementaciones de IA desconectadas de la realidad operativa de una empresa. Nuestra historia comenzó en los cimientos del mundo digital: sosteniendo datacenters, configurando redes complejas y asegurando infraestructuras críticas que no pueden permitirse fallar.',
+        'Durante más de dos décadas, hemos auditado y protegido los sistemas que sostienen la operatividad de organizaciones exigentes. Esa experiencia es, precisamente, lo que nos permite hoy integrar Inteligencia Artificial con una ventaja estratégica única.',
+        'Entendemos que la IA no es un plugin que se instala, sino un ecosistema que requiere orden, seguridad y una infraestructura sólida para escalar. Mientras otros se limitan a aplicar recetas genéricas, nosotros construimos soluciones basadas en el conocimiento profundo de tus activos digitales, garantizando privacidad, control y eficiencia.',
+        'Somos el socio técnico que sabe exactamente cómo conectar el potencial de la IA con la seguridad de tu infraestructura. Evolucionamos a la par de la tecnología, asegurando que tu ventaja competitiva sea real, medible y, sobre todo, segura.'
+      ],
+      statLabels: ['Años de experiencia', 'Implementaciones Exitosas', 'Hs. Soporte'],
+      photoLabels: ['Inteligencia Artificial', 'Ciberseguridad', 'Infraestructura'],
+      servicesLabel: 'Servicios',
+      servicesTitle: 'Gestión integral. <em>Control absoluto.</em>',
+      servicesDesc: 'Unificamos tu tecnología para que tu empresa sea más ágil. Nos encargamos de todo el stack: desde el hardware y la red hasta la implementación de modelos de IA privada. Al ser ingenieros de infraestructura, garantizamos que cada nueva solución se monte sobre cimientos auditables, seguros y bajo tu control exclusivo.',
+      svc1Title: 'Infraestructura Física',
+      svc1Desc: 'Diseño e implementación de data centers y salas de servidores con condiciones ambientales óptimas: control de temperatura y humedad, sistemas de alimentación ininterrumpida, gestión eléctrica y cableado estructurado de red.',
+      svc2Title: 'Infraestructura Cloud & Virtualización',
+      svc2Desc: 'Administración de entornos Cloud (Google Cloud, AWS, Azure) e infraestructura virtualizada. Gestión de Windows Server con Active Directory y GPOs, entornos Linux (Debian/Ubuntu) y plataformas de virtualización empresariales.',
+      svc3Title: 'Ciberseguridad',
+      svc3Desc: 'Protección integral de infraestructuras: análisis de vulnerabilidades, penetration testing, gestión de incidentes y políticas de seguridad. Evaluación física y lógica, administración de firewalls de última generación e implementación de IPS/IDS.',
+      svc4Title: 'Auditoría, Riesgos y Compliance',
+      svc4Desc: 'Evaluación integral de controles de TI bajo marcos internacionales reconocidos. Identificamos brechas, gestionamos riesgos y acompañamos a las organizaciones en el cumplimiento de sus obligaciones de seguridad y gobierno tecnológico.',
+      audit: [
+        { title: 'Ciberseguridad y Seguridad de la Información', desc: 'Análisis de informes de pentesting, identificación de brechas, evaluación de resistencia frente a amenazas y verificación de planes BCP/DRP para servicios críticos.' },
+        { title: 'Infraestructura On-Premise y Comunicaciones', desc: 'Evaluación de firewalls, segmentación LAN/WAN, encriptación en tránsito, controles de acceso físico y lógico, redes inalámbricas y sistemas de monitoreo interno.' },
+        { title: 'Aplicaciones y Bases de Datos', desc: 'Auditoría de sistemas críticos y ERPs (SAP), evaluación de segregación de funciones (SoD), integridad en bases de datos Oracle/SQL y políticas de acceso en Windows y Linux.' },
+        { title: 'Cumplimiento Normativo (Compliance Corporativo)', desc: 'Auditorías bajo PCI-DSS, SOX y marcos de cumplimiento financiero. Gap Analysis para identificar diferencias entre controles actuales y mejores prácticas del mercado.' },
+        { title: 'Tecnologías Emergentes e IA Local', desc: 'Gobierno y seguridad de modelos LLM on-premise: privacidad de datos, controles de acceso, revisión de arquitectura, orquestadores y manejo de información corporativa confidencial.' },
+        { title: 'Data Analytics aplicado a la Auditoría', desc: 'Auditoría continua mediante Python, PowerBI, IDEA y SQL. Detección de anomalías, prevención de fraude y análisis de grandes volúmenes de datos transaccionales de forma automatizada.' }
+      ],
+      aiBadge: 'Soluciones IA para escalar su negocio',
+      aiTitle: 'Inteligencia Artificial Aplicada',
+      aiIntro: 'En un mercado donde los márgenes se acortan y la eficiencia es innegociable, nuestras soluciones de IA están diseñadas con un único propósito: <strong>auditar las fugas de capital, automatizar tareas que consumen el tiempo de su equipo y convertir su infraestructura digital en su activo más rentable.</strong> No ofrecemos tecnología por tecnología — le ofrecemos resultados medibles.',
+      aiServices: [
+        { title: 'Experiencias Web Inmersivas 3D', sub: 'Diseño Premium orientado a la Conversión', desc: 'Sitios corporativos con scrolling dinámico y profundidad 3D que retienen la atención y posicionan su marca en la categoría premium de su sector.' },
+        { title: 'Despliegue Ágil de Marca Personal', sub: 'De Audiencia a Ecosistema Propio', desc: 'Transformamos su capital social en infraestructura digital. Convertimos su contenido de Instagram y redes en un sitio web profesional para dejar de depender del algoritmo.' },
+        { title: 'Auditoría Algorítmica de Meta Ads', sub: 'Maximización del ROI', desc: 'Auditoría profunda de su embudo publicitario: creatividades, copywriting y fricción en landing pages. Detectamos fugas de presupuesto para generar leads cualificados a menor costo.' },
+        { title: 'Auditoría Técnica SEO Pro', sub: 'Dominio Orgánico y Visibilidad', desc: 'Escaneamos la arquitectura de su web, identificamos cuellos de botella técnicos y entregamos un plan para dominar las palabras clave de su nicho sin pagar publicidad.' },
+        { title: 'Desarrollo Ágil de Software y Apps', sub: 'Soluciones a Medida sin Fricción', desc: 'Digitalizamos su modelo de negocio con programación asistida por IA. Herramientas, portales o apps que resuelven problemas específicos y reducen costos a largo plazo.' },
+        { title: 'Business Intelligence Automatizado', sub: 'Decisiones Basadas en Datos', desc: 'Procesamos sus métricas y bases de datos para transformarlas en tableros visuales interactivos. Visibilidad total sobre sus KPIs para decisiones estratégicas con precisión quirúrgica.' },
+        { title: 'Síntesis y Auditoría Documental', sub: 'Eficiencia Operativa a Gran Escala', desc: 'Agentes de IA para lectura, auditoría y síntesis de grandes volúmenes de texto (contratos, historiales, normativas). Resúmenes ejecutivos en minutos.' },
+        { title: 'Optimización de Workflows', sub: 'Escalabilidad sin Estrés Operativo', desc: 'Identificamos y automatizamos los procesos repetitivos que ahogan a su equipo. Conectamos su ecosistema de software para eliminar el error humano y liberar tiempo estratégico.' },
+        { title: 'Sistemas de Reporteo Autónomo', sub: 'Visibilidad en Tiempo Real', desc: 'Agentes inteligentes que extraen métricas periódicamente y redactan informes ejecutivos automatizados. Stakeholders informados sin destinar horas-hombre a la recolección de datos.' },
+        { title: 'Consultoría: Kits de IA a Medida', sub: 'Clonación de su Know-How', desc: 'Entrenamos modelos exclusivos para su empresa que replican sus procesos más exitosos. Activos digitales escalables que trabajan 24/7 con el estándar de sus mejores talentos.' }
+      ],
+      whyLabel: 'Por qué elegirnos',
+      whyTitle: 'Experiencia real,<br><em>resultados concretos</em>',
+      whyItems: [
+        { title: 'Un solo proveedor para todo', desc: 'Infraestructura, seguridad e IA en un mismo equipo. Sin coordinación entre múltiples vendors ni brechas entre capas.' },
+        { title: 'IA que no expone tus datos', desc: 'Implementamos modelos de lenguaje que corren dentro de tu infraestructura. Tu información confidencial no sale a ningún servicio externo.' },
+        { title: 'Base técnica comprobada', desc: 'Años de experiencia en infraestructura crítica y ciberseguridad respaldan cada implementación. No improvisamos sobre lo que no conocemos.' },
+        { title: 'Adaptado a tu operación real', desc: 'Analizamos cómo trabaja tu empresa antes de proponer cualquier solución. Nada genérico, nada que no puedas usar desde el primer día.' }
+      ],
+      whyCards: [
+        { title: 'Alta disponibilidad', desc: 'Infraestructuras diseñadas para funcionar sin interrupciones' },
+        { title: 'Seguridad Zero Trust', desc: 'Nada pasa sin verificación. Cada acceso es autenticado' },
+        { title: 'Escalabilidad', desc: 'Tu infraestructura crece con tu negocio sin fricciones' },
+        { title: 'Consultoría experta', desc: 'Asesoramos antes, durante y después de cada proyecto' }
+      ],
+      contactLabel: 'Contacto',
+      contactTitle: 'Hablemos de tu <em>proyecto</em>',
+      contactDesc: 'Contanos qué necesitás y un especialista de Del Security te responde con una propuesta adaptada a tu operación.',
+      contactItemLabels: ['Email', 'Teléfono', 'Ubicación'],
+      formLabels: ['Nombre', 'Empresa', 'Email', 'Servicio de interés', 'Mensaje'],
+      formPlaceholders: ['Tu nombre', 'Tu empresa', 'tu@empresa.com', 'Infraestructura, Cloud, Ciberseguridad, IA...', 'Contanos sobre tu proyecto o necesidad...'],
+      submitBtn: 'Enviar consulta',
+      successMsg: '¡Consulta enviada! Te respondemos a la brevedad.',
+      footerLinks: ['Servicios', 'Nosotros', 'Contacto']
+    },
+    en: {
+      nav: ['About', 'Services', 'Why Us', 'Contact'],
+      aboutLabel: 'About Us',
+      aboutTitle: 'Del Security: Robust Architecture for<br><em>an AI-driven era</em>',
+      aboutDescs: [
+        'At Del Security, we don\'t believe in magic solutions or AI implementations disconnected from a company\'s operational reality. Our story began at the foundations of the digital world: sustaining data centers, configuring complex networks, and securing critical infrastructures that cannot afford to fail.',
+        'For more than two decades, we have audited and protected the systems that sustain the operations of demanding organizations. That experience is precisely what allows us today to integrate Artificial Intelligence with a unique strategic advantage.',
+        'We understand that AI is not a plugin you install, but an ecosystem that requires order, security, and a solid infrastructure to scale. While others limit themselves to applying generic recipes, we build solutions based on deep knowledge of your digital assets, guaranteeing privacy, control, and efficiency.',
+        'We are the technical partner that knows exactly how to connect the potential of AI with the security of your infrastructure. We evolve alongside technology, ensuring that your competitive advantage is real, measurable, and above all, secure.'
+      ],
+      statLabels: ['Years of experience', 'Successful Implementations', 'Hrs. Support'],
+      photoLabels: ['Artificial Intelligence', 'Cybersecurity', 'Infrastructure'],
+      servicesLabel: 'Services',
+      servicesTitle: 'Full Management. <em>Total Control.</em>',
+      servicesDesc: 'We unify your technology so your company becomes more agile. We handle the entire stack: from hardware and network to private AI model deployment. As infrastructure engineers, we ensure every new solution is built on auditable, secure foundations under your exclusive control.',
+      svc1Title: 'Physical Infrastructure',
+      svc1Desc: 'Design and implementation of data centers and server rooms with optimal environmental conditions: temperature and humidity control, uninterruptible power systems, electrical management, and structured network cabling.',
+      svc2Title: 'Cloud Infrastructure & Virtualization',
+      svc2Desc: 'Administration of Cloud environments (Google Cloud, AWS, Azure) and virtualized infrastructure. Windows Server management with Active Directory and GPOs, Linux environments (Debian/Ubuntu), and enterprise virtualization platforms.',
+      svc3Title: 'Cybersecurity',
+      svc3Desc: 'Comprehensive infrastructure protection: vulnerability analysis, penetration testing, incident management, and security policies. Physical and logical assessment, next-generation firewall administration, and IPS/IDS implementation.',
+      svc4Title: 'Audit, Risk & Compliance',
+      svc4Desc: 'Comprehensive evaluation of IT controls under internationally recognized frameworks. We identify gaps, manage risks, and guide organizations in meeting their security and IT governance obligations.',
+      audit: [
+        { title: 'Cybersecurity & Information Security', desc: 'Analysis of penetration testing reports, gap identification, threat resistance assessment, and BCP/DRP plan verification for critical services.' },
+        { title: 'On-Premise Infrastructure & Communications', desc: 'Evaluation of firewalls, LAN/WAN segmentation, in-transit encryption, physical and logical access controls, wireless networks, and internal monitoring systems.' },
+        { title: 'Applications & Databases', desc: 'Audit of critical systems and ERPs (SAP), segregation of duties (SoD) assessment, Oracle/SQL database integrity, and access policies on Windows and Linux.' },
+        { title: 'Regulatory Compliance (Corporate Compliance)', desc: 'Audits under PCI-DSS, SOX, and financial compliance frameworks. Gap Analysis to identify differences between current controls and market best practices.' },
+        { title: 'Emerging Technologies & Local AI', desc: 'Governance and security of on-premise LLM models: data privacy, access controls, architecture review, orchestrators, and handling of confidential corporate information.' },
+        { title: 'Data Analytics Applied to Auditing', desc: 'Continuous auditing using Python, PowerBI, IDEA, and SQL. Anomaly detection, fraud prevention, and automated analysis of large volumes of transactional data.' }
+      ],
+      aiBadge: 'AI Solutions to Scale Your Business',
+      aiTitle: 'Applied Artificial Intelligence',
+      aiIntro: 'In a market where margins are shrinking and efficiency is non-negotiable, our AI solutions are designed with a single purpose: <strong>audit capital leaks, automate tasks that consume your team\'s time, and turn your digital infrastructure into your most profitable asset.</strong> We don\'t offer technology for technology\'s sake — we offer measurable results.',
+      aiServices: [
+        { title: 'Immersive 3D Web Experiences', sub: 'Premium Conversion-Driven Design', desc: 'Corporate sites with dynamic scrolling and 3D depth that retain attention and position your brand in the premium category of your sector.' },
+        { title: 'Agile Personal Brand Deployment', sub: 'From Audience to Own Ecosystem', desc: 'We transform your social capital into digital infrastructure. We convert your Instagram and social content into a professional website to stop depending on the algorithm.' },
+        { title: 'Algorithmic Meta Ads Audit', sub: 'ROI Maximization', desc: 'Deep audit of your advertising funnel: creatives, copywriting, and landing page friction. We detect budget leaks to generate qualified leads at lower cost.' },
+        { title: 'Technical SEO Pro Audit', sub: 'Organic Dominance & Visibility', desc: 'We scan your website architecture, identify technical bottlenecks, and deliver a plan to dominate your niche keywords without paying for advertising.' },
+        { title: 'Agile Software & App Development', sub: 'Custom Solutions without Friction', desc: 'We digitize your business model with AI-assisted programming. Tools, portals, or apps that solve specific problems and reduce long-term costs.' },
+        { title: 'Automated Business Intelligence', sub: 'Data-Driven Decisions', desc: 'We process your metrics and databases to transform them into interactive visual dashboards. Total visibility over your KPIs for strategic decisions with surgical precision.' },
+        { title: 'Document Synthesis & Audit', sub: 'Operational Efficiency at Scale', desc: 'AI agents for reading, auditing, and synthesizing large volumes of text (contracts, records, regulations). Executive summaries in minutes.' },
+        { title: 'Workflow Optimization', sub: 'Scalability without Operational Stress', desc: 'We identify and automate repetitive processes that overwhelm your team. We connect your software ecosystem to eliminate human error and free up strategic time.' },
+        { title: 'Autonomous Reporting Systems', sub: 'Real-Time Visibility', desc: 'Intelligent agents that periodically extract metrics and draft automated executive reports. Stakeholders informed without dedicating man-hours to data collection.' },
+        { title: 'Consulting: Custom AI Kits', sub: 'Cloning Your Know-How', desc: 'We train exclusive models for your company that replicate your most successful processes. Scalable digital assets that work 24/7 to the standard of your best talent.' }
+      ],
+      whyLabel: 'Why Choose Us',
+      whyTitle: 'Real experience,<br><em>concrete results</em>',
+      whyItems: [
+        { title: 'One provider for everything', desc: 'Infrastructure, security, and AI in one team. No coordination between multiple vendors or gaps between layers.' },
+        { title: 'AI that doesn\'t expose your data', desc: 'We implement language models that run within your infrastructure. Your confidential information never leaves to any external service.' },
+        { title: 'Proven technical foundation', desc: 'Years of experience in critical infrastructure and cybersecurity back every implementation. We don\'t improvise on what we don\'t know.' },
+        { title: 'Adapted to your real operation', desc: 'We analyze how your company works before proposing any solution. Nothing generic, nothing you can\'t use from day one.' }
+      ],
+      whyCards: [
+        { title: 'High Availability', desc: 'Infrastructures designed to operate without interruptions' },
+        { title: 'Zero Trust Security', desc: 'Nothing passes without verification. Every access is authenticated' },
+        { title: 'Scalability', desc: 'Your infrastructure grows with your business without friction' },
+        { title: 'Expert Consulting', desc: 'We advise before, during, and after every project' }
+      ],
+      contactLabel: 'Contact',
+      contactTitle: 'Let\'s talk about your <em>project</em>',
+      contactDesc: 'Tell us what you need and a Del Security specialist will respond with a proposal tailored to your operation.',
+      contactItemLabels: ['Email', 'Phone', 'Location'],
+      formLabels: ['Name', 'Company', 'Email', 'Service of interest', 'Message'],
+      formPlaceholders: ['Your name', 'Your company', 'you@company.com', 'Infrastructure, Cloud, Cybersecurity, AI...', 'Tell us about your project or need...'],
+      submitBtn: 'Send inquiry',
+      successMsg: 'Inquiry sent! We\'ll get back to you shortly.',
+      footerLinks: ['Services', 'About', 'Contact']
+    }
+  };
+
+  function setLang(lang) {
+    var t = translations[lang];
+    if (!t) return;
+
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('delsec-lang', lang); } catch(e) {}
+
+    var navLinks = document.querySelectorAll('.nav-links li a');
+    navLinks.forEach(function(a, i) { if (t.nav[i]) a.textContent = t.nav[i]; });
+
+    document.querySelector('#about .section-label').textContent = t.aboutLabel;
+    document.querySelector('#about .section-title').innerHTML = t.aboutTitle;
+    var aboutDescs = document.querySelectorAll('#about .reveal-left .section-desc');
+    aboutDescs.forEach(function(p, i) { if (t.aboutDescs[i]) p.textContent = t.aboutDescs[i]; });
+    var statLabels = document.querySelectorAll('#about .stat-label');
+    statLabels.forEach(function(el, i) { if (t.statLabels[i]) el.textContent = t.statLabels[i]; });
+    var photoLabels = document.querySelectorAll('#about .card-art-label');
+    photoLabels.forEach(function(el, i) { if (t.photoLabels[i]) el.textContent = t.photoLabels[i]; });
+
+    document.querySelector('#services .section-label').textContent = t.servicesLabel;
+    document.querySelector('#services .section-title').innerHTML = t.servicesTitle;
+    document.querySelector('#services .services-header .section-desc').textContent = t.servicesDesc;
+
+    document.querySelector('.service-card--infra .service-title').textContent = t.svc1Title;
+    document.querySelector('.service-card--infra .service-desc').textContent = t.svc1Desc;
+    document.querySelector('.service-card--cloud .service-title').textContent = t.svc2Title;
+    document.querySelector('.service-card--cloud .service-desc').textContent = t.svc2Desc;
+    document.querySelector('.service-card--ciber .service-title').textContent = t.svc3Title;
+    document.querySelector('.service-card--ciber .service-desc').textContent = t.svc3Desc;
+    document.querySelector('.service-card--audit .service-title').textContent = t.svc4Title;
+    document.querySelector('.service-card--audit .service-desc').textContent = t.svc4Desc;
+
+    var auditItems = document.querySelectorAll('.audit-item');
+    auditItems.forEach(function(item, i) {
+      if (t.audit[i]) {
+        item.querySelector('.audit-item-title').textContent = t.audit[i].title;
+        item.querySelector('.audit-item-desc').textContent = t.audit[i].desc;
+      }
+    });
+
+    document.querySelector('.ai-badge').textContent = t.aiBadge;
+    document.querySelector('.service-card--ai .service-title').textContent = t.aiTitle;
+    document.querySelector('.ai-intro').innerHTML = t.aiIntro;
+    var aiSvcs = document.querySelectorAll('.ai-svc');
+    aiSvcs.forEach(function(svc, i) {
+      if (t.aiServices[i]) {
+        svc.querySelector('.ai-svc-title').textContent = t.aiServices[i].title;
+        svc.querySelector('.ai-svc-sub').textContent = t.aiServices[i].sub;
+        svc.querySelector('.ai-svc-desc').textContent = t.aiServices[i].desc;
+      }
+    });
+
+    document.querySelector('#why .section-label').textContent = t.whyLabel;
+    document.querySelector('#why .section-title').innerHTML = t.whyTitle;
+    var whyItems = document.querySelectorAll('.why-item');
+    whyItems.forEach(function(item, i) {
+      if (t.whyItems[i]) {
+        item.querySelector('.why-item-title').textContent = t.whyItems[i].title;
+        item.querySelector('.why-item-desc').textContent = t.whyItems[i].desc;
+      }
+    });
+    var whyCards = document.querySelectorAll('.why-card');
+    whyCards.forEach(function(card, i) {
+      if (t.whyCards[i]) {
+        card.querySelector('.why-card-title').textContent = t.whyCards[i].title;
+        card.querySelector('.why-card-desc').textContent = t.whyCards[i].desc;
+      }
+    });
+
+    document.querySelector('#contact .section-label').textContent = t.contactLabel;
+    document.querySelector('#contact .section-title').innerHTML = t.contactTitle;
+    document.querySelector('#contact .section-desc').textContent = t.contactDesc;
+    var contactItemLabels = document.querySelectorAll('.contact-item-label');
+    contactItemLabels.forEach(function(el, i) { if (t.contactItemLabels[i]) el.textContent = t.contactItemLabels[i]; });
+    var formLabels = document.querySelectorAll('.form-label');
+    formLabels.forEach(function(el, i) { if (t.formLabels[i]) el.textContent = t.formLabels[i]; });
+    var formInputs = document.querySelectorAll('.form-input, .form-textarea');
+    formInputs.forEach(function(el, i) { if (t.formPlaceholders[i]) el.placeholder = t.formPlaceholders[i]; });
+    var submitBtn = document.querySelector('[data-fs-submit-btn]');
+    if (submitBtn) submitBtn.textContent = t.submitBtn;
+    var successEl = document.querySelector('[data-fs-success]');
+    if (successEl) successEl.textContent = t.successMsg;
+
+    var footerLinks = document.querySelectorAll('.footer-links a');
+    footerLinks.forEach(function(a, i) { if (t.footerLinks[i]) a.textContent = t.footerLinks[i]; });
+  }
+
+  (function() {
+    var saved;
+    try { saved = localStorage.getItem('delsec-lang'); } catch(e) {}
+    if (saved && saved !== 'es') setLang(saved);
+  })();
 </script>
 <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
