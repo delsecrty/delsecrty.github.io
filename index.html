@@ -70,7 +70,7 @@
     top: 0; left: 0; right: 0;
     z-index: 100;
     padding: 0 40px;
-    height: 70px;
+    height: 78px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,14 +82,20 @@
     border-bottom: 1px solid var(--border);
   }
   .nav-logo {
-    font-family: 'Orbitron', monospace;
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--text);
+    display: flex;
+    align-items: center;
     text-decoration: none;
+    transition: filter 0.3s ease, transform 0.3s ease;
   }
-  .nav-logo span { color: var(--accent); }
+  .nav-logo:hover {
+    filter: drop-shadow(0 0 14px rgba(0,210,255,0.65));
+    transform: scale(1.03);
+  }
+  .nav-logo img {
+    height: 64px;
+    width: auto;
+    display: block;
+  }
   .nav-links { display: flex; gap: 36px; list-style: none; }
   .nav-links a {
     font-family: 'Rajdhani', sans-serif;
@@ -123,28 +129,29 @@
   .nav-cta:hover { background: rgba(0,210,255,0.1) !important; }
 
   /* â”€â”€â”€ HERO â”€â”€â”€ */
-  #hero {
+  .scroll-video-hero {
     position: relative;
-    height: 100vh;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    min-height: 100vh;
   }
-  .hero-decorations {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
+  .scroll-video-sticky {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
   }
-
+  .scroll-video-sticky video {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: var(--bg);
+  }
   .hero-grid {
     position: absolute;
     inset: 0;
+    z-index: 1;
+    pointer-events: none;
     background-image:
-      linear-gradient(rgba(0,210,255,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,210,255,0.05) 1px, transparent 1px);
+      linear-gradient(rgba(0,210,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,210,255,0.04) 1px, transparent 1px);
     background-size: 60px 60px;
     animation: gridMove 20s linear infinite;
   }
@@ -152,32 +159,36 @@
     0% { transform: translateY(0); }
     100% { transform: translateY(60px); }
   }
-
-  .hero-glow {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 800px;
-    height: 500px;
-    background: radial-gradient(ellipse at center, rgba(0, 102, 204, 0.25) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-glow2 {
-    position: absolute;
-    bottom: 10%;
-    right: 10%;
-    width: 400px;
-    height: 300px;
-    background: radial-gradient(ellipse at center, rgba(123, 47, 255, 0.15) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
   .hero-content {
-    position: relative;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     z-index: 2;
-    max-width: 900px;
-    padding: 90px 24px 60px;
+    text-align: center;
+    padding: 0 24px;
+  }
+  .scroll-progress-bar {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: rgba(255,255,255,0.1);
+    z-index: 4;
+  }
+  .scroll-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    transition: width 0.05s linear;
+  }
+  @media (max-width: 768px) {
+    .scroll-video-hero { height: 100vh; }
+    .scroll-video-sticky { position: relative; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-video-hero { height: 100vh; }
   }
 
   .hero-badge {
@@ -340,7 +351,7 @@
 
   .section-title {
     font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2.8rem, 5.5vw, 4.5rem);
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 20px;
@@ -635,8 +646,8 @@
     background-clip: text;
   }
   .ai-intro {
-    font-size: 0.97rem;
-    color: var(--muted);
+    font-size: 1.02rem;
+    color: #8a99b8;
     line-height: 1.8;
     max-width: 860px;
     margin-bottom: 0;
@@ -653,8 +664,8 @@
     overflow: hidden;
   }
   .ai-svc {
-    padding: 22px 24px;
-    background: rgba(168,85,247,0.03);
+    padding: 26px 28px;
+    background: rgba(168,85,247,0.04);
     border-right: 1px solid rgba(168,85,247,0.1);
     border-bottom: 1px solid rgba(168,85,247,0.1);
     transition: background 0.25s;
@@ -669,7 +680,7 @@
   .ai-svc-body { flex: 1; }
   .ai-svc-title {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     letter-spacing: 0.03em;
     color: var(--text);
@@ -678,14 +689,14 @@
   }
   .ai-svc-sub {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #a855f7;
     margin-bottom: 6px;
     opacity: 0.8;
   }
-  .ai-svc-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+  .ai-svc-desc { font-size: 0.9rem; color: #8a99b8; line-height: 1.7; }
 
   @media (max-width: 900px) {
     .service-card--audit, .service-card--ai { grid-column: auto; }
@@ -701,42 +712,33 @@
   .audit-subgrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 28px;
+    gap: 16px;
+    margin-top: 32px;
   }
   .audit-item {
-    padding: 20px 20px;
-    border: 1px solid rgba(0,204,136,0.12);
-    border-radius: 8px;
-    background: rgba(0,204,136,0.04);
+    padding: 20px 22px;
+    border: 1px solid rgba(0,204,136,0.18);
+    border-left: 3px solid rgba(0,204,136,0.5);
+    border-radius: 0 8px 8px 0;
+    background: rgba(0,204,136,0.05);
     transition: border-color 0.3s, background 0.3s;
   }
   .service-card:hover .audit-item {
-    border-color: rgba(0,204,136,0.25);
-    background: rgba(0,204,136,0.07);
+    border-color: rgba(0,204,136,0.35);
+    background: rgba(0,204,136,0.09);
   }
   .audit-item-title {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
-    color: var(--text);
+    letter-spacing: 0.03em;
+    color: #e8edf5;
     margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .audit-item-title::before {
-    content: '';
-    width: 4px; height: 4px;
-    background: #00cc88;
-    border-radius: 50%;
-    flex-shrink: 0;
   }
   .audit-item-desc {
-    font-size: 0.83rem;
-    color: var(--muted);
-    line-height: 1.65;
+    font-size: 0.88rem;
+    color: #8a99b8;
+    line-height: 1.7;
   }
 
   @media (min-width: 901px) and (max-width: 1100px) {
@@ -758,22 +760,23 @@
   .service-card:hover .service-icon { transform: scale(1.1); }
 
   .service-card-img {
-    width: 100%;
-    margin-bottom: 28px;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.03);
-    text-align: center;
+    width: calc(100% + 80px);
+    margin: -48px -40px 28px -40px;
     line-height: 0;
+    overflow: hidden;
+  }
+  .service-card--ai .service-card-img {
+    width: calc(100% + 96px);
+    margin: -56px -48px 28px -48px;
   }
   .service-card-img img {
-    height: 110px;
-    width: auto;
-    max-width: 100%;
-    display: inline-block;
-    border-radius: 6px;
-    transition: transform 0.5s ease;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
   }
-  .service-card:hover .service-card-img img { transform: scale(1.04); }
+  .service-card:hover .service-card-img img { transform: scale(1.06); }
 
   .service-card:nth-child(1) .service-icon { background: rgba(0,210,255,0.1); }
   .service-card:nth-child(2) .service-icon { background: rgba(0,102,204,0.12); }
@@ -1067,13 +1070,20 @@
     gap: 16px;
   }
   .footer-logo {
-    font-family: 'Orbitron', monospace;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--text);
+    display: flex;
+    align-items: center;
     text-decoration: none;
+    transition: filter 0.3s ease, transform 0.3s ease;
   }
-  .footer-logo span { color: var(--accent); }
+  .footer-logo:hover {
+    filter: drop-shadow(0 0 14px rgba(0,210,255,0.65));
+    transform: scale(1.03);
+  }
+  .footer-logo img {
+    height: 48px;
+    width: auto;
+    display: block;
+  }
   .footer-copy {
     font-size: 0.82rem;
     color: var(--muted);
@@ -1150,7 +1160,7 @@
 
 <!-- â”€â”€â”€ NAV â”€â”€â”€ -->
 <nav id="mainNav">
-  <a href="#hero" class="nav-logo">DEL<span>SECURITY</span></a>
+  <a href="#hero" class="nav-logo"><img src="assets/Logo Del.png" alt="Del Security"></a>
   <ul class="nav-links">
     <li><a href="#about">Nosotros</a></li>
     <li><a href="#services">Servicios</a></li>
@@ -1160,30 +1170,12 @@
 </nav>
 
 <!-- â”€â”€â”€ HERO â”€â”€â”€ -->
-<section id="hero">
-  <div class="hero-decorations">
-    <div class="hero-grid"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-glow2"></div>
-  </div>
-  <div class="hero-content">
-    <div class="hero-badge">Buenos Aires, Argentina</div>
-    <h1 class="hero-title">
-      Hacemos que tu tecnología<br>
-      <span class="line2">funcione, se proteja y crezca con IA</span>
-    </h1>
-    <p class="hero-sub">
-      Infraestructura IT, ciberseguridad e inteligencia artificial —
-      todo desde un solo equipo especializado.
-    </p>
-    <div class="hero-actions">
-      <a href="#services" class="btn-primary">Ver servicios</a>
-      <a href="#contact" class="btn-ghost">Hablar con un experto</a>
+<section class="scroll-video-hero" id="hero">
+  <div class="scroll-video-sticky" id="scroll-hero">
+    <video id="heroVideo" src="assets/Animacion Del.mp4" playsinline muted preload="auto"></video>
+    <div class="scroll-progress-bar">
+      <div class="scroll-progress-fill" id="progressFill"></div>
     </div>
-  </div>
-  <div class="hero-scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
   </div>
 </section>
 
@@ -1192,27 +1184,39 @@
   <div class="container">
     <div class="about-grid">
       <div class="reveal-left">
-        <div class="section-label">Sobre nosotros</div>
-        <h2 class="section-title">Un solo equipo para <em>toda tu tecnología</em></h2>
+        <div class="section-label">Quiénes somos</div>
+        <h2 class="section-title">Del Security: Arquitectura robusta para<br><em>una era impulsada por IA</em></h2>
         <p class="section-desc">
-          Somos Del Security, empresa IT con base en Buenos Aires especializada en
-          infraestructura, ciberseguridad y — ahora — inteligencia artificial. Trabajamos
-          con empresas que necesitan que su tecnología funcione bien, esté protegida
-          y les dé ventaja competitiva real.
+          En Del Security, no creemos en soluciones mágicas ni en implementaciones de IA
+          desconectadas de la realidad operativa de una empresa. Nuestra historia comenzó
+          en los cimientos del mundo digital: sosteniendo datacenters, configurando redes
+          complejas y asegurando infraestructuras críticas que no pueden permitirse fallar.
         </p>
         <p class="section-desc" style="margin-top:16px;">
-          Empezamos sosteniendo servidores, datacenters, UPS y redes. Con esa base,
-          sumamos ciberseguridad y auditorías IT. Hoy integramos IA directamente sobre
-          esa infraestructura — sin intermediarios, sin improvisar.
+          Durante más de dos décadas, hemos auditado y protegido los sistemas que sostienen
+          la operatividad de organizaciones exigentes. Esa experiencia es, precisamente,
+          lo que nos permite hoy integrar Inteligencia Artificial con una ventaja estratégica única.
+        </p>
+        <p class="section-desc" style="margin-top:16px;">
+          Entendemos que la IA no es un plugin que se instala, sino un ecosistema que
+          requiere orden, seguridad y una infraestructura sólida para escalar. Mientras
+          otros se limitan a aplicar recetas genéricas, nosotros construimos soluciones
+          basadas en el conocimiento profundo de tus activos digitales, garantizando
+          privacidad, control y eficiencia.
+        </p>
+        <p class="section-desc" style="margin-top:16px;">
+          Somos el socio técnico que sabe exactamente cómo conectar el potencial de la IA
+          con la seguridad de tu infraestructura. Evolucionamos a la par de la tecnología,
+          asegurando que tu ventaja competitiva sea real, medible y, sobre todo, segura.
         </p>
         <div class="stats-row" style="margin-top:40px;">
           <div class="stat-item reveal" style="transition-delay:0.1s">
-            <div class="stat-number" data-target="25" data-suffix="+">0</div>
+            <div class="stat-number" data-target="25" data-prefix="+">0</div>
             <div class="stat-label">Años de experiencia</div>
           </div>
           <div class="stat-item reveal" style="transition-delay:0.2s">
-            <div class="stat-number" data-target="99">0</div>
-            <div class="stat-label">% Uptime garantizado</div>
+            <div class="stat-number" data-target="230" data-prefix="+">0</div>
+            <div class="stat-label">Implementaciones Exitosas</div>
           </div>
           <div class="stat-item reveal" style="transition-delay:0.3s">
             <div class="stat-number" data-target="24">0</div>
@@ -1252,10 +1256,12 @@
   <div class="container">
     <div class="services-header">
       <div class="section-label reveal">Servicios</div>
-      <h2 class="section-title reveal">Todo lo que tu empresa <em>necesita</em>, en un solo lugar</h2>
+      <h2 class="section-title reveal">Gestión integral. <em>Control absoluto.</em></h2>
       <p class="section-desc reveal">
-        Desde la infraestructura física hasta la inteligencia artificial —
-        sin depender de múltiples proveedores ni perder el control de tu tecnología.
+        Unificamos tu tecnología para que tu empresa sea más ágil. Nos encargamos de todo
+        el stack: desde el hardware y la red hasta la implementación de modelos de IA privada.
+        Al ser ingenieros de infraestructura, garantizamos que cada nueva solución se monte
+        sobre cimientos auditables, seguros y bajo tu control exclusivo.
       </p>
     </div>
     <div class="services-grid">
@@ -1601,7 +1607,7 @@
 
 <!-- â”€â”€â”€ FOOTER â”€â”€â”€ -->
 <footer>
-  <a href="#hero" class="footer-logo">DEL<span>SECURITY</span></a>
+  <a href="#hero" class="footer-logo"><img src="assets/Logo Del.png" alt="Del Security"></a>
   <span class="footer-copy">© 2026 Del Security — Buenos Aires, Argentina</span>
   <div class="footer-links">
     <a href="#services">Servicios</a>
@@ -1611,6 +1617,46 @@
 </footer>
 
 <script>
+  /* â”€â”€â”€ SCROLL VIDEO HERO â”€â”€â”€ */
+  (function() {
+    const video = document.getElementById('heroVideo');
+    const progressFill = document.getElementById('progressFill');
+    if (!video) return;
+
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (isMobile || prefersReduced) {
+      video.autoplay = true;
+      video.loop = true;
+      video.play().catch(() => {});
+      return;
+    }
+
+    video.currentTime = 0;
+    let started = false;
+
+    function startVideo() {
+      if (started) return;
+      started = true;
+      video.play().catch(() => {});
+    }
+
+    window.addEventListener('scroll', function onFirstScroll() {
+      if (window.scrollY > 0) {
+        startVideo();
+        window.removeEventListener('scroll', onFirstScroll);
+      }
+    }, { passive: true });
+
+    if (progressFill) {
+      video.addEventListener('timeupdate', () => {
+        if (!video.duration) return;
+        progressFill.style.width = (video.currentTime / video.duration * 100) + '%';
+      });
+    }
+  })();
+
   /* â”€â”€â”€ NAV SCROLL â”€â”€â”€ */
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', () => {
@@ -1632,6 +1678,7 @@
   /* â”€â”€â”€ COUNTER ANIMATION â”€â”€â”€ */
   function animateCounter(el) {
     const target = parseInt(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
     const duration = 1800;
     const start = performance.now();
@@ -1639,9 +1686,9 @@
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(eased * target) + suffix;
+      el.textContent = prefix + Math.floor(eased * target) + suffix;
       if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target + suffix;
+      else el.textContent = prefix + target + suffix;
     }
     requestAnimationFrame(step);
   }
