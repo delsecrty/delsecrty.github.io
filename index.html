@@ -1130,6 +1130,63 @@
     .why-visual { grid-template-columns: 1fr; }
     .hero-actions { flex-direction: column; align-items: center; }
   }
+
+  /* â"€â"€â"€ CASES â"€â"€â"€ */
+  .cases-cards { display: flex; flex-direction: column; gap: 20px; margin-top: 56px; }
+  .cases-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .cases-card:hover { border-color: rgba(0,210,255,0.3); transform: translateY(-2px); }
+  .cases-card--impl:hover { border-color: rgba(123,47,255,0.35); }
+  .cases-card--result:hover { border-color: rgba(0,204,136,0.35); }
+  .cases-card-num {
+    position: absolute; top: 20px; right: 28px;
+    font-family: 'Orbitron', sans-serif; font-size: 5.5rem; font-weight: 900;
+    color: rgba(255,255,255,0.025); line-height: 1; pointer-events: none; user-select: none;
+  }
+  .cases-card-tag {
+    font-family: 'Rajdhani', sans-serif; font-size: 0.76rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+  }
+  .cases-card--impl .cases-card-tag { color: var(--accent3); }
+  .cases-card--result .cases-card-tag { color: #00cc88; }
+  .cases-card-title {
+    font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; font-weight: 700;
+    color: var(--text); margin-bottom: 14px; line-height: 1.3;
+  }
+  .cases-card-body { font-size: 0.95rem; color: #8a99b8; line-height: 1.75; max-width: 780px; }
+  .cases-impl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
+  .cases-impl-item {
+    padding: 18px 20px; border-radius: 0 8px 8px 0;
+    background: rgba(0,210,255,0.03);
+    border: 1px solid rgba(0,210,255,0.1);
+    border-left: 3px solid rgba(0,210,255,0.4);
+  }
+  .cases-impl-item--cloud {
+    background: rgba(123,47,255,0.03);
+    border-color: rgba(123,47,255,0.12);
+    border-left-color: rgba(123,47,255,0.45);
+  }
+  .cases-impl-title {
+    font-family: 'Rajdhani', sans-serif; font-size: 0.95rem; font-weight: 700;
+    color: var(--text); margin-bottom: 8px;
+  }
+  .cases-impl-desc { font-size: 0.875rem; color: #8a99b8; line-height: 1.65; }
+  .cases-result-box {
+    margin-top: 22px; padding: 20px 24px;
+    background: rgba(0,204,136,0.04);
+    border: 1px solid rgba(0,204,136,0.15);
+    border-left: 3px solid rgba(0,204,136,0.55);
+    border-radius: 0 8px 8px 0;
+  }
+  .cases-result-text { font-size: 0.95rem; color: #c8d5ee; line-height: 1.75; font-style: italic; }
+  @media (max-width: 768px) { .cases-impl-grid { grid-template-columns: 1fr; } }
 </style>
 
 <!-- Datos Estructurados JSON-LD -->
@@ -1165,7 +1222,7 @@
 </head>
 <body>
 
-<!-- â”€â”€â”€ NAV â”€â”€â”€ -->
+<!-- â"€â"€â"€ NAV â"€â"€â"€ -->
 <nav id="mainNav">
   <a href="#hero" class="nav-logo"><img src="assets/Logo Del.png" alt="Del Security"></a>
   <ul class="nav-links">
@@ -1181,7 +1238,7 @@
   </div>
 </nav>
 
-<!-- â”€â”€â”€ HERO â”€â”€â”€ -->
+<!-- â"€â"€â"€ HERO â"€â"€â"€ -->
 <section class="scroll-video-hero" id="hero">
   <div class="scroll-video-sticky" id="scroll-hero">
     <video id="heroVideo" src="assets/Animacion Del.mp4" playsinline muted preload="auto"></video>
@@ -1191,7 +1248,7 @@
   </div>
 </section>
 
-<!-- â”€â”€â”€ ABOUT â”€â”€â”€ -->
+<!-- â"€â"€â"€ ABOUT â"€â"€â"€ -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
@@ -1263,7 +1320,7 @@
   </div>
 </section>
 
-<!-- â”€â”€â”€ SERVICES â”€â”€â”€ -->
+<!-- â"€â"€â"€ SERVICES â"€â"€â"€ -->
 <section id="services">
   <div class="container">
     <div class="services-header">
@@ -1383,7 +1440,7 @@
         <div class="service-bg-number">05</div>
       </div>
 
-      <!-- â”€â”€â”€ IA FEATURED â”€â”€â”€ -->
+      <!-- â"€â"€â"€ IA FEATURED â"€â"€â"€ -->
       <div class="service-card service-card--ai reveal" style="transition-delay:0.55s">
         <div class="service-card-img"><img src="assets/svc-ai.jpg" alt="Inteligencia Artificial" width="400" height="200" loading="lazy"></div>
         <div class="ai-header">
@@ -1480,7 +1537,7 @@
   </div>
 </section>
 
-<!-- â”€â”€â”€ WHY â”€â”€â”€ -->
+<!-- â"€â"€â"€ WHY â"€â"€â"€ -->
 <section id="why">
   <div class="why-bg"></div>
   <div class="container">
@@ -1545,7 +1602,56 @@
   </div>
 </section>
 
-<!-- â”€â”€â”€ CONTACT â”€â”€â”€ -->
+<!-- â"€â"€â"€ CASES â"€â"€â"€ -->
+<section id="cases">
+  <div class="container">
+    <div class="services-header">
+      <div class="section-label reveal">Caso de Éxito</div>
+      <h2 class="section-title reveal">Transformación Operativa: <em>Resultados reales en entornos seguros</em></h2>
+      <p class="section-desc reveal">Un caso real de cómo transformamos la carga operativa de un equipo en su mayor ventaja competitiva.</p>
+    </div>
+
+    <div class="cases-cards">
+
+      <div class="cases-card reveal">
+        <div class="cases-card-num">01</div>
+        <div class="cases-card-tag">Diagnóstico</div>
+        <h3 class="cases-card-title">Identificación del cuello de botella</h3>
+        <p class="cases-card-body">Detectamos que cuatro integrantes del equipo dedicaban gran parte de su jornada a tareas rutinarias. El objetivo no era solo automatizar, sino liberar talento. Analizamos los flujos de trabajo para identificar qué procesos eran candidatos ideales para ser potenciados mediante IA, garantizando siempre el control humano sobre los resultados.</p>
+      </div>
+
+      <div class="cases-card cases-card--impl reveal">
+        <div class="cases-card-num">02</div>
+        <div class="cases-card-tag">Implementación</div>
+        <h3 class="cases-card-title">Ecosistema tecnológico a medida</h3>
+        <p class="cases-card-body">No utilizamos una única herramienta, sino que diseñamos un stack de IA heterogéneo adaptado a cada necesidad técnica.</p>
+        <div class="cases-impl-grid">
+          <div class="cases-impl-item">
+            <div class="cases-impl-title">Entorno Local (On-premise)</div>
+            <div class="cases-impl-desc">Para documentación altamente sensible, implementamos LLMs privados dentro de la infraestructura local del cliente. Los datos críticos nunca abandonan el entorno seguro de la empresa.</div>
+          </div>
+          <div class="cases-impl-item cases-impl-item--cloud">
+            <div class="cases-impl-title">Entorno Cloud Optimizado</div>
+            <div class="cases-impl-desc">Para tareas basadas en información pública, orquestamos herramientas de IA en un entorno virtual de bajo costo: ejecución ágil y eficiente sin comprometer recursos locales.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cases-card cases-card--result reveal">
+        <div class="cases-card-num">03</div>
+        <div class="cases-card-tag">Resultados</div>
+        <h3 class="cases-card-title">Potenciando el capital humano</h3>
+        <p class="cases-card-body">El cliente enfrentaba una barrera de crecimiento: el mercado no ofrecía los perfiles adecuados. Al automatizar lo rutinario, el personal con mayor antigüedad pudo delegar lo operativo para asumir tareas de mayor complejidad y valor.</p>
+        <div class="cases-result-box">
+          <div class="cases-result-text">Logramos la escalabilidad que buscaban sin necesidad de nuevas contrataciones, apoyándonos en el activo más valioso: la experiencia de su propia gente, ahora potenciada por tecnología.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- â"€â"€â"€ CONTACT â"€â"€â"€ -->
 <section id="contact">
   <div class="contact-bg-glow"></div>
   <div class="container">
@@ -1617,7 +1723,7 @@
   </div>
 </section>
 
-<!-- â”€â”€â”€ FOOTER â”€â”€â”€ -->
+<!-- â"€â"€â"€ FOOTER â"€â"€â"€ -->
 <footer>
   <a href="#hero" class="footer-logo"><img src="assets/Logo Del.png" alt="Del Security"></a>
   <span class="footer-copy">© 2026 Del Security — Buenos Aires, Argentina</span>
@@ -1817,7 +1923,23 @@
       formPlaceholders: ['Tu nombre', 'Tu empresa', 'tu@empresa.com', 'Infraestructura, Cloud, Ciberseguridad, IA...', 'Contanos sobre tu proyecto o necesidad...'],
       submitBtn: 'Enviar consulta',
       successMsg: '¡Consulta enviada! Te respondemos a la brevedad.',
-      footerLinks: ['Servicios', 'Nosotros', 'Contacto']
+      footerLinks: ['Servicios', 'Nosotros', 'Contacto'],
+      casesLabel: 'Caso de Éxito',
+      casesTitle: 'Transformación Operativa: <em>Resultados reales en entornos seguros</em>',
+      casesDesc: 'Un caso real de cómo transformamos la carga operativa de un equipo en su mayor ventaja competitiva.',
+      casesTags: ['Diagnóstico', 'Implementación', 'Resultados'],
+      casesTitles: ['Identificación del cuello de botella', 'Ecosistema tecnológico a medida', 'Potenciando el capital humano'],
+      casesBodies: [
+        'Detectamos que cuatro integrantes del equipo dedicaban gran parte de su jornada a tareas rutinarias. El objetivo no era solo automatizar, sino liberar talento. Analizamos los flujos de trabajo para identificar qué procesos eran candidatos ideales para ser potenciados mediante IA, garantizando siempre el control humano sobre los resultados.',
+        'No utilizamos una única herramienta, sino que diseñamos un stack de IA heterogéneo adaptado a cada necesidad técnica.',
+        'El cliente enfrentaba una barrera de crecimiento: el mercado no ofrecía los perfiles adecuados. Al automatizar lo rutinario, el personal con mayor antigüedad pudo delegar lo operativo para asumir tareas de mayor complejidad y valor.'
+      ],
+      casesImplLabels: ['Entorno Local (On-premise)', 'Entorno Cloud Optimizado'],
+      casesImplDescs: [
+        'Para documentación altamente sensible, implementamos LLMs privados dentro de la infraestructura local del cliente. Los datos críticos nunca abandonan el entorno seguro de la empresa.',
+        'Para tareas basadas en información pública, orquestamos herramientas de IA en un entorno virtual de bajo costo: ejecución ágil y eficiente sin comprometer recursos locales.'
+      ],
+      casesResultQuote: 'Logramos la escalabilidad que buscaban sin necesidad de nuevas contrataciones, apoyándonos en el activo más valioso: la experiencia de su propia gente, ahora potenciada por tecnología.'
     },
     en: {
       nav: ['About', 'Services', 'Why Us', 'Contact'],
@@ -1887,7 +2009,23 @@
       formPlaceholders: ['Your name', 'Your company', 'you@company.com', 'Infrastructure, Cloud, Cybersecurity, AI...', 'Tell us about your project or need...'],
       submitBtn: 'Send inquiry',
       successMsg: 'Inquiry sent! We\'ll get back to you shortly.',
-      footerLinks: ['Services', 'About', 'Contact']
+      footerLinks: ['Services', 'About', 'Contact'],
+      casesLabel: 'Success Story',
+      casesTitle: 'Operational Transformation: <em>Real results in secure environments</em>',
+      casesDesc: 'A real case of how we transformed a team\'s operational burden into their greatest competitive advantage.',
+      casesTags: ['Diagnosis', 'Implementation', 'Results'],
+      casesTitles: ['Identifying the bottleneck', 'Custom technology ecosystem', 'Empowering human capital'],
+      casesBodies: [
+        'We detected that four team members were dedicating a large part of their workday to routine tasks. The objective was not just to automate, but to free up talent. We analyzed workflows to identify which processes were ideal candidates for AI enhancement, always guaranteeing human control over results.',
+        'We did not use a single tool, but designed a heterogeneous AI stack adapted to each technical need.',
+        'The client faced a growth barrier: the market did not offer the right profiles. By automating routine tasks, senior staff could delegate operational work to take on higher complexity and higher value tasks.'
+      ],
+      casesImplLabels: ['Local Environment (On-premise)', 'Optimized Cloud Environment'],
+      casesImplDescs: [
+        'For highly sensitive documentation, we implemented private LLMs within the client\'s local infrastructure. Critical data never leaves the company\'s secure environment.',
+        'For tasks based on public information, we orchestrated AI tools in a low-cost virtual environment: agile and efficient execution without compromising local resources.'
+      ],
+      casesResultQuote: 'We achieved the scalability they were looking for without the need for new hires, leveraging the most valuable asset: the experience of their own people, now empowered by technology.'
     }
   };
 
@@ -1978,6 +2116,25 @@
 
     var footerLinks = document.querySelectorAll('.footer-links a');
     footerLinks.forEach(function(a, i) { if (t.footerLinks[i]) a.textContent = t.footerLinks[i]; });
+
+    var casesEl = document.querySelector('#cases');
+    if (casesEl) {
+      casesEl.querySelector('.section-label').textContent = t.casesLabel;
+      casesEl.querySelector('.section-title').innerHTML = t.casesTitle;
+      casesEl.querySelector('.section-desc').textContent = t.casesDesc;
+      var caseTags   = casesEl.querySelectorAll('.cases-card-tag');
+      var caseTitles = casesEl.querySelectorAll('.cases-card-title');
+      var caseBodies = casesEl.querySelectorAll('.cases-card-body');
+      caseTags.forEach(function(el, i)   { if (t.casesTags[i])   el.textContent = t.casesTags[i]; });
+      caseTitles.forEach(function(el, i) { if (t.casesTitles[i]) el.textContent = t.casesTitles[i]; });
+      caseBodies.forEach(function(el, i) { if (t.casesBodies[i]) el.textContent = t.casesBodies[i]; });
+      var implTitles = casesEl.querySelectorAll('.cases-impl-title');
+      var implDescs  = casesEl.querySelectorAll('.cases-impl-desc');
+      implTitles.forEach(function(el, i) { el.textContent = t.casesImplLabels[i] || el.textContent; });
+      implDescs.forEach(function(el, i)  { el.textContent = t.casesImplDescs[i]  || el.textContent; });
+      var resultEl = casesEl.querySelector('.cases-result-text');
+      if (resultEl) resultEl.textContent = t.casesResultQuote;
+    }
   }
 
   (function() {
