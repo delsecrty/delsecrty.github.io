@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.delsecurity.com.ar/sitemap.xml
+Sitemap: https://delsecurity.com.ar/sitemap.xml
