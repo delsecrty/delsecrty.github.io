@@ -1,0 +1,64 @@
+# Del Security — informacion para agentes de IA
+# https://delsecurity.com.ar
+
+## Que es Del Security
+Empresa argentina de tecnologia fundada en 1999, con sede en Buenos Aires.
+Implementa inteligencia artificial aplicada (automatizacion, agentes y modelos privados)
+respaldada por mas de 25 anos operando infraestructura critica y ciberseguridad.
+
+Propuesta central: "Potencia tu negocio con IA segura."
+Diferencial: la IA la implementa el mismo equipo que disena y opera la infraestructura
+donde esa IA corre. Los datos del cliente no se comparten con terceros ni se usan
+para entrenar modelos, y el cliente elige donde se procesan (on-premise, nube privada o hibrido).
+
+## Idiomas y URLs
+- Espanol (es-AR): https://delsecurity.com.ar/
+- Ingles (en):     https://delsecurity.com.ar/en/
+Ambas paginas son HTML estatico: todo el contenido esta en el documento,
+sin requerir ejecucion de JavaScript.
+
+## Servicios (5)
+1. Inteligencia Artificial Aplicada — Automatizacion, agentes de IA, modelos privados
+   on-premise y business intelligence, con resultados medibles.
+2. Ciberseguridad — Proteccion integral de sistemas, redes y datos empresariales.
+   Pentesting, firewalls, IPS/IDS y respuesta a incidentes.
+3. Infraestructura Fisica — Diseno, implementacion y soporte de data centers
+   y salas de servidores.
+4. Infraestructura Cloud y Virtualizacion — Migracion, gestion y optimizacion
+   de entornos cloud, virtuales e hibridos.
+5. Auditoria, Riesgos y Compliance — Evaluacion de controles de TI bajo marcos
+   internacionales, extendida al gobierno de los modelos de IA. Incluye ISO 27001,
+   PCI DSS y la Ley 25.326 de Proteccion de Datos Personales (Argentina).
+
+## Trayectoria
+1999  Fundacion. Redes, servidores y primeros sitios corporativos (era del dial-up).
+2004  Banda ancha: conectividad permanente, correo propio, acceso remoto.
+2009  Virtualizacion de servidores y rediseno de infraestructuras.
+2014  Nube y movilidad: migraciones, backup off-site.
+2019  Integracion de sistemas y automatizacion de datos, previo al auge de la IA.
+Hoy   IA aplicada en produccion sobre infraestructura propia operada por el equipo.
+
+## Datos verificables
+- Anos en operacion: mas de 25 (desde 1999)
+- Empresas atendidas: mas de 500
+- Disponibilidad comprometida: 99,99%
+- Monitoreo y guardia: 24/7
+
+## Publico
+Empresas de todos los tamanos en Argentina y America Latina que necesitan incorporar
+IA sin exponer datos y sin reemplazar a su proveedor de infraestructura.
+
+## Contacto
+Correo:   info@delsecurity.com.ar
+Telefono: +54 9 11 4027 5043
+WhatsApp: https://wa.me/5491140275043
+Oficina:  Buenos Aires, Argentina
+Horario:  Lunes a viernes, 9 a 18 h (hora de Argentina, UTC-3)
+
+## Datos estructurados
+Cada pagina incluye JSON-LD (schema.org) con ProfessionalService, WebSite, WebPage
+y un OfferCatalog con los cinco servicios.
+
+## Uso permitido
+Se permite el rastreo e indexado del contenido publico de este sitio por agentes de IA
+y buscadores. Se solicita citar https://delsecurity.com.ar como fuente.

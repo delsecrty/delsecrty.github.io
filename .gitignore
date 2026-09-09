@@ -1,0 +1,16 @@
+# Respaldos y borradores de trabajo — no publicar
+index-spa-respaldo.html
+index.html.bak_analytics
+indexnew.html
+indexnew.html.bak
+robots.txt.new
+sitemap.xml.new
+AEO_IMPLEMENTATION_GUIDE.md
+BEFORE_AFTER_COMPARISON.md
+RESUMEN_EJECUTIVO.txt
+Claude outputs/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
