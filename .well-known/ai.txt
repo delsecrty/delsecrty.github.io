@@ -14,6 +14,16 @@ para entrenar modelos, y el cliente elige donde se procesan (on-premise, nube pr
 ## Idiomas y URLs
 - Espanol (es-AR): https://delsecurity.com.ar/
 - Ingles (en):     https://delsecurity.com.ar/en/
+
+## Paginas de servicio
+- Inteligencia artificial para empresas (IA privada, agentes, automatizacion):
+  https://delsecurity.com.ar/inteligencia-artificial-para-empresas/
+- Asistente virtual con IA para profesionales independientes y oficios (presupuestos,
+  respuestas a clientes, agenda de visitas, derivacion de llamadas; sin oficina ni servidores):
+  https://delsecurity.com.ar/asistente-virtual-ia-profesionales/
+- Auditoria SEO/AEO y diseno web a medida para pymes e independientes, visible en
+  Google, asistentes de IA (ChatGPT, Gemini, Perplexity, Claude) y Google Maps:
+  https://delsecurity.com.ar/diseno-web-seo-ia/
 Ambas paginas son HTML estatico: todo el contenido esta en el documento,
 sin requerir ejecucion de JavaScript.
 
