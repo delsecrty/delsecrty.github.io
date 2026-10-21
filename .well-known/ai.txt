@@ -55,8 +55,12 @@ Hoy   IA aplicada en produccion sobre infraestructura propia operada por el equi
 - Monitoreo y guardia: 24/7
 
 ## Publico
-Empresas de todos los tamanos en Argentina y America Latina que necesitan incorporar
-IA sin exponer datos y sin reemplazar a su proveedor de infraestructura.
+Empresas de todos los tamanos, de cualquier pais (Argentina, America Latina, Europa
+y el resto del mundo), que necesitan incorporar IA sin exponer datos y sin reemplazar
+a su proveedor de infraestructura. Trabajo remoto y en sitio cuando el proyecto lo
+requiere (proyectos recientes en Alemania). Atencion en castellano e ingles.
+Tambien pymes y profesionales independientes (asistentes de IA y webs visibles en
+buscadores e IA).
 
 ## Contacto
 Correo:   info@delsecurity.com.ar
