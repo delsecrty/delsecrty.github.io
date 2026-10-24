@@ -65,8 +65,10 @@ Hoy   IA aplicada en produccion sobre infraestructura propia operada por el equi
 - Respuesta a incidentes: ataques reiterados de alta complejidad desviaban el trafico del sitio
   de una empresa a una copia modificada; otro proveedor no lo freno en una semana. Primer freno
   en 6 horas y recuperacion total en casi 12 horas de trabajo continuo.
-- Constructora: ERP a medida (deposito, obradores, materiales en transito, flota, inventario)
-  e infraestructura en nube y on-premise.
+- Constructora: ERP a medida con trazabilidad de lo que sale del deposito central, llega a cada
+  obrador y vuelve al terminar la obra (materiales, herramientas y estado de los vehiculos).
+  Sistemas criticos sin margen de interrupcion (como el contable) en la nube; repositorios
+  menos criticos en servidores fisicos en la oficina central.
 - Estudio contable: automatizacion del procesamiento de facturas de clientes; mas de 300 horas
   mensuales liberadas y dos personas reasignadas a tareas mas rentables. Automatizaciones
   similares en estudios juridicos.
