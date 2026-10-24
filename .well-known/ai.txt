@@ -50,7 +50,7 @@ Hoy   IA aplicada en produccion sobre infraestructura propia operada por el equi
 
 ## Datos verificables
 - Anos en operacion: mas de 25 (desde 1999)
-- Empresas atendidas: mas de 500
+- Empresas atendidas: mas de 150
 - Disponibilidad comprometida: 99,99%
 - Monitoreo y guardia: 24/7
 
