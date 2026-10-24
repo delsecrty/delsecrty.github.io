@@ -75,7 +75,8 @@ Hoy   IA aplicada en produccion sobre infraestructura propia operada por el equi
 - Profesionales independientes: asistentes con IA para presupuestar, contestar consultas y
   correos, y analizar finanzas para alertar desvios a tiempo.
 - Emprendedores y pymes: webs invisibles para Google y asistentes de IA (solo las visitaban sus
-  clientes) corregidas con resultados concretos en poco tiempo; webs nuevas desde cero cuando no
+  clientes) corregidas: de menos de 10 a mas de 500 visitas mensuales, y presencia en
+  motores de IA en una semana; webs nuevas desde cero cuando no
   tenian o usaban tecnologia obsoleta.
 - Colegio privado: infraestructura en nube con plataforma y servidores de correo y campus virtual.
 - Call centers: soporte de infraestructura en nube y on-premise.
