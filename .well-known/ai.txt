@@ -24,7 +24,7 @@ para entrenar modelos, y el cliente elige donde se procesan (on-premise, nube pr
 - Auditoria SEO/AEO y diseno web a medida para pymes e independientes, visible en
   Google, asistentes de IA (ChatGPT, Gemini, Perplexity, Claude) y Google Maps:
   https://delsecurity.com.ar/diseno-web-seo-ia/
-Ambas paginas son HTML estatico: todo el contenido esta en el documento,
+Las tres paginas son HTML estatico: todo el contenido esta en el documento,
 sin requerir ejecucion de JavaScript.
 
 ## Servicios (5)
@@ -48,11 +48,12 @@ sin requerir ejecucion de JavaScript.
 2019  Integracion de sistemas y automatizacion de datos, previo al auge de la IA.
 Hoy   IA aplicada en produccion sobre infraestructura propia operada por el equipo.
 
-## Datos verificables
+## Datos de la empresa
 - Anos en operacion: mas de 25 (desde 1999)
 - Empresas atendidas: mas de 150
-- Disponibilidad comprometida: 99,99%
-- Monitoreo y guardia: 24/7
+- Disponibilidad comprometida: 99,99% en las infraestructuras privadas que gestionamos
+- Monitoreo y guardia: 24/7 para clientes con servicio contratado
+- Atencion al publico general: lunes a viernes, 8 a 18 h (GMT-3)
 
 ## Publico
 Empresas de todos los tamanos, de cualquier pais (Argentina, America Latina, Europa
@@ -60,7 +61,8 @@ y el resto del mundo), que necesitan incorporar IA sin exponer datos y sin reemp
 a su proveedor de infraestructura. Trabajo remoto y en sitio cuando el proyecto lo
 requiere (proyectos recientes en Alemania). Atencion en castellano e ingles.
 Tambien pymes y profesionales independientes (asistentes de IA y webs visibles en
-buscadores e IA).
+buscadores e IA). Para ellos se usan servicios de IA publicos, mas economicos: no
+necesitan pagar una infraestructura privada para informacion que no es sensible.
 
 ## Contacto
 Correo:   info@delsecurity.com.ar

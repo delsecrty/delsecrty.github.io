@@ -17,14 +17,16 @@
 <meta property="og:url" content="https://delsecurity.com.ar/en/">
 <meta property="og:title" content="Del Security | Power your business with secure AI">
 <meta property="og:description" content="Automation, agents and private models that never expose your data. 25 years sustaining critical infrastructure.">
-<meta property="og:image" content="https://delsecurity.com.ar/assets/about-datacenter-opt.jpg">
+<meta property="og:image" content="https://delsecurity.com.ar/assets/og/home-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Del Security | Power your business with secure AI">
 <meta name="twitter:description" content="Automation, agents and private models that never expose your data. 25 years sustaining critical infrastructure.">
-<meta name="twitter:image" content="https://delsecurity.com.ar/assets/about-datacenter-opt.jpg">
+<meta name="twitter:image" content="https://delsecurity.com.ar/assets/og/home-en.jpg">
 <link rel="icon" href="/favicon.png?v=2"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&display=swap">
+<link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/orbitron-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 :root{
   --void:#050508; --s1:#0a0d14; --s2:#0f1420; --s3:#141b2b;
@@ -223,27 +225,74 @@ form .btn{margin-top:4px;border:0}
   border-radius:2px;font-family:var(--cnd);font-weight:600;letter-spacing:.02em;color:var(--cyan)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 @media(max-width:560px){.fgrid{grid-template-columns:1fr}}
+
+/* ---------- tipografías alojadas en el sitio ---------- */
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/inter-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/inter-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/inter-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Orbitron";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/orbitron-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Orbitron";font-style:normal;font-weight:800;font-display:swap;src:url(/assets/fonts/orbitron-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Orbitron";font-style:normal;font-weight:900;font-display:swap;src:url(/assets/fonts/orbitron-latin-900-normal.woff2) format("woff2")}
+@font-face{font-family:"Rajdhani";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/rajdhani-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Rajdhani";font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/rajdhani-latin-700-normal.woff2) format("woff2")}
+
+/* ---------- v2: ajustes ---------- */
+:where(img){height:auto}
+/* menú celular */
+.burger{display:none;width:42px;height:42px;border:1px solid var(--hair);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:5px;color:var(--tx)}
+.burger span{display:block;width:18px;height:2px;background:currentColor;transition:transform .25s var(--ease),opacity .2s}
+.nav.open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.open .burger span:nth-child(2){opacity:0}
+.nav.open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:900px){
+  .burger{display:flex;order:3}
+  .nav .wrap{gap:10px}
+  .nav .wrap>a:first-child{margin-right:auto}
+  .nav.open ul{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--void);box-shadow:0 30px 60px rgba(0,0,0,.6);border-bottom:1px solid var(--hair);padding:8px var(--pad) 18px}
+  .nav.open ul li a{display:block;padding:14px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
+  .nav.open ul li:last-child a{border-bottom:0}
+}
+.m-only{display:none}
+.nav.open .m-only{display:block}
+@media(max-width:520px){.nav .btn{display:none}.nav img{height:32px}}
+/* cifras alineadas en celular */
+@media(max-width:760px){.stats .wrap{padding:0 var(--pad)!important}.stats li{padding-left:0!important;padding-right:0!important}.stats li:nth-child(even){padding-left:clamp(16px,5vw,28px)!important}}
+@media(max-width:420px){.stats li:nth-child(even){padding-left:0!important}}
+/* datos de contacto en columna */
+.cinfo div{grid-template-columns:7.5rem minmax(0,1fr);align-items:baseline}
+/* formulario */
+.ferr{margin-top:16px;padding:14px 16px;border:1px solid rgba(255,90,90,.45);background:rgba(255,90,90,.08);border-radius:2px;color:#ffb3b3;font-size:.9375rem}
+.ferr a{color:#fff;text-decoration:underline}
+.fpriv{font-size:.75rem;color:var(--tx3);margin-top:8px}
+.fpriv a{color:var(--tx2);text-decoration:underline}
+/* botón flotante de WhatsApp */
+.wa-float{position:fixed;right:clamp(14px,3vw,26px);bottom:clamp(14px,3vw,26px);z-index:70;width:56px;height:56px;border-radius:50%;background:#25d366;color:#04140a;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .25s var(--ease)}
+.wa-float:hover{transform:scale(1.07)}
+.wa-float svg{width:28px;height:28px}
+@media print{.wa-float{display:none}}
 </style>
 </head>
 <body>
 
 <nav class="nav">
   <div class="wrap">
-    <a href="#top" aria-label="Del Security"><img src="/assets/Logo%20Del-opt.png?v=2" alt="Del Security"></a>
-    <ul>
+    <a href="#top" aria-label="Del Security"><img src="/assets/Logo%20Del-opt.png?v=2" alt="Del Security" width="655" height="120" decoding="async"></a>
+    <ul id="menu">
       <li><a href="#nosotros">About</a></li>
       <li><a href="#servicios">Services</a></li>
       <li><a href="#porque">Why us</a></li>
       <li><a href="#trayectoria">Track record</a></li>
+      <li class="m-only"><a href="#contacto">Contact</a></li>
     </ul>
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     <div class="lang"><a href="/" hreflang="es">ES</a><a href="/en/" aria-current="true">EN</a></div>
     <a class="btn" href="#contacto">Contact</a>
   </div>
 </nav>
 
 <header class="hero" id="top">
-  <video autoplay muted loop playsinline poster="/assets/hero-poster.jpg" aria-hidden="true">
-    <source src="/assets/Animacion%20Del.mp4" type="video/mp4">
+  <video muted loop playsinline preload="none" poster="/assets/hero-poster.jpg" aria-hidden="true">
+    <source data-src="/assets/Animacion%20Del.mp4" type="video/mp4">
   </video>
   <div class="wrap">
     <h1>Power your business <span>with secure AI</span></h1>
@@ -267,7 +316,7 @@ form .btn{margin-top:4px;border:0}
     </div>
     <div class="about-txt rv"><p>Everyone offers AI today. Few know where it will run, what data it touches, and what risks it opens. We come from the backstage of the digital world: over two decades sustaining data centers, complex networks, and critical infrastructures that cannot fail.</p><p>That is why our AI is not a plugin you install: it is a layer that demands order, security, and solid infrastructure. Automation, agents, and private models built on deep knowledge of your systems — with privacy, control, and efficiency.</p></div>
     <blockquote class="pull rv">We are the technical partner that connects the potential of AI with the security of your infrastructure. Your competitive advantage: real, measurable, and secure.</blockquote>
-    <div class="trio"><figure class="rv"><img src="/assets/about-ai-opt.jpg" alt="Artificial Intelligence" loading="lazy"><figcaption>Artificial Intelligence</figcaption></figure><figure class="rv"><img src="/assets/about-security-opt.jpg" alt="Cybersecurity" loading="lazy"><figcaption>Cybersecurity</figcaption></figure><figure class="rv"><img src="/assets/about-datacenter-opt.jpg" alt="Infrastructure" loading="lazy"><figcaption>Infrastructure</figcaption></figure></div>
+    <div class="trio"><figure class="rv"><img src="/assets/about-ai-opt.jpg" alt="Artificial Intelligence" loading="lazy" width="1600" height="1600" decoding="async"><figcaption>Artificial Intelligence</figcaption></figure><figure class="rv"><img src="/assets/about-security-opt.jpg" alt="Cybersecurity" loading="lazy" width="1600" height="873" decoding="async"><figcaption>Cybersecurity</figcaption></figure><figure class="rv"><img src="/assets/about-datacenter-opt.jpg" alt="Infrastructure" loading="lazy" width="1600" height="873" decoding="async"><figcaption>Infrastructure</figcaption></figure></div>
   </div>
 </section>
 
@@ -278,7 +327,7 @@ form .btn{margin-top:4px;border:0}
       <h2 class="h2">Applied AI, on secure foundations.</h2>
       <p class="lede">We implement AI and automation across the entire stack: from hardware and network to private models. Every solution is documented, auditable, and under your exclusive control.</p>
     </div>
-    <div class="svcs"><article class="card chrome rv"><img src="/assets/cards/ai.jpg" alt="Applied Artificial Intelligence" loading="lazy"><div class="in"><h3>Applied Artificial Intelligence</h3><p>Automation, AI agents, on-premise private models and business intelligence to scale the business with measurable results.</p><ul class="tags"><li>Agents</li><li>Automation</li><li>Private models</li><li>Business intelligence</li></ul></div></article><article class="card chrome rv"><img src="/assets/cards/ciber.jpg" alt="Cybersecurity" loading="lazy"><div class="in"><h3>Cybersecurity</h3><p>Comprehensive protection of enterprise systems, networks and data. Pentesting, firewalls and IPS/IDS.</p><ul class="tags"><li>Pentesting</li><li>Firewalls</li><li>IPS/IDS</li><li>Incident response</li></ul></div></article><article class="card chrome rv"><img src="/assets/cards/infra.jpg" alt="Physical Infrastructure" loading="lazy"><div class="in"><h3>Physical Infrastructure</h3><p>Design, implementation and support of data centers and server rooms.</p><ul class="tags"><li>Data centers</li><li>Server rooms</li><li>Networking</li><li>Support</li></ul></div></article><article class="card chrome rv"><img src="/assets/cards/cloud.jpg" alt="Cloud Infrastructure & Virtualization" loading="lazy"><div class="in"><h3>Cloud Infrastructure & Virtualization</h3><p>Migration, management and optimization of cloud and virtual environments.</p><ul class="tags"><li>Migration</li><li>Virtualization</li><li>Hybrid</li><li>Optimization</li></ul></div></article><article class="card chrome rv"><img src="/assets/cards/audit.jpg" alt="Audit, Risk & Compliance" loading="lazy"><div class="in"><h3>Audit, Risk & Compliance</h3><p>Comprehensive evaluation of IT controls under international frameworks — now extended to the AI models your company is starting to adopt. We identify gaps, manage risk, and guide compliance end to end.</p><ul class="tags"><li>AI governance</li><li>ISO 27001</li><li>PCI DSS</li><li>Risk management</li></ul></div></article><article class="card card-cta chrome rv"><div class="in"><h3>Not sure where to start?</h3><p>A diagnostic meeting, free and with no strings attached, to understand the real situation before proposing anything.</p><div class="cta-row" style="margin-top:22px"><a class="btn" href="#contacto">Book a call</a></div></div></article></div>
+    <div class="svcs"><article class="card chrome rv"><img src="/assets/cards/ai.jpg" alt="Applied Artificial Intelligence" loading="lazy" width="541" height="617" decoding="async"><div class="in"><h3>Applied Artificial Intelligence</h3><p>Automation, AI agents, on-premise private models and business intelligence to scale the business with measurable results.</p><ul class="tags"><li>Agents</li><li>Automation</li><li>Private models</li><li>Business intelligence</li></ul></div></article><article class="card chrome rv"><img src="/assets/cards/ciber.jpg" alt="Cybersecurity" loading="lazy" width="537" height="563" decoding="async"><div class="in"><h3>Cybersecurity</h3><p>Comprehensive protection of enterprise systems, networks and data. Pentesting, firewalls and IPS/IDS.</p><ul class="tags"><li>Pentesting</li><li>Firewalls</li><li>IPS/IDS</li><li>Incident response</li></ul></div></article><article class="card chrome rv"><img src="/assets/cards/infra.jpg" alt="Physical Infrastructure" loading="lazy" width="551" height="622" decoding="async"><div class="in"><h3>Physical Infrastructure</h3><p>Design, implementation and support of data centers and server rooms.</p><ul class="tags"><li>Data centers</li><li>Server rooms</li><li>Networking</li><li>Support</li></ul></div></article><article class="card chrome rv"><img src="/assets/cards/cloud.jpg" alt="Cloud Infrastructure & Virtualization" loading="lazy" width="534" height="608" decoding="async"><div class="in"><h3>Cloud Infrastructure & Virtualization</h3><p>Migration, management and optimization of cloud and virtual environments.</p><ul class="tags"><li>Migration</li><li>Virtualization</li><li>Hybrid</li><li>Optimization</li></ul></div></article><article class="card chrome rv"><img src="/assets/cards/audit.jpg" alt="Audit, Risk & Compliance" loading="lazy" width="537" height="558" decoding="async"><div class="in"><h3>Audit, Risk & Compliance</h3><p>Comprehensive evaluation of IT controls under international frameworks — now extended to the AI models your company is starting to adopt. We identify gaps, manage risk, and guide compliance end to end.</p><ul class="tags"><li>AI governance</li><li>ISO 27001</li><li>PCI DSS</li><li>Risk management</li></ul></div></article><article class="card card-cta chrome rv"><div class="in"><h3>Not sure where to start?</h3><p>A diagnostic meeting, free and with no strings attached, to understand the real situation before proposing anything.</p><div class="cta-row" style="margin-top:22px"><a class="btn" href="#contacto">Book a call</a></div></div></article></div>
   </div>
 </section>
 
@@ -293,13 +342,13 @@ form .btn{margin-top:4px;border:0}
         </div>
         <ul class="pledges rv"><li><b>Where it runs</b><p>You choose where processing happens: on-premise, private cloud or hybrid.</p></li><li><b>What leaves</b><p>Nothing. Your data is never shared with third parties or used to train models.</p></li><li><b>Who answers</b><p>A person with a name, with response times set by contract.</p></li></ul>
       </div>
-      <div class="split-media chrome rv"><img src="/assets/about-ai-opt.jpg" alt="" loading="lazy"></div>
+      <div class="split-media chrome rv"><img src="/assets/about-ai-opt.jpg" alt="" loading="lazy" width="1600" height="1600" decoding="async"></div>
     </div>
   </div>
 </section>
 
 <section class="band" id="trayectoria">
-  <img src="/assets/about-datacenter-opt.jpg" alt="" loading="lazy">
+  <img src="/assets/about-datacenter-opt.jpg" alt="" loading="lazy" width="1600" height="873" decoding="async">
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">Track record</span>
@@ -311,7 +360,7 @@ form .btn{margin-top:4px;border:0}
 </section>
 
 <section class="sec contact" id="contacto">
-  <img src="/assets/about-security-opt.jpg" alt="" loading="lazy">
+  <img src="/assets/about-security-opt.jpg" alt="" loading="lazy" width="1600" height="873" decoding="async">
   <div class="wrap">
     <div class="cgrid">
       <div class="rv">
@@ -321,7 +370,7 @@ form .btn{margin-top:4px;border:0}
         <dl class="cinfo"><div><dt>Email</dt><dd><a href="mailto:info@delsecurity.com.ar">info@delsecurity.com.ar</a></dd></div><div><dt>Phone</dt><dd><a href="tel:+5491140275043">+54 9 11 4027 5043</a></dd></div><div><dt>WhatsApp</dt><dd><a href="https://wa.me/5491140275043" rel="noopener">Message us on WhatsApp</a></dd></div><div><dt>Office</dt><dd>Buenos Aires, Argentina</dd></div><div><dt>Hours</dt><dd>Monday to Friday, 8 am to 6 pm (GMT-3)</dd></div></dl>
       </div>
 
-      <form class="rv" action="https://formspree.io/f/xrervdpo" method="POST" novalidate>
+      <form class="rv" action="https://formspree.io/f/xrervdpo" method="POST" data-sending="Sending…">
         <input type="hidden" name="_subject" value="Consulta desde delsecurity.com.ar (EN)">
         <div class="hp"><label>Do not fill<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
         <div class="fgrid">
@@ -333,7 +382,9 @@ form .btn{margin-top:4px;border:0}
         </div>
         <button class="btn" type="submit">Send inquiry</button>
         <p class="fnote">You can also reach us directly by email or WhatsApp.</p>
-        <p class="fok" hidden data-ok>Inquiry sent! We'll get back to you shortly.</p>
+        <p class="fpriv">By sending, you accept our <a href="/en/privacy/">privacy policy</a>.</p>
+        <p class="fok" hidden data-ok role="status">Inquiry sent! We'll get back to you shortly.</p>
+        <p class="ferr" hidden data-err role="alert">We couldn't send your message. Email us at <a href="mailto:info@delsecurity.com.ar">info@delsecurity.com.ar</a> or message us on <a href="https://wa.me/5491140275043" rel="noopener">WhatsApp</a>.</p>
       </form>
     </div>
   </div>
@@ -341,8 +392,8 @@ form .btn{margin-top:4px;border:0}
 
 <footer>
   <div class="wrap">
-    <div><img src="/assets/Logo%20Del-opt.png?v=2" alt="Del Security"><p>AI · Infrastructure · Audit · Security<br>Buenos Aires, Argentina · Since 1999</p></div>
-    <p>&copy; 2026 Del Security</p>
+    <div><img src="/assets/Logo%20Del-opt.png?v=2" alt="Del Security" width="655" height="120" decoding="async"><p>AI · Infrastructure · Audit · Security<br>Buenos Aires, Argentina · Since 1999</p></div>
+    <p><a href="/en/privacy/">Privacy policy</a><br>&copy; 2026 Del Security</p>
   </div>
 </footer>
 
@@ -377,20 +428,36 @@ form .btn{margin-top:4px;border:0}
   var nav=document.querySelector('.nav');
   addEventListener('scroll',function(){ nav.style.background = scrollY>40?'rgba(5,5,8,.9)':'rgba(5,5,8,.58)'; },{passive:true});
 
-  // envio sin recargar; si falla el JS, el form postea normal a Formspree
+  // envio sin recargar: solo muestra "enviada" si Formspree confirma
   var f=document.querySelector('form[action*="formspree"]');
   if (f && window.fetch) f.addEventListener('submit', function(e){
-    if (!f.checkValidity()) return;
     e.preventDefault();
-    var btn=f.querySelector('button[type=submit]'), txt=btn.textContent; btn.disabled=true;
+    var ok=f.querySelector('[data-ok]'), er=f.querySelector('[data-err]');
+    ok.hidden=true; er.hidden=true;
+    if (!f.checkValidity()) { f.reportValidity(); return; }
+    var btn=f.querySelector('button[type=submit]'), txt=btn.textContent; btn.disabled=true; btn.textContent=f.dataset.sending||txt;
     fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
-      .then(function(){ f.querySelector('[data-ok]').hidden=false; f.reset(); })
-      .catch(function(){ f.querySelector('[data-ok]').hidden=false; f.reset(); })
+      .then(function(r){ if(!r.ok) throw new Error(r.status); ok.hidden=false; f.reset(); })
+      .catch(function(){ er.hidden=false; })
       .then(function(){ btn.disabled=false; btn.textContent=txt; });
   });
+
+  // menú celular
+  var bg=document.querySelector('.burger');
+  if (bg) {
+    bg.addEventListener('click',function(){ var o=nav.classList.toggle('open'); bg.setAttribute('aria-expanded',o); });
+    [].slice.call(nav.querySelectorAll('ul a')).forEach(function(a){ a.addEventListener('click',function(){ nav.classList.remove('open'); bg.setAttribute('aria-expanded','false'); }); });
+  }
+
+  // video de portada: solo en pantallas grandes y sin "reducir movimiento"
+  var v=document.querySelector('.hero video');
+  if (v && matchMedia('(min-width:761px)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var sc=v.querySelector('source[data-src]'); if (sc) { sc.src=sc.dataset.src; v.load(); var p=v.play(); if(p&&p.catch)p.catch(function(){}); }
+  }
 })();
 </script>
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5bab0a5479c34a3798775f9788ffef61"}'></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://delsecurity.com.ar/#organization","name":"Del Security","description":"Del Security — We implement AI with the confidence of a team that has protected critical infrastructure for 25 years: automation, private models, and measurable results. Buenos Aires, Argentina.","url":"https://delsecurity.com.ar/","email":"info@delsecurity.com.ar","telephone":"+54-9-11-4027-5043","foundingDate":"1999","logo":"https://delsecurity.com.ar/assets/Logo%20Del-opt.png","image":"https://delsecurity.com.ar/assets/about-datacenter-opt.jpg","address":{"@type":"PostalAddress","addressLocality":"Buenos Aires","addressCountry":"AR"},"areaServed":[{"@type":"Country","name":"Argentina"},{"@type":"Place","name":"América Latina"},{"@type":"Place","name":"Europa"},{"@type":"Place","name":"Worldwide"}],"knowsAbout":["Inteligencia artificial aplicada","Agentes de IA","Modelos privados on-premise","Business intelligence","Ciberseguridad","Pentesting","Data centers","Cloud y virtualizacion","Gobierno de IA","ISO 27001","Ley 25.326"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Servicios de Del Security","itemListElement":[{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Applied Artificial Intelligence", "description": "Automation, AI agents, on-premise private models and business intelligence to scale the business with measurable results."}},{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cybersecurity", "description": "Comprehensive protection of enterprise systems, networks and data. Pentesting, firewalls and IPS/IDS."}},{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Physical Infrastructure", "description": "Design, implementation and support of data centers and server rooms."}},{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cloud Infrastructure & Virtualization", "description": "Migration, management and optimization of cloud and virtual environments."}},{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Audit, Risk & Compliance", "description": "Comprehensive evaluation of IT controls under international frameworks — now extended to the AI models your company is starting to adopt. We identify gaps, manage risk, and guide compliance end to end."}}]}},{"@type":"WebSite","@id":"https://delsecurity.com.ar/#website","url":"https://delsecurity.com.ar/","name":"Del Security","inLanguage":"en","publisher":{"@id":"https://delsecurity.com.ar/#organization"}},{"@type":"WebPage","@id":"https://delsecurity.com.ar/en/#webpage","url":"https://delsecurity.com.ar/en/","name":"Del Security | Applied AI, Automation and Cybersecurity for Business","isPartOf":{"@id":"https://delsecurity.com.ar/#website"},"about":{"@id":"https://delsecurity.com.ar/#organization"},"inLanguage":"en"}]}</script>
+<a class="wa-float" href="https://wa.me/5491140275043" rel="noopener" aria-label="Message us on WhatsApp" title="Message us on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2.5c-5.25 0-9.5 3.9-9.5 8.7 0 2.62 1.27 4.97 3.27 6.57L5 21.5l4.1-2.08c.92.25 1.89.38 2.9.38 5.25 0 9.5-3.9 9.5-8.7S17.25 2.5 12 2.5zm4.3 11.6c-.18.5-1.05.95-1.45 1-.38.05-.86.07-1.38-.09-.32-.1-.73-.23-1.25-.46-2.2-.95-3.64-3.17-3.75-3.32-.11-.15-.9-1.2-.9-2.29s.57-1.62.77-1.85c.2-.22.44-.28.59-.28h.42c.14 0 .32-.05.5.38.18.44.62 1.52.67 1.63.05.11.09.24.02.39-.07.15-.11.24-.22.37l-.33.39c-.11.11-.22.23-.1.45.13.22.57.94 1.22 1.52.84.75 1.55.98 1.77 1.09.22.11.35.09.48-.05.13-.15.55-.64.7-.86.15-.22.29-.18.5-.11.2.07 1.29.61 1.51.72.22.11.37.16.42.25.06.09.06.52-.12 1.02z"/></svg></a>
 </body>
 </html>

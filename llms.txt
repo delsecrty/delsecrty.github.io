@@ -1,0 +1,32 @@
+# Del Security
+
+> Empresa argentina de tecnologia fundada en 1999 (Buenos Aires). Implementa inteligencia artificial aplicada —automatizacion, agentes y modelos privados— respaldada por mas de 25 anos operando infraestructura critica y ciberseguridad. Atiende empresas de cualquier pais en castellano e ingles, y tambien a pymes y profesionales independientes.
+
+Diferencial: la IA la implementa el mismo equipo que disena y opera la infraestructura donde corre. En proyectos de empresa, el cliente elige donde se procesan sus datos (on-premise, nube privada o hibrido) y no se comparten con terceros ni se usan para entrenar modelos. Para independientes y pymes chicas se usan servicios de IA publicos, mas economicos, porque la informacion que manejan no es sensible.
+
+## Paginas principales
+
+- [Inicio (castellano)](https://delsecurity.com.ar/): servicios, trayectoria y contacto
+- [Home (English)](https://delsecurity.com.ar/en/): services, track record and contact
+- [Inteligencia artificial para empresas](https://delsecurity.com.ar/inteligencia-artificial-para-empresas/): IA privada, agentes de IA, automatizacion y business intelligence
+- [Asistente virtual con IA para profesionales independientes](https://delsecurity.com.ar/asistente-virtual-ia-profesionales/): presupuestos, respuestas a clientes, agenda de visitas y derivacion de llamadas para oficios
+- [Auditoria SEO/AEO y diseno web](https://delsecurity.com.ar/diseno-web-seo-ia/): webs visibles en Google, en asistentes de IA y en Google Maps
+
+## Servicios
+
+- Inteligencia Artificial Aplicada: automatizacion, agentes, modelos privados on-premise y business intelligence
+- Ciberseguridad: pentesting, firewalls, IPS/IDS y respuesta a incidentes
+- Infraestructura Fisica: diseno, implementacion y soporte de data centers y salas de servidores
+- Infraestructura Cloud y Virtualizacion: migracion, gestion y optimizacion de entornos cloud, virtuales e hibridos
+- Auditoria, Riesgos y Compliance: controles de TI bajo marcos internacionales, ISO 27001, Ley 25.326 y gobierno de IA
+
+## Contacto
+
+- Correo: info@delsecurity.com.ar
+- Telefono y WhatsApp: +54 9 11 4027 5043 (https://wa.me/5491140275043)
+- Atencion al publico: lunes a viernes, 8 a 18 h (GMT-3). Monitoreo y guardia 24/7 para clientes con servicio contratado.
+
+## Opcional
+
+- [Informacion ampliada para agentes de IA](https://delsecurity.com.ar/.well-known/ai.txt)
+- [Politica de privacidad](https://delsecurity.com.ar/privacidad/)

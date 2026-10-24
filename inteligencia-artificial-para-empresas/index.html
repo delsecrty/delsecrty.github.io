@@ -14,14 +14,16 @@
 <meta property="og:url" content="https://delsecurity.com.ar/inteligencia-artificial-para-empresas/">
 <meta property="og:title" content="Inteligencia artificial para empresas, sin exponer tus datos | Del Security">
 <meta property="og:description" content="Agentes de IA, automatización y modelos privados que corren donde vos elegís. 25 años operando infraestructura crítica.">
-<meta property="og:image" content="https://delsecurity.com.ar/assets/about-ai-opt.jpg">
+<meta property="og:image" content="https://delsecurity.com.ar/assets/og/ia-empresas.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Inteligencia artificial para empresas, sin exponer tus datos | Del Security">
 <meta name="twitter:description" content="Agentes de IA, automatización y modelos privados que corren donde vos elegís. 25 años operando infraestructura crítica.">
-<meta name="twitter:image" content="https://delsecurity.com.ar/assets/about-ai-opt.jpg">
+<meta name="twitter:image" content="https://delsecurity.com.ar/assets/og/ia-empresas.jpg">
 <link rel="icon" href="../favicon.png?v=2"><link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&display=swap">
+<link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/orbitron-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 :root{
   --void:#050508; --s1:#0a0d14; --s2:#0f1420; --s3:#141b2b;
@@ -271,26 +273,73 @@ form .btn{margin-top:4px;border:0}
 .more a{font-family:var(--cnd);font-weight:600;font-size:.8125rem;letter-spacing:.12em;text-transform:uppercase;padding:10px 16px;border:1px solid var(--hair-2);border-radius:2px;color:var(--tx2);transition:all .2s}
 .more a:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,210,255,.06)}
 @media(max-width:640px){#independientes .feat{grid-template-columns:1fr!important}}
+
+/* ---------- tipografías alojadas en el sitio ---------- */
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/inter-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/inter-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/inter-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Orbitron";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/orbitron-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Orbitron";font-style:normal;font-weight:800;font-display:swap;src:url(/assets/fonts/orbitron-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Orbitron";font-style:normal;font-weight:900;font-display:swap;src:url(/assets/fonts/orbitron-latin-900-normal.woff2) format("woff2")}
+@font-face{font-family:"Rajdhani";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/rajdhani-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Rajdhani";font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/rajdhani-latin-700-normal.woff2) format("woff2")}
+
+/* ---------- v2: ajustes ---------- */
+:where(img){height:auto}
+/* menú celular */
+.burger{display:none;width:42px;height:42px;border:1px solid var(--hair);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:5px;color:var(--tx)}
+.burger span{display:block;width:18px;height:2px;background:currentColor;transition:transform .25s var(--ease),opacity .2s}
+.nav.open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.open .burger span:nth-child(2){opacity:0}
+.nav.open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:900px){
+  .burger{display:flex;order:3}
+  .nav .wrap{gap:10px}
+  .nav .wrap>a:first-child{margin-right:auto}
+  .nav.open ul{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--void);box-shadow:0 30px 60px rgba(0,0,0,.6);border-bottom:1px solid var(--hair);padding:8px var(--pad) 18px}
+  .nav.open ul li a{display:block;padding:14px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
+  .nav.open ul li:last-child a{border-bottom:0}
+}
+.m-only{display:none}
+.nav.open .m-only{display:block}
+@media(max-width:520px){.nav .btn{display:none}.nav img{height:32px}}
+/* cifras alineadas en celular */
+@media(max-width:760px){.stats .wrap{padding:0 var(--pad)!important}.stats li{padding-left:0!important;padding-right:0!important}.stats li:nth-child(even){padding-left:clamp(16px,5vw,28px)!important}}
+@media(max-width:420px){.stats li:nth-child(even){padding-left:0!important}}
+/* datos de contacto en columna */
+.cinfo div{grid-template-columns:7.5rem minmax(0,1fr);align-items:baseline}
+/* formulario */
+.ferr{margin-top:16px;padding:14px 16px;border:1px solid rgba(255,90,90,.45);background:rgba(255,90,90,.08);border-radius:2px;color:#ffb3b3;font-size:.9375rem}
+.ferr a{color:#fff;text-decoration:underline}
+.fpriv{font-size:.75rem;color:var(--tx3);margin-top:8px}
+.fpriv a{color:var(--tx2);text-decoration:underline}
+/* botón flotante de WhatsApp */
+.wa-float{position:fixed;right:clamp(14px,3vw,26px);bottom:clamp(14px,3vw,26px);z-index:70;width:56px;height:56px;border-radius:50%;background:#25d366;color:#04140a;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .25s var(--ease)}
+.wa-float:hover{transform:scale(1.07)}
+.wa-float svg{width:28px;height:28px}
+@media print{.wa-float{display:none}}
 </style>
 </head>
 <body>
 
 <nav class="nav">
   <div class="wrap">
-    <a href="/" aria-label="Del Security — inicio"><img src="../assets/Logo%20Del-opt.png?v=2" alt="Del Security"></a>
-    <ul>
+    <a href="/" aria-label="Del Security — inicio"><img src="../assets/Logo%20Del-opt.png?v=2" alt="Del Security" width="655" height="120" decoding="async"></a>
+    <ul id="menu">
       <li><a href="#que-hacemos">Qué hacemos</a></li>
       <li><a href="#ia-privada">IA privada</a></li>
       <li><a href="#como-trabajamos">Cómo trabajamos</a></li>
       <li><a href="#preguntas">Preguntas</a></li>
+      <li class="m-only"><a href="#contacto">Contacto</a></li>
     </ul>
+    <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     <div class="lang"><a href="/" aria-current="true">ES</a><a href="/en/" hreflang="en">EN</a></div>
     <a class="btn" href="#contacto">Contacto</a>
   </div>
 </nav>
 
 <header class="hero sub" id="top">
-  <img class="ph" src="../assets/about-ai-opt.jpg" alt="" fetchpriority="high">
+  <img class="ph" src="../assets/about-ai-opt.jpg" alt="" fetchpriority="high" width="1600" height="1600" decoding="async">
   <div class="wrap">
     <ol class="crumbs" aria-label="Ruta de navegación"><li><a href="/">Inicio</a></li><li><a href="/#servicios">Servicios</a></li><li><span aria-current="page">Inteligencia artificial para empresas</span></li></ol>
     <h1>Inteligencia artificial para empresas, <span>sin exponer tus datos</span></h1>
@@ -340,7 +389,7 @@ form .btn{margin-top:4px;border:0}
         </div>
         <ul class="pledges rv"><li><b>On-premise</b><p>El modelo corre en servidores de tu empresa. Máximo control, ideal para información sensible o regulada.</p></li><li><b>Nube privada</b><p>Infraestructura dedicada, sin compartir recursos ni datos con otros clientes. Sin inversión inicial en hardware.</p></li><li><b>Híbrido</b><p>Lo sensible queda adentro; lo que no lo es puede usar servicios externos con controles definidos.</p></li><li><b>Qué sale</b><p>Nada que no esté acordado. Tus datos no se comparten con terceros ni se usan para entrenar modelos.</p></li></ul>
       </div>
-      <div class="split-media chrome rv"><img src="../assets/about-datacenter-opt.jpg" alt="Sala de servidores donde corren modelos de IA privados" loading="lazy"></div>
+      <div class="split-media chrome rv"><img src="../assets/about-datacenter-opt.jpg" alt="Sala de servidores donde corren modelos de IA privados" loading="lazy" width="1600" height="873" decoding="async"></div>
     </div>
   </div>
 </section>
@@ -363,7 +412,7 @@ form .btn{margin-top:4px;border:0}
 </section>
 
 <section class="band" id="porque">
-  <img src="../assets/about-security-opt.jpg" alt="" loading="lazy">
+  <img src="../assets/about-security-opt.jpg" alt="" loading="lazy" width="1600" height="873" decoding="async">
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">Por qué Del Security</span>
@@ -413,7 +462,7 @@ form .btn{margin-top:4px;border:0}
 </section>
 
 <section class="sec contact" id="contacto">
-  <img src="../assets/about-security-opt.jpg" alt="" loading="lazy">
+  <img src="../assets/about-security-opt.jpg" alt="" loading="lazy" width="1600" height="873" decoding="async">
   <div class="wrap">
     <div class="cgrid">
       <div class="rv">
@@ -423,7 +472,7 @@ form .btn{margin-top:4px;border:0}
         <dl class="cinfo"><div><dt>Correo</dt><dd><a href="mailto:info@delsecurity.com.ar">info@delsecurity.com.ar</a></dd></div><div><dt>Teléfono</dt><dd><a href="tel:+5491140275043">+54 9 11 4027 5043</a></dd></div><div><dt>WhatsApp</dt><dd><a href="https://wa.me/5491140275043" rel="noopener">Escribinos por WhatsApp</a></dd></div><div><dt>Oficina</dt><dd>Buenos Aires, Argentina</dd></div><div><dt>Horario</dt><dd>Lunes a viernes, 8 a 18 h (GMT-3)</dd></div></dl>
       </div>
 
-      <form class="rv" action="https://formspree.io/f/xrervdpo" method="POST" novalidate>
+      <form class="rv" action="https://formspree.io/f/xrervdpo" method="POST" data-sending="Enviando…">
         <input type="hidden" name="_subject" value="Consulta IA para empresas desde delsecurity.com.ar">
         <div class="hp"><label>Do not fill<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
         <div class="fgrid">
@@ -435,7 +484,9 @@ form .btn{margin-top:4px;border:0}
         </div>
         <button class="btn" type="submit">Enviar consulta</button>
         <p class="fnote">También podés escribirnos directo por correo o WhatsApp.</p>
-        <p class="fok" hidden data-ok>¡Consulta enviada! Te respondemos a la brevedad.</p>
+        <p class="fpriv">Al enviar aceptás nuestra <a href="/privacidad/">política de privacidad</a>.</p>
+        <p class="fok" hidden data-ok role="status">¡Consulta enviada! Te respondemos a la brevedad.</p>
+        <p class="ferr" hidden data-err role="alert">No pudimos enviar la consulta. Escribinos a <a href="mailto:info@delsecurity.com.ar">info@delsecurity.com.ar</a> o por <a href="https://wa.me/5491140275043" rel="noopener">WhatsApp</a>.</p>
       </form>
     </div>
   </div>
@@ -443,8 +494,8 @@ form .btn{margin-top:4px;border:0}
 
 <footer>
   <div class="wrap">
-    <div><a href="/"><img src="../assets/Logo%20Del-opt.png?v=2" alt="Del Security"></a><p>IA · Infraestructura · Auditoría · Seguridad<br>Buenos Aires, Argentina · Desde 1999</p></div>
-    <p><a href="/inteligencia-artificial-para-empresas/">Inteligencia artificial para empresas</a><br><a href="/asistente-virtual-ia-profesionales/">Asistente IA para independientes</a><br><a href="/diseno-web-seo-ia/">Web visible en Google e IA</a><br>&copy; 2026 Del Security</p>
+    <div><a href="/"><img src="../assets/Logo%20Del-opt.png?v=2" alt="Del Security" width="655" height="120" decoding="async"></a><p>IA · Infraestructura · Auditoría · Seguridad<br>Buenos Aires, Argentina · Desde 1999</p></div>
+    <p><a href="/inteligencia-artificial-para-empresas/">Inteligencia artificial para empresas</a><br><a href="/asistente-virtual-ia-profesionales/">Asistente IA para independientes</a><br><a href="/diseno-web-seo-ia/">Web visible en Google e IA</a><br><a href="/privacidad/">Política de privacidad</a><br>&copy; 2026 Del Security</p>
   </div>
 </footer>
 
@@ -479,17 +530,32 @@ form .btn{margin-top:4px;border:0}
   var nav=document.querySelector('.nav');
   addEventListener('scroll',function(){ nav.style.background = scrollY>40?'rgba(5,5,8,.9)':'rgba(5,5,8,.58)'; },{passive:true});
 
-  // envio sin recargar; si falla el JS, el form postea normal a Formspree
+  // envio sin recargar: solo muestra "enviada" si Formspree confirma
   var f=document.querySelector('form[action*="formspree"]');
   if (f && window.fetch) f.addEventListener('submit', function(e){
-    if (!f.checkValidity()) return;
     e.preventDefault();
-    var btn=f.querySelector('button[type=submit]'), txt=btn.textContent; btn.disabled=true;
+    var ok=f.querySelector('[data-ok]'), er=f.querySelector('[data-err]');
+    ok.hidden=true; er.hidden=true;
+    if (!f.checkValidity()) { f.reportValidity(); return; }
+    var btn=f.querySelector('button[type=submit]'), txt=btn.textContent; btn.disabled=true; btn.textContent=f.dataset.sending||txt;
     fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
-      .then(function(){ f.querySelector('[data-ok]').hidden=false; f.reset(); })
-      .catch(function(){ f.querySelector('[data-ok]').hidden=false; f.reset(); })
+      .then(function(r){ if(!r.ok) throw new Error(r.status); ok.hidden=false; f.reset(); })
+      .catch(function(){ er.hidden=false; })
       .then(function(){ btn.disabled=false; btn.textContent=txt; });
   });
+
+  // menú celular
+  var bg=document.querySelector('.burger');
+  if (bg) {
+    bg.addEventListener('click',function(){ var o=nav.classList.toggle('open'); bg.setAttribute('aria-expanded',o); });
+    [].slice.call(nav.querySelectorAll('ul a')).forEach(function(a){ a.addEventListener('click',function(){ nav.classList.remove('open'); bg.setAttribute('aria-expanded','false'); }); });
+  }
+
+  // video de portada: solo en pantallas grandes y sin "reducir movimiento"
+  var v=document.querySelector('.hero video');
+  if (v && matchMedia('(min-width:761px)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var sc=v.querySelector('source[data-src]'); if (sc) { sc.src=sc.dataset.src; v.load(); var p=v.play(); if(p&&p.catch)p.catch(function(){}); }
+  }
 })();
 </script>
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5bab0a5479c34a3798775f9788ffef61"}'></script>
@@ -499,5 +565,6 @@ form .btn{margin-top:4px;border:0}
 {"@type":"BreadcrumbList","@id":"https://delsecurity.com.ar/inteligencia-artificial-para-empresas/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://delsecurity.com.ar/"},{"@type":"ListItem","position":2,"name":"Inteligencia artificial para empresas","item":"https://delsecurity.com.ar/inteligencia-artificial-para-empresas/"}]},
 {"@type": "FAQPage", "@id": "https://delsecurity.com.ar/inteligencia-artificial-para-empresas/#faq", "mainEntity": [{"@type": "Question", "name": "¿Qué es una IA privada u on-premise?", "acceptedAnswer": {"@type": "Answer", "text": "Es un modelo de inteligencia artificial que corre en infraestructura controlada por tu empresa —tus propios servidores o una nube privada dedicada— en lugar de un servicio público compartido. La información que procesa no sale de ese entorno, y vos definís quién accede, qué se registra y por cuánto tiempo se guarda."}}, {"@type": "Question", "name": "¿Mis datos se usan para entrenar modelos de IA?", "acceptedAnswer": {"@type": "Answer", "text": "No. En las implementaciones de Del Security tus datos no se comparten con terceros ni se usan para entrenar modelos. Cuando usás un modelo privado, la información nunca deja tu perímetro. Si en un esquema híbrido se usa algún servicio externo, queda acordado por escrito qué información puede salir y bajo qué condiciones."}}, {"@type": "Question", "name": "¿Por dónde conviene empezar a implementar IA en una empresa?", "acceptedAnswer": {"@type": "Answer", "text": "Por un problema concreto y medible, no por la herramienta. Lo habitual es elegir un proceso repetitivo que hoy consume horas del equipo —carga de documentos, respuesta de consultas, armado de informes— y resolverlo con un piloto acotado. Si el resultado se cumple, se escala. Para identificar ese primer caso ofrecemos una reunión de diagnóstico sin cargo."}}, {"@type": "Question", "name": "¿Qué diferencia hay entre usar ChatGPT y una implementación de IA a medida?", "acceptedAnswer": {"@type": "Answer", "text": "Las herramientas públicas sirven para tareas individuales, pero no conocen tus sistemas, no actúan sobre ellos y procesan la información en servidores de terceros. Una implementación a medida se integra con tu ERP, CRM, bases de datos o documentación, trabaja con permisos definidos, deja registro de cada acción y puede correr en un entorno privado."}}, {"@type": "Question", "name": "¿Necesito comprar servidores o GPU para tener una IA privada?", "acceptedAnswer": {"@type": "Answer", "text": "No necesariamente. Depende del volumen de uso, del tamaño del modelo que haga falta y de la sensibilidad de los datos. En algunos casos conviene hardware propio; en otros, una nube privada dedicada o un esquema híbrido. Lo dimensionamos durante el diagnóstico, antes de que tengas que invertir."}}, {"@type": "Question", "name": "¿Cómo se cuida la Ley 25.326 de Protección de Datos Personales al usar IA?", "acceptedAnswer": {"@type": "Answer", "text": "El punto central es saber qué datos personales procesa la solución, dónde se procesan y quién accede. Por eso diseñamos cada implementación con el tratamiento de datos documentado, accesos controlados y la posibilidad de que todo corra dentro de tu infraestructura. Además, nuestro servicio de Auditoría, Riesgos y Compliance extiende la evaluación de controles de TI a los modelos de IA que tu empresa incorpora."}}, {"@type": "Question", "name": "¿Cuánto cuesta y cuánto tarda implementar IA?", "acceptedAnswer": {"@type": "Answer", "text": "Depende del caso de uso, de cómo estén tus datos y de dónde tenga que correr la solución. Por eso no trabajamos con paquetes cerrados: después del diagnóstico te entregamos por escrito el alcance, el plazo y el costo del piloto, junto con la métrica que va a definir si funcionó."}}, {"@type": "Question", "name": "¿Trabajan con empresas fuera de Buenos Aires o de Argentina?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Tenemos base en Buenos Aires y trabajamos con empresas de cualquier país: Argentina, América Latina, Europa o donde esté tu operación. Gran parte de la implementación se hace de forma remota y, cuando el proyecto lo requiere, viajamos para el trabajo en sitio, como en proyectos recientes en Alemania. Atendemos en castellano e inglés."}}]}
 ]}</script>
+<a class="wa-float" href="https://wa.me/5491140275043" rel="noopener" aria-label="Escribinos por WhatsApp" title="Escribinos por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2.5c-5.25 0-9.5 3.9-9.5 8.7 0 2.62 1.27 4.97 3.27 6.57L5 21.5l4.1-2.08c.92.25 1.89.38 2.9.38 5.25 0 9.5-3.9 9.5-8.7S17.25 2.5 12 2.5zm4.3 11.6c-.18.5-1.05.95-1.45 1-.38.05-.86.07-1.38-.09-.32-.1-.73-.23-1.25-.46-2.2-.95-3.64-3.17-3.75-3.32-.11-.15-.9-1.2-.9-2.29s.57-1.62.77-1.85c.2-.22.44-.28.59-.28h.42c.14 0 .32-.05.5.38.18.44.62 1.52.67 1.63.05.11.09.24.02.39-.07.15-.11.24-.22.37l-.33.39c-.11.11-.22.23-.1.45.13.22.57.94 1.22 1.52.84.75 1.55.98 1.77 1.09.22.11.35.09.48-.05.13-.15.55-.64.7-.86.15-.22.29-.18.5-.11.2.07 1.29.61 1.51.72.22.11.37.16.42.25.06.09.06.52-.12 1.02z"/></svg></a>
 </body>
 </html>

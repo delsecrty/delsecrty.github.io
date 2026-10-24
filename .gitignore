@@ -19,3 +19,13 @@ desktop.ini
 LogoOK.jpg
 DEL SECURITY nuevo logo.png
 _logo-anterior/
+
+# Originales pesados que no usa el sitio (quedan en la carpeta, no se publican)
+assets/about-ai.jpg
+assets/about-datacenter.jpg
+assets/about-security.jpg
+assets/svc-audit.jpg
+assets/svc-ciber.jpg
+assets/svc-cloud.jpg
+assets/svc-infra.jpg
+assets/Logo Del.png
