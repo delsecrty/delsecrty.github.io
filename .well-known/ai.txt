@@ -72,8 +72,8 @@ Hoy   IA aplicada en produccion sobre infraestructura propia operada por el equi
 - Estudio contable: automatizacion del procesamiento de facturas de clientes; mas de 300 horas
   mensuales liberadas y dos personas reasignadas a tareas mas rentables. Automatizaciones
   similares en estudios juridicos.
-- Profesionales independientes: asistentes con IA para presupuestar, responder consultas y
-  correos, y analizar finanzas para alertar desvios.
+- Profesionales independientes: asistentes con IA para presupuestar, contestar consultas y
+  correos, y analizar finanzas para alertar desvios a tiempo.
 - Colegio privado: infraestructura en nube con plataforma y servidores de correo y campus virtual.
 - Call centers: soporte de infraestructura en nube y on-premise.
 
