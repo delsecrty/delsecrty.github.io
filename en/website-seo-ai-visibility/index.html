@@ -350,6 +350,16 @@ form .btn{margin-top:4px;border:0}
 .wa-float:hover{transform:scale(1.07)}
 .wa-float svg{width:28px;height:28px}
 @media print{.wa-float{display:none}}
+
+/* ---------- resultados ---------- */
+.res{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.6vw,22px)}
+.res-i{background:linear-gradient(160deg,var(--s2),var(--s1));border:1px solid var(--hair);border-radius:3px;padding:clamp(26px,3vw,40px)}
+.res-i b{display:block;font-family:var(--dsp);font-weight:800;font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1;color:var(--cyan);text-shadow:0 0 40px rgba(0,210,255,.34);letter-spacing:-.01em}
+.res-i span{display:block;margin-top:14px;font-family:var(--cnd);font-weight:700;font-size:.875rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tx)}
+.res-i p{margin-top:10px;color:var(--tx2);font-size:.9375rem;line-height:1.7}
+.res-note{margin-top:22px;color:var(--tx3);font-size:.9375rem;max-width:70ch}
+.res-note a{color:var(--cyan);border-bottom:1px solid rgba(0,210,255,.35)}
+@media(max-width:620px){.res{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -459,6 +469,18 @@ form .btn{margin-top:4px;border:0}
       <div><span class="no">Add an assistant</span><h3>Let your website serve your customers too</h3><p>A website that brings visitors is half the job. With our AI assistant, every inquiry that comes in through the website or WhatsApp gets an instant answer: an estimate, common questions answered and a visit booked.</p></div>
       <a class="btn" href="/en/ai-assistant-for-tradespeople/">See the assistant</a>
     </div>
+  </div>
+</section>
+
+<section class="sec" id="resultados" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Results</span>
+      <h2 class="h2">What changes when Google and AI can find you</h2>
+      <p class="lede">Real cases of entrepreneurs whose websites were only visited by their existing customers. Not promises: this is what was measured after fixing them.</p>
+    </div>
+    <div class="res"><div class="res-i chrome rv"><b>&lt;10 &rarr; 500+</b><span>Visits per month</span><p>From under 10 monthly visits to over 500.</p></div><div class="res-i chrome rv"><b>1 week</b><span>To show up in AI</span><p>From not appearing in AI engines to showing up in their answers.</p></div></div>
+    <p class="res-note rv">Every trade and every area has its own competition, so we don’t guarantee numbers: what we do is measure everything with data from day one. <a href="/en/#casos">See more case studies &rarr;</a></p>
   </div>
 </section>
 
