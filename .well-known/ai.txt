@@ -67,7 +67,7 @@ Correo:   info@delsecurity.com.ar
 Telefono: +54 9 11 4027 5043
 WhatsApp: https://wa.me/5491140275043
 Oficina:  Buenos Aires, Argentina
-Horario:  Lunes a viernes, 9 a 18 h (hora de Argentina, UTC-3)
+Horario:  Lunes a viernes, 8 a 18 h (GMT-3)
 
 ## Datos estructurados
 Cada pagina incluye JSON-LD (schema.org) con ProfessionalService, WebSite, WebPage
