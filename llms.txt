@@ -23,6 +23,15 @@ Diferencial: la IA la implementa el mismo equipo que disena y opera la infraestr
 - Infraestructura Cloud y Virtualizacion: migracion, gestion y optimizacion de entornos cloud, virtuales e hibridos
 - Auditoria, Riesgos y Compliance: controles de TI bajo marcos internacionales, ISO 27001, Ley 25.326 y gobierno de IA
 
+## Casos (sin nombres de clientes, por confidencialidad)
+
+- Gran grupo industrial en Alemania: controles sobre IA privada, con auditoria de cada paso y autorizacion humana para calculos y procesos criticos
+- Respuesta a incidentes: ataque que desviaba el trafico de un sitio a una copia modificada, sin freno durante una semana con otro proveedor; primer freno en 6 horas y recuperacion total en casi 12
+- Estudio contable: procesamiento de facturas automatizado, mas de 300 horas mensuales liberadas
+- Constructora: ERP con trazabilidad de deposito, obradores, herramientas y vehiculos; infraestructura hibrida
+- Emprendedores: webs invisibles que pasaron de menos de 10 a mas de 500 visitas mensuales y aparecieron en motores de IA en una semana
+- Tambien: profesionales independientes, colegio privado y call centers
+
 ## Contacto
 
 - Correo: info@delsecurity.com.ar
