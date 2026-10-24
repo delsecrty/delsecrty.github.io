@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO Audit and Web Design Visible on Google and AI | Del Security</title>
+<meta name="description" content="Website not bringing customers, or don’t have one yet? We audit it or build one for you so it shows up on Google and in ChatGPT, Gemini and Perplexity answers. For small businesses and independents.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#050508">
+<link rel="alternate" hreflang="es-AR" href="https://delsecurity.com.ar/diseno-web-seo-ia/">
+<link rel="alternate" hreflang="en" href="https://delsecurity.com.ar/en/website-seo-ai-visibility/">
+<link rel="alternate" hreflang="x-default" href="https://delsecurity.com.ar/diseno-web-seo-ia/">
+<link rel="canonical" href="https://delsecurity.com.ar/en/website-seo-ai-visibility/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Del Security">
+<meta property="og:url" content="https://delsecurity.com.ar/en/website-seo-ai-visibility/">
+<meta property="og:title" content="Your website needs to show up on Google and in AI answers">
+<meta property="og:description" content="If you have a website, we audit it and check whether it’s performing. If not, we build one for you, visible to search engines and AI assistants.">
+<meta property="og:image" content="https://delsecurity.com.ar/assets/og/web-seo-ia-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your website needs to show up on Google and in AI answers">
+<meta name="twitter:description" content="If you have a website, we audit it and check whether it’s performing. If not, we build one for you, visible to search engines and AI assistants.">
+<meta name="twitter:image" content="https://delsecurity.com.ar/assets/og/web-seo-ia-en.jpg">
+<link rel="icon" href="../../favicon.png?v=2"><link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=2">
+<link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/orbitron-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+:root{
+  --void:#050508; --s1:#0a0d14; --s2:#0f1420; --s3:#141b2b;
+  --cyan:#00d2ff; --cyan-2:#7bdcff; --violet:#7b2fff;
+  --tx:#e8edf5; --tx2:#a1adc6; --tx3:#8a97b5;
+  --hair:rgba(232,237,245,.10); --hair-2:rgba(232,237,245,.18);
+  --dsp:"Orbitron",ui-sans-serif,system-ui,sans-serif;
+  --cnd:"Rajdhani",ui-sans-serif,system-ui,sans-serif;
+  --bd:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --pad:clamp(20px,5vw,64px); --sec:clamp(80px,10vw,150px); --max:1320px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--void);color:var(--tx);font-family:var(--bd);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video,svg{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;font-weight:400;text-wrap:balance}
+p{margin:0}ul,ol{margin:0;padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+
+/* chrome bevel — hereda el acabado metálico del logo */
+.chrome{position:relative;isolation:isolate}
+.chrome::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:linear-gradient(180deg,rgba(255,255,255,.24),rgba(255,255,255,.03) 38%,rgba(0,210,255,.14));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;pointer-events:none;z-index:3}
+
+.eyebrow{font-family:var(--cnd);font-weight:600;font-size:.8125rem;letter-spacing:.24em;text-transform:uppercase;color:var(--cyan)}
+.h2{font-family:var(--dsp);font-weight:800;font-size:clamp(1.6rem,3.4vw,2.7rem);line-height:1.1;letter-spacing:.005em}
+.lede{color:var(--tx2);font-size:clamp(1rem,1.25vw,1.13rem);line-height:1.72}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;inset:0 0 auto;z-index:60;background:rgba(5,5,8,.58);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--hair);transition:background .3s var(--ease)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:70px}
+.nav img{height:40px;width:auto}
+.nav ul{display:flex;gap:clamp(14px,2.4vw,30px);align-items:center}
+.nav ul a{font-family:var(--cnd);font-weight:600;font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3);transition:color .2s}
+.nav ul a:hover{color:var(--cyan)}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--cnd);font-weight:700;font-size:.875rem;letter-spacing:.12em;text-transform:uppercase;padding:12px 24px;border-radius:2px;background:var(--cyan);color:#031017;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(0,210,255,.42);background:var(--cyan-2)}
+.btn-g{background:transparent;color:var(--tx);border:1px solid var(--hair-2)}
+.btn-g:hover{background:rgba(0,210,255,.07);border-color:var(--cyan);color:var(--cyan);box-shadow:none}
+.nav .btn{padding:10px 18px;font-size:.8125rem}
+@media(max-width:900px){.nav ul{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:min(100svh,940px);display:flex;align-items:center;padding:120px 0 clamp(60px,8vw,110px);overflow:hidden}
+.hero video,.hero .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:
+  radial-gradient(120% 90% at 78% 28%,rgba(0,210,255,.20),transparent 58%),
+  linear-gradient(100deg,rgba(5,5,8,.96) 0%,rgba(5,5,8,.88) 42%,rgba(5,5,8,.52) 72%,rgba(5,5,8,.72) 100%)}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:38%;z-index:1;background:linear-gradient(to top,var(--void),transparent)}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero-logo{height:clamp(44px,6vw,70px);width:auto;margin-bottom:clamp(26px,4vw,42px);filter:drop-shadow(0 0 34px rgba(0,210,255,.32))}
+.hero h1{font-family:var(--dsp);font-weight:900;font-size:clamp(2.1rem,5.6vw,4.4rem);line-height:1.06;letter-spacing:-.005em;max-width:19ch;margin-bottom:clamp(22px,3vw,32px);text-shadow:0 0 70px rgba(0,210,255,.20)}
+.hero h1 span{color:var(--cyan);text-shadow:0 0 44px rgba(0,210,255,.55)}
+.hero .lede{max-width:52ch;margin-bottom:clamp(30px,4vw,44px);font-size:clamp(1.02rem,1.4vw,1.22rem);color:#c8d5ee}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+.scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;font-family:var(--cnd);font-size:.6875rem;letter-spacing:.28em;text-transform:uppercase;color:var(--tx3);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scrollcue i{display:block;width:1px;height:34px;background:linear-gradient(to bottom,var(--cyan),transparent);animation:cue 2.2s var(--ease) infinite}
+@keyframes cue{0%,100%{opacity:.25;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
+@media(max-width:640px){.scrollcue{display:none}}
+
+/* ---------- stats ---------- */
+.stats{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);background:linear-gradient(180deg,var(--s1),var(--void))}
+.stats ul{display:grid;grid-template-columns:repeat(4,1fr)}
+.stats li{padding:clamp(30px,4vw,52px) clamp(14px,2vw,30px);position:relative}
+.stats li+li::before{content:"";position:absolute;left:0;top:18%;height:64%;width:1px;background:var(--hair)}
+.stats b{display:block;font-family:var(--dsp);font-weight:800;font-size:clamp(1.9rem,4.2vw,3.15rem);line-height:1;color:var(--cyan);letter-spacing:-.01em;text-shadow:0 0 40px rgba(0,210,255,.34);margin-bottom:11px;font-variant-numeric:tabular-nums}
+.stats li>span{font-family:var(--cnd);font-weight:600;font-size:.8125rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);line-height:1.45;display:block}
+@media(max-width:760px){.stats ul{grid-template-columns:repeat(2,1fr)}.stats li:nth-child(3)::before{display:none}.stats li:nth-child(n+3){border-top:1px solid var(--hair)}}
+@media(max-width:420px){.stats ul{grid-template-columns:1fr}.stats li+li::before{display:none}.stats li+li{border-top:1px solid var(--hair)}}
+
+/* ---------- section shell ---------- */
+.sec{padding:var(--sec) 0}
+.sec-head{max-width:min(830px,100%);margin-bottom:clamp(38px,5vw,64px)}
+.sec-head .lede{max-width:56ch}
+.sec-head .eyebrow{display:block;margin-bottom:16px}
+.sec-head .h2{margin-bottom:20px}
+
+/* ---------- servicios ---------- */
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px)}
+.card{position:relative;border-radius:3px;overflow:hidden;background:var(--s2);min-height:clamp(340px,38vw,430px);display:flex;flex-direction:column;justify-content:flex-end;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transform:scale(1.02);transition:transform .8s var(--ease),filter .5s var(--ease);filter:saturate(.72) contrast(1.06) brightness(.78)}
+.card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(5,5,8,.97) 6%,rgba(5,5,8,.78) 38%,rgba(5,5,8,.34) 70%,rgba(0,210,255,.10) 100%)}
+.card .in{position:relative;z-index:2;padding:clamp(22px,2.4vw,30px)}
+.card .no{font-family:var(--dsp);font-weight:600;font-size:.6875rem;letter-spacing:.2em;color:var(--cyan);display:block;margin-bottom:12px;opacity:.85}
+.card h3{font-family:var(--cnd);font-weight:700;font-size:clamp(1.22rem,1.8vw,1.5rem);letter-spacing:.02em;line-height:1.14;margin-bottom:10px;text-transform:uppercase}
+.card p{color:var(--tx2);font-size:.9375rem;line-height:1.65}
+.card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.card .tags li{font-family:var(--cnd);font-weight:600;font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan-2);border:1px solid rgba(0,210,255,.26);padding:3px 9px;border-radius:2px;background:rgba(0,210,255,.05)}
+.card:hover{transform:translateY(-7px);box-shadow:0 26px 60px rgba(0,0,0,.6),0 0 0 1px rgba(0,210,255,.4)}
+.card:hover img{transform:scale(1.09);filter:saturate(.95) contrast(1.08) brightness(.86)}
+.card-cta{background:linear-gradient(150deg,rgba(0,210,255,.13),rgba(123,47,255,.10) 60%,var(--s2));justify-content:center;align-items:flex-start}
+.card-cta h3{color:var(--tx)}
+.card-cta .in{padding:clamp(26px,3vw,36px)}
+.card .more-link{display:inline-block;margin-top:16px;font-family:var(--cnd);font-weight:700;font-size:.8125rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);border-bottom:1px solid rgba(0,210,255,.35)}
+.card .more-link:hover{border-bottom-color:var(--cyan)}
+footer a:hover{color:var(--cyan)}
+@media(max-width:980px){.svcs{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.svcs{grid-template-columns:1fr}}
+
+/* ---------- split (modelos privados) ---------- */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,5vw,72px);align-items:center}
+.split-media{position:relative;border-radius:3px;overflow:hidden;aspect-ratio:1/1}
+.split-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) contrast(1.06) brightness(.82)}
+.split-media::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(80% 80% at 30% 20%,rgba(123,47,255,.24),transparent 60%),linear-gradient(200deg,transparent 40%,rgba(5,5,8,.7))}
+.pledges{margin-top:clamp(26px,3vw,38px);border-top:1px solid var(--hair)}
+.pledges li{padding:20px 0;border-bottom:1px solid var(--hair);display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline}
+.pledges b{font-family:var(--dsp);font-weight:800;font-size:.9375rem;color:var(--cyan);letter-spacing:.02em;white-space:nowrap}
+.pledges p{color:var(--tx2);font-size:.9375rem}
+@media(max-width:880px){.split{grid-template-columns:1fr}.split-media{aspect-ratio:16/10;order:-1}}
+
+/* ---------- banda trayectoria ---------- */
+.band{position:relative;overflow:hidden;padding:var(--sec) 0}
+.band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:saturate(.5) brightness(.42) contrast(1.1)}
+.band::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(100% 80% at 20% 40%,rgba(0,210,255,.16),transparent 62%),linear-gradient(180deg,var(--void),rgba(5,5,8,.72) 40%,var(--void))}
+.band .wrap{position:relative;z-index:2}
+.tl{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(12px,1.5vw,22px);margin-top:clamp(44px,5vw,68px)}
+.tl::before{content:"";position:absolute;left:0;right:0;top:4px;height:1px;z-index:0;
+  background:linear-gradient(90deg,rgba(0,210,255,.12),var(--cyan) 16%,var(--cyan) 84%,rgba(255,255,255,.9))}
+.tl li{position:relative;padding-top:30px}
+.tl li::before{content:"";position:absolute;top:0;left:0;width:9px;height:9px;border-radius:50%;background:var(--cyan);
+  box-shadow:0 0 0 4px rgba(0,210,255,.13),0 0 16px rgba(0,210,255,.85)}
+.tl li:last-child::before{background:#fff;box-shadow:0 0 0 5px rgba(0,210,255,.22),0 0 24px var(--cyan)}
+.tl b{display:block;font-family:var(--dsp);font-weight:800;font-size:clamp(.9rem,1.15vw,1.05rem);color:var(--cyan);margin-bottom:7px;letter-spacing:.03em}
+.tl li:last-child b{color:#fff}
+.tl em{display:block;font-family:var(--cnd);font-weight:700;font-style:normal;font-size:.875rem;letter-spacing:.06em;text-transform:uppercase;color:var(--tx);margin-bottom:9px;line-height:1.2;min-height:2.4em}
+.tl p{font-size:.875rem;color:var(--tx2);line-height:1.6}
+@media(max-width:1080px){.tl{grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,34px) clamp(16px,2vw,26px)}}
+@media(max-width:1080px){.tl::before{display:none}.tl li{padding-top:22px;border-top:1px solid rgba(0,210,255,.3)}.tl li::before{top:-5px}}
+@media(max-width:620px){.tl{grid-template-columns:repeat(2,1fr)}.tl em{min-height:0}}
+@media(max-width:430px){.tl{grid-template-columns:1fr}}
+
+/* ---------- contacto ---------- */
+.contact{position:relative;overflow:hidden}
+.contact>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:saturate(.45) brightness(.3)}
+.contact::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--void) 12%,rgba(5,5,8,.9) 52%,rgba(5,5,8,.66))}
+.contact .wrap{position:relative;z-index:2}
+.cgrid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(30px,5vw,72px)}
+.cinfo{border-top:1px solid var(--hair)}
+.cinfo div{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:clamp(14px,3vw,34px);padding:17px 0;border-bottom:1px solid var(--hair)}
+.cinfo dt{font-family:var(--cnd);font-weight:600;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3)}
+.cinfo dd{margin:0;color:var(--tx)}
+.cinfo a{color:var(--cyan);border-bottom:1px solid rgba(0,210,255,.3)}
+.cinfo a:hover{border-bottom-color:var(--cyan)}
+@media(max-width:880px){.cgrid{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--hair);padding:clamp(38px,5vw,58px) 0 34px;background:var(--s1)}
+footer .wrap{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;align-items:flex-end}
+footer img{height:46px;width:auto;margin-bottom:14px;opacity:.9}
+footer p{font-family:var(--cnd);font-size:.8125rem;letter-spacing:.06em;color:var(--tx3);line-height:1.8}
+
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+
+/* ---------- reveal: visible por defecto, animado solo con JS ---------- */
+.js-rv .rv{opacity:0;transform:translateY(20px)}
+.js-rv .rv.in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease)}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js-rv .rv,.js-rv .rv.in{opacity:1!important;transform:none!important;transition:none!important}
+  .scrollcue i{animation:none}
+  *{transition-duration:.01ms!important}
+}
+
+/* ---------- selector de idioma ---------- */
+.lang{display:flex;gap:2px;align-items:center;font-family:var(--cnd);font-weight:700;font-size:.75rem;letter-spacing:.1em}
+.lang a{padding:5px 9px;border:1px solid var(--hair);color:var(--tx3);border-radius:2px;transition:all .2s}
+.lang a:hover{color:var(--cyan);border-color:rgba(0,210,255,.4)}
+.lang a[aria-current="true"]{background:rgba(0,210,255,.12);border-color:var(--cyan);color:var(--cyan)}
+
+/* ---------- nosotros ---------- */
+.about-txt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px)}
+.about-txt p{color:var(--tx2)}
+blockquote.pull{margin:clamp(34px,4vw,52px) 0 0;padding:clamp(24px,3vw,34px) clamp(24px,3vw,38px);
+  border-left:2px solid var(--cyan);background:linear-gradient(90deg,rgba(0,210,255,.07),transparent 70%);
+  font-family:var(--cnd);font-weight:600;font-size:clamp(1.1rem,1.9vw,1.45rem);line-height:1.45;color:var(--tx)}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,20px);margin-top:clamp(34px,4vw,54px)}
+.trio figure{position:relative;margin:0;border-radius:3px;overflow:hidden;aspect-ratio:4/3}
+.trio img{width:100%;height:100%;object-fit:cover;filter:saturate(.72) contrast(1.05) brightness(.7);transition:transform .7s var(--ease),filter .5s var(--ease)}
+.trio figure:hover img{transform:scale(1.06);filter:saturate(.95) brightness(.82)}
+.trio figcaption{position:absolute;left:0;bottom:0;right:0;padding:16px 18px;z-index:2;
+  background:linear-gradient(to top,rgba(5,5,8,.95),transparent);
+  font-family:var(--cnd);font-weight:700;font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+@media(max-width:880px){.about-txt{grid-template-columns:1fr}}
+@media(max-width:620px){.trio{grid-template-columns:1fr}.trio figure{aspect-ratio:16/9}}
+
+/* ---------- formulario ---------- */
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fgrid .full{grid-column:1/-1}
+.field label{display:block;font-family:var(--cnd);font-weight:600;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3);margin-bottom:7px}
+.field input,.field textarea{width:100%;background:rgba(232,237,245,.04);border:1px solid var(--hair);border-radius:2px;
+  padding:12px 14px;color:var(--tx);font-family:var(--bd);font-size:.9375rem;transition:border-color .2s,background .2s}
+.field input::placeholder,.field textarea::placeholder{color:#5d6878}
+.field input:focus,.field textarea:focus{outline:0;border-color:var(--cyan);background:rgba(0,210,255,.05)}
+.field textarea{min-height:118px;resize:vertical}
+form .btn{margin-top:4px;border:0}
+.fnote{font-size:.8125rem;color:var(--tx3);margin-top:14px}
+.fok{margin-top:16px;padding:14px 16px;border:1px solid rgba(0,210,255,.4);background:rgba(0,210,255,.08);
+  border-radius:2px;font-family:var(--cnd);font-weight:600;letter-spacing:.02em;color:var(--cyan)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media(max-width:560px){.fgrid{grid-template-columns:1fr}}
+
+/* ---------- página de servicio ---------- */
+.hero.sub{min-height:min(78svh,760px)}
+.hero.sub .ph{filter:saturate(.6) brightness(.55) contrast(1.08)}
+.hero.sub h1{max-width:20ch;font-size:clamp(1.9rem,4.8vw,3.7rem)}
+.crumbs{font-family:var(--cnd);font-weight:600;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);margin-bottom:clamp(20px,3vw,30px);display:flex;flex-wrap:wrap;gap:10px}
+.crumbs a{color:var(--tx3);transition:color .2s}
+.crumbs a:hover{color:var(--cyan)}
+.crumbs li+li::before{content:"/";margin-right:10px;color:var(--hair-2)}
+.crumbs [aria-current]{color:var(--cyan)}
+
+.feats{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.6vw,22px)}
+.feat{background:linear-gradient(160deg,var(--s2),var(--s1));border-radius:3px;padding:clamp(26px,3vw,38px)}
+.feat .no{font-family:var(--dsp);font-weight:600;font-size:.6875rem;letter-spacing:.2em;color:var(--cyan);display:block;margin-bottom:14px;opacity:.85}
+.feat h3{font-family:var(--cnd);font-weight:700;font-size:clamp(1.22rem,1.8vw,1.5rem);letter-spacing:.02em;line-height:1.14;margin-bottom:12px;text-transform:uppercase}
+.feat>p{color:var(--tx2);font-size:.9375rem;line-height:1.7}
+.feat ul{margin-top:18px;border-top:1px solid var(--hair)}
+.feat ul li{padding:10px 0 10px 20px;border-bottom:1px solid var(--hair);position:relative;font-size:.9rem;color:var(--tx2);line-height:1.55}
+.feat ul li::before{content:"";position:absolute;left:0;top:1.05em;width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px rgba(0,210,255,.7)}
+@media(max-width:820px){.feats{grid-template-columns:1fr}}
+
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(12px,1.5vw,22px);counter-reset:st}
+.steps li{position:relative;padding-top:24px;border-top:1px solid rgba(0,210,255,.35)}
+.steps li::before{counter-increment:st;content:"0" counter(st);position:absolute;top:-1px;left:0;transform:translateY(-50%);background:var(--void);padding-right:10px;font-family:var(--dsp);font-weight:800;font-size:.875rem;color:var(--cyan)}
+.steps b{display:block;font-family:var(--cnd);font-weight:700;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:9px;line-height:1.25}
+.steps p{font-size:.9rem;color:var(--tx2);line-height:1.6}
+@media(max-width:1000px){.steps{grid-template-columns:repeat(2,1fr);row-gap:38px}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+
+.faq{max-width:900px;border-top:1px solid var(--hair)}
+.faq details{border-bottom:1px solid var(--hair)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;position:relative;font-family:var(--cnd);font-weight:700;font-size:clamp(1.05rem,1.5vw,1.2rem);letter-spacing:.02em;line-height:1.35;transition:color .2s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font-family:var(--dsp);font-size:1.2rem;color:var(--cyan);transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq summary:hover{color:var(--cyan)}
+.faq .a{padding:0 0 24px;color:var(--tx2);max-width:72ch}
+.faq .a p+p{margin-top:12px}
+
+.more{display:flex;flex-wrap:wrap;gap:10px}
+.more a{font-family:var(--cnd);font-weight:600;font-size:.8125rem;letter-spacing:.12em;text-transform:uppercase;padding:10px 16px;border:1px solid var(--hair-2);border-radius:2px;color:var(--tx2);transition:all .2s}
+.more a:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,210,255,.06)}
+@media(max-width:640px){#independientes .feat{grid-template-columns:1fr!important}}
+
+/* ---------- web visible ---------- */
+.hero.sub .hgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(30px,5vw,70px);align-items:center}
+@media(max-width:940px){.hero.sub .hgrid{grid-template-columns:1fr}}
+.report{background:rgba(10,13,20,.9);border-radius:6px;padding:20px 22px 18px;max-width:420px;width:100%;justify-self:end;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(0,210,255,.18);backdrop-filter:blur(8px)}
+@media(max-width:940px){.report{justify-self:start}}
+.report-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--hair);margin-bottom:6px}
+.report-top b{font-family:var(--cnd);font-weight:700;font-size:.875rem;letter-spacing:.14em;text-transform:uppercase}
+.report-top span{font-size:.75rem;color:var(--tx3);white-space:nowrap}
+.report ul li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;padding:10px 0;border-bottom:1px solid var(--hair);font-size:.875rem;line-height:1.45;color:var(--tx2)}
+.report ul li:last-child{border-bottom:0}
+.report i{font-style:normal;font-weight:700;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:.75rem;line-height:1}
+.report .ok{background:rgba(52,211,153,.14);color:#4ade80}
+.report .bad{background:rgba(248,113,113,.14);color:#f87171}
+.report .warn{background:rgba(251,191,36,.14);color:#fbbf24}
+.report-note{margin-top:10px;font-size:.6875rem;color:var(--tx3);text-align:center;font-family:var(--cnd);letter-spacing:.12em;text-transform:uppercase}
+
+.paths{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.6vw,22px)}
+.paths .feat h3{font-size:clamp(1.35rem,2.2vw,1.85rem)}
+.paths .feat .btn{margin-top:24px}
+@media(max-width:820px){.paths{grid-template-columns:1fr}}
+
+.vis{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px)}
+@media(max-width:900px){.vis{grid-template-columns:1fr}}
+.steps.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1000px){.steps.four{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.steps.four{grid-template-columns:1fr}}
+.xsell{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}
+@media(max-width:640px){.xsell{grid-template-columns:1fr}}
+
+/* ---------- tipografías alojadas en el sitio ---------- */
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/inter-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/inter-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/inter-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Orbitron";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/orbitron-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Orbitron";font-style:normal;font-weight:800;font-display:swap;src:url(/assets/fonts/orbitron-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Orbitron";font-style:normal;font-weight:900;font-display:swap;src:url(/assets/fonts/orbitron-latin-900-normal.woff2) format("woff2")}
+@font-face{font-family:"Rajdhani";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/rajdhani-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Rajdhani";font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/rajdhani-latin-700-normal.woff2) format("woff2")}
+
+/* ---------- v2: ajustes ---------- */
+:where(img){height:auto}
+/* menú celular */
+.burger{display:none;width:42px;height:42px;border:1px solid var(--hair);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:5px;color:var(--tx)}
+.burger span{display:block;width:18px;height:2px;background:currentColor;transition:transform .25s var(--ease),opacity .2s}
+.nav.open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.open .burger span:nth-child(2){opacity:0}
+.nav.open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:900px){
+  .burger{display:flex;order:3}
+  .nav .wrap{gap:10px}
+  .nav .wrap>a:first-child{margin-right:auto}
+  .nav.open ul{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--void);box-shadow:0 30px 60px rgba(0,0,0,.6);border-bottom:1px solid var(--hair);padding:8px var(--pad) 18px}
+  .nav.open ul li a{display:block;padding:14px 0;border-bottom:1px solid var(--hair);font-size:.9375rem}
+  .nav.open ul li:last-child a{border-bottom:0}
+}
+.m-only{display:none}
+.nav.open .m-only{display:block}
+@media(max-width:520px){.nav .btn{display:none}.nav img{height:32px}}
+/* cifras alineadas en celular */
+@media(max-width:760px){.stats .wrap{padding:0 var(--pad)!important}.stats li{padding-left:0!important;padding-right:0!important}.stats li:nth-child(even){padding-left:clamp(16px,5vw,28px)!important}}
+@media(max-width:420px){.stats li:nth-child(even){padding-left:0!important}}
+/* datos de contacto en columna */
+.cinfo div{grid-template-columns:7.5rem minmax(0,1fr);align-items:baseline}
+/* formulario */
+.ferr{margin-top:16px;padding:14px 16px;border:1px solid rgba(255,90,90,.45);background:rgba(255,90,90,.08);border-radius:2px;color:#ffb3b3;font-size:.9375rem}
+.ferr a{color:#fff;text-decoration:underline}
+.fpriv{font-size:.75rem;color:var(--tx3);margin-top:8px}
+.fpriv a{color:var(--tx2);text-decoration:underline}
+/* botón flotante de WhatsApp */
+.wa-float{position:fixed;right:clamp(14px,3vw,26px);bottom:clamp(14px,3vw,26px);z-index:70;width:56px;height:56px;border-radius:50%;background:#25d366;color:#04140a;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .25s var(--ease)}
+.wa-float:hover{transform:scale(1.07)}
+.wa-float svg{width:28px;height:28px}
+@media print{.wa-float{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="/en/" aria-label="Del Security — home"><img src="../../assets/Logo%20Del-opt.png?v=2" alt="Del Security" width="655" height="120" decoding="async"></a>
+    <ul id="menu">
+      <li><a href="#tu-caso">Your case</a></li>
+      <li><a href="#visibilidad">Google + AI</a></li>
+      <li><a href="#como-trabajamos">How we work</a></li>
+      <li><a href="#preguntas">FAQ</a></li>
+      <li class="m-only"><a href="#contacto">Contact</a></li>
+    </ul>
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <div class="lang"><a href="/diseno-web-seo-ia/" hreflang="es">ES</a><a href="/en/website-seo-ai-visibility/" aria-current="true">EN</a></div>
+    <a class="btn" href="#contacto">Contact</a>
+  </div>
+</nav>
+
+<header class="hero sub" id="top">
+  <img class="ph" src="../../assets/ia-red-neuronal.jpg" alt="" fetchpriority="high" width="1600" height="1600" decoding="async">
+  <div class="wrap">
+    <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/en/">Home</a></li><li><a href="/en/#servicios">Services</a></li><li><span aria-current="page">Websites visible on Google and AI</span></li></ol>
+    <div class="hgrid">
+      <div>
+        <h1>Your website needs to show up on Google <span>and in AI answers</span></h1>
+        <p class="lede">For small businesses and independent professionals. If you already have a website, we audit it and tell you whether it’s performing and why not. If you don’t, we build one for you, designed from day one for search engines and AI assistants.</p>
+        <div class="cta-row">
+          <a class="btn" href="#contacto">Audit my website</a>
+          <a class="btn btn-g" href="#no-tengo-web">I have no website</a>
+        </div>
+      </div>
+      <div class="report chrome" aria-label="Sample website assessment">
+        <div class="report-top"><b>Assessment</b><span>yourcompany.com</span></div>
+        <ul>
+          <li><i class="ok" aria-label="Good">✓</i><span>The site is indexed by Google</span></li>
+          <li><i class="bad" aria-label="Poor">✕</i><span>It doesn’t show up in searches for its trade and area</span></li>
+          <li><i class="bad" aria-label="Poor">✕</i><span>AI assistants don’t cite it when asked about the service</span></li>
+          <li><i class="warn" aria-label="Needs work">!</i><span>It loads slowly on mobile</span></li>
+          <li><i class="bad" aria-label="Poor">✕</i><span>No Google Business Profile or structured data</span></li>
+          <li><i class="ok" aria-label="Good">✓</i><span>Visible WhatsApp button</span></li>
+        </ul>
+        <p class="report-note">Illustrative example</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="problema">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">The problem</span>
+      <h2 class="h2">Today your storefront is your website</h2>
+    </div>
+    <div class="about-txt rv"><p>You no longer need a physical store to sell: customers look you up on Google, message you on WhatsApp or simply ask ChatGPT for a recommendation. Your website is the shop window, and it’s open 24 hours a day.</p><p>But a poorly built website, invisible to search engines, is even worse than none: you pay for something nobody sees, and the customer looking for you ends up finding your competitor. Having a website isn’t enough. It has to show up when someone searches for what you do.</p></div>
+    <blockquote class="pull rv">If Google can’t find you and AI doesn’t mention you, to your customers you don’t exist.</blockquote>
+  </div>
+</section>
+
+<section class="sec" id="tu-caso" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Your case</span>
+      <h2 class="h2">Website or not, we start in the same place: what your customer is searching for</h2>
+    </div>
+    <div class="paths">
+      <article class="feat chrome rv" id="tengo-web"><span class="no">If you have a website</span><h3>We audit it and check whether it’s performing</h3><p>We review your site the way Google and AI assistants see it, and deliver a clear report on what’s failing and what to fix first.</p><ul><li>Whether Google has it indexed and which searches it appears for</li><li>Whether AI assistants understand it and can cite it</li><li>Speed and mobile experience</li><li>Content: whether it answers what your customer actually searches for</li><li>Google Business Profile and local presence</li><li>Whether visits turn into inquiries or bounce</li></ul><a class="btn" href="#contacto">Audit my website</a></article>
+      <article class="feat chrome rv" id="no-tengo-web"><span class="no">If you don’t have a website</span><h3>We build it for you</h3><p>A website made for your business, not a generic template: fast, mobile-first and ready for search engines and AI from day one.</p><ul><li>Custom design for your brand and trade</li><li>Content that answers what your customer is looking for</li><li>Technical structure that Google and AI understand</li><li>Fast and easy to use on mobile</li><li>WhatsApp and contact form one tap away</li><li>Google Search Console and Business Profile setup</li></ul><a class="btn" href="#contacto">I want my website</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="visibilidad" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Google + AI</span>
+      <h2 class="h2">Three places where your customers need to find you</h2>
+      <p class="lede">More and more people ask an AI assistant instead of searching on Google. We work on all three fronts at once.</p>
+    </div>
+    <div class="vis">
+      <article class="feat chrome rv"><span class="no">SEO</span><h3>Search engines</h3><p>Your website showing up on Google and Bing when someone searches for your service. Titles, content, structure and speed designed around your customers’ real searches.</p></article>
+      <article class="feat chrome rv"><span class="no">AEO</span><h3>AI assistants</h3><p>ChatGPT, Gemini, Perplexity or Claude being able to read your website, understand what you do and mention you when asked for a recommendation. Clear content, FAQs and structured data.</p></article>
+      <article class="feat chrome rv"><span class="no">Local</span><h3>Google Maps</h3><p>Showing up when people search for your trade nearby. A complete Google Business Profile, consistent with your website and service area.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="como-trabajamos" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">How we work</span>
+      <h2 class="h2">Assessment first, investment second</h2>
+    </div>
+    <ol class="steps four">
+      <li class="rv"><b>Assessment</b><p>We review your website —or your trade and competitors if you don’t have one yet— and see what your customers search for.</p></li>
+      <li class="rv"><b>Proposal</b><p>We tell you what to do, in what order and what it costs. No fixed packages.</p></li>
+      <li class="rv"><b>Implementation</b><p>We fix your website or build it from scratch, and register it with Google and your Business Profile.</p></li>
+      <li class="rv"><b>Measurement</b><p>With Google Search Console we track impressions, searches and clicks to see what works and adjust.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="asistente" style="padding-top:0">
+  <div class="wrap">
+    <div class="feat chrome rv xsell">
+      <div><span class="no">Add an assistant</span><h3>Let your website serve your customers too</h3><p>A website that brings visitors is half the job. With our AI assistant, every inquiry that comes in through the website or WhatsApp gets an instant answer: an estimate, common questions answered and a visit booked.</p></div>
+      <a class="btn" href="/en/ai-assistant-for-tradespeople/">See the assistant</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="preguntas" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="h2">What people ask us about websites and visibility</h2>
+    </div>
+    <div class="faq rv">
+      <details open><summary>Why doesn’t my website show up on Google?</summary><div class="a"><p>The three most common causes: Google hasn’t indexed it properly, the site has no content answering what your customers search for, or there are no external signals —such as a Business Profile or links from other sites— telling Google your business is relevant. Google Search Console shows exactly which problem it is, and it’s the first thing we check in the audit.</p></div></details>
+      <details><summary>What is AEO and how do I show up in ChatGPT?</summary><div class="a"><p>AEO (Answer Engine Optimization) is optimizing for answer engines: assistants like ChatGPT, Gemini or Perplexity that give a direct answer instead of a list of links. For them to mention you, your website has to be readable by their crawlers, explain clearly what you do and where, answer specific questions and include structured data. Nobody can guarantee an assistant will cite you, but a well-built website greatly improves the odds.</p></div></details>
+      <details><summary>What does the website audit include?</summary><div class="a"><p>We review Google indexing, which searches you appear for and in what position, speed and mobile experience, content, structured data, readability for AI assistants, your Google Business Profile and whether visits turn into inquiries. You get a report with problems ranked by priority and what to do about each one.</p></div></details>
+      <details><summary>How long until I see results?</summary><div class="a"><p>Technical fixes and Google registration show results in days or weeks. Climbing in competitive searches usually takes months, depending on your trade, your area and how much competition you have. That is why we measure with Search Console from the start: so you see progress in data, not promises.</p></div></details>
+      <details><summary>Do you guarantee the top spot on Google?</summary><div class="a"><p>No, and be wary of anyone who does: nobody controls Google’s results or AI answers. What we do is fix everything that depends on your website, target the searches that actually bring customers and show you with data how it evolves.</p></div></details>
+      <details><summary>If I have Instagram and Google Maps, do I need a website?</summary><div class="a"><p>Social media and a Business Profile help, but you don’t control them, and Google and AI assistants read them only partially. Your own website is where you explain in detail what you do and where, and answer your customers’ questions; it’s the source search engines and AI rely on most to decide whom to show.</p></div></details>
+      <details><summary>How much does it cost?</summary><div class="a"><p>It depends on whether we start from an existing website or from scratch, and how many sections and services it needs to cover. After the assessment we send you a concrete written proposal, with no obligation.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contacto">
+  <img src="../../assets/about-security-opt.jpg" alt="" loading="lazy" width="1600" height="873" decoding="async">
+  <div class="wrap">
+    <div class="cgrid">
+      <div class="rv">
+        <span class="eyebrow" style="display:block;margin-bottom:16px">Contact</span>
+        <h2 class="h2" style="margin-bottom:20px">Tell us about your business and your website</h2>
+        <p class="lede" style="margin-bottom:28px">If you have a website, send us the address and we’ll start there. If not, tell us what you do and where you work.</p>
+        <dl class="cinfo"><div><dt>WhatsApp</dt><dd><a href="https://wa.me/5491140275043" rel="noopener">Message us on WhatsApp</a></dd></div><div><dt>Phone</dt><dd><a href="tel:+5491140275043">+54 9 11 4027 5043</a></dd></div><div><dt>Email</dt><dd><a href="mailto:info@delsecurity.com.ar">info@delsecurity.com.ar</a></dd></div><div><dt>Hours</dt><dd>Monday to Friday, 8 am to 6 pm (GMT-3)</dd></div></dl>
+      </div>
+
+      <form class="rv" action="https://formspree.io/f/xrervdpo" method="POST" data-sending="Sending…">
+        <input type="hidden" name="_subject" value="Website and SEO/AI visibility inquiry from delsecurity.com.ar (EN)">
+        <input type="hidden" name="Servicio de interés" value="Website audit / design visible on Google and AI">
+        <div class="hp"><label>Do not fill<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+        <div class="fgrid">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="Name" type="text" placeholder="Your name" required autocomplete="name"></div>
+          <div class="field"><label for="f-co">Company or trade</label><input id="f-co" name="Company or trade" type="text" placeholder="E.g. accounting firm, plumbing" autocomplete="organization"></div>
+          <div class="field full"><label for="f-mail">Email</label><input id="f-mail" name="email" type="email" placeholder="you@email.com" required autocomplete="email"></div>
+          <div class="field full"><label for="f-web">Your website (if any)</label><input id="f-web" name="Web" type="text" placeholder="www.yourcompany.com" autocomplete="url"></div>
+          <div class="field full"><label for="f-msg">Message</label><textarea id="f-msg" name="Message" placeholder="What would you like your website to achieve?" required></textarea></div>
+        </div>
+        <button class="btn" type="submit">Send inquiry</button>
+        <p class="fnote">You can also message us directly on WhatsApp.</p>
+        <p class="fpriv">By sending, you accept our <a href="/en/privacy/">privacy policy</a>.</p>
+        <p class="fok" hidden data-ok role="status">Inquiry sent! We'll get back to you shortly.</p>
+        <p class="ferr" hidden data-err role="alert">We couldn't send your message. Email us at <a href="mailto:info@delsecurity.com.ar">info@delsecurity.com.ar</a> or message us on <a href="https://wa.me/5491140275043" rel="noopener">WhatsApp</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><a href="/en/"><img src="../../assets/Logo%20Del-opt.png?v=2" alt="Del Security" width="655" height="120" decoding="async"></a><p>AI · Infrastructure · Audit · Security<br>Buenos Aires, Argentina · Since 1999</p></div>
+    <p><a href="/en/ai-for-business/">AI for business</a><br><a href="/en/ai-assistant-for-tradespeople/">AI assistant for independents</a><br><a href="/en/website-seo-ai-visibility/">Websites visible on Google and AI</a><br><a href="/en/privacy/">Privacy policy</a><br>&copy; 2026 Del Security</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('js-rv');
+    var items = [].slice.call(document.querySelectorAll('.rv'));
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var sibs = [].slice.call(e.target.parentNode.children).filter(function(n){return n.classList.contains('rv')});
+        e.target.style.transitionDelay = Math.min(Math.max(0,sibs.indexOf(e.target))*70,350)+'ms';
+        e.target.classList.add('in'); io.unobserve(e.target);
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.05});
+    items.forEach(function(el){io.observe(el)});
+    setTimeout(function(){items.forEach(function(el){el.classList.add('in')})}, 1600);
+
+    var cio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var el=e.target, to=parseInt(el.dataset.to,10), t0=null; cio.unobserve(el);
+        requestAnimationFrame(function s(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/1100,1);
+          el.textContent=Math.round(to*(1-Math.pow(1-p,3))); if(p<1)requestAnimationFrame(s); });
+      });
+    }, {threshold:0.5});
+    [].slice.call(document.querySelectorAll('.ct')).forEach(function(el){cio.observe(el)});
+  }
+
+  var nav=document.querySelector('.nav');
+  addEventListener('scroll',function(){ nav.style.background = scrollY>40?'rgba(5,5,8,.9)':'rgba(5,5,8,.58)'; },{passive:true});
+
+  // envio sin recargar: solo muestra "enviada" si Formspree confirma
+  var f=document.querySelector('form[action*="formspree"]');
+  if (f && window.fetch) f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var ok=f.querySelector('[data-ok]'), er=f.querySelector('[data-err]');
+    ok.hidden=true; er.hidden=true;
+    if (!f.checkValidity()) { f.reportValidity(); return; }
+    var btn=f.querySelector('button[type=submit]'), txt=btn.textContent; btn.disabled=true; btn.textContent=f.dataset.sending||txt;
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); ok.hidden=false; f.reset(); })
+      .catch(function(){ er.hidden=false; })
+      .then(function(){ btn.disabled=false; btn.textContent=txt; });
+  });
+
+  // menú celular
+  var bg=document.querySelector('.burger');
+  if (bg) {
+    bg.addEventListener('click',function(){ var o=nav.classList.toggle('open'); bg.setAttribute('aria-expanded',o); });
+    [].slice.call(nav.querySelectorAll('ul a')).forEach(function(a){ a.addEventListener('click',function(){ nav.classList.remove('open'); bg.setAttribute('aria-expanded','false'); }); });
+  }
+
+  // video de portada: solo en pantallas grandes y sin "reducir movimiento"
+  var v=document.querySelector('.hero video');
+  if (v && matchMedia('(min-width:761px)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var sc=v.querySelector('source[data-src]'); if (sc) { sc.src=sc.dataset.src; v.load(); var p=v.play(); if(p&&p.catch)p.catch(function(){}); }
+  }
+})();
+</script>
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5bab0a5479c34a3798775f9788ffef61"}'></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":"Service","@id":"https://delsecurity.com.ar/en/website-seo-ai-visibility/#service","name":"Website audit and design visible on Google and AI","serviceType":"SEO audit, web design and answer engine optimization (AEO)","description":"Audits of existing websites and custom web design for small businesses and independent professionals, optimized for search engines (SEO), AI assistants (AEO) and local search on Google Maps.","provider":{"@id":"https://delsecurity.com.ar/#organization"},"audience":{"@type":"BusinessAudience","audienceType":"Small businesses and independent professionals"},"areaServed":[{"@type":"Country","name":"Argentina"},{"@type":"Place","name":"Latin America"},{"@type":"Place","name":"Europe"},{"@type":"Place","name":"Worldwide"}],"availableLanguage":["es","en"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Web and visibility","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"SEO and AEO website audits"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom web design optimized for search engines and AI"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Google Business Profile optimization"}}]}},
+{"@type":"WebPage","@id":"https://delsecurity.com.ar/en/website-seo-ai-visibility/#webpage","url":"https://delsecurity.com.ar/en/website-seo-ai-visibility/","name":"SEO Audit and Web Design Visible on Google and AI | Del Security","isPartOf":{"@id":"https://delsecurity.com.ar/#website"},"about":{"@id":"https://delsecurity.com.ar/en/website-seo-ai-visibility/#service"},"breadcrumb":{"@id":"https://delsecurity.com.ar/en/website-seo-ai-visibility/#breadcrumb"},"inLanguage":"en"},
+{"@type":"BreadcrumbList","@id":"https://delsecurity.com.ar/en/website-seo-ai-visibility/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://delsecurity.com.ar/en/"},{"@type":"ListItem","position":2,"name":"Websites visible on Google and AI","item":"https://delsecurity.com.ar/en/website-seo-ai-visibility/"}]},
+{"@type": "FAQPage", "@id": "https://delsecurity.com.ar/en/website-seo-ai-visibility/#faq", "mainEntity": [{"@type": "Question", "name": "Why doesn’t my website show up on Google?", "acceptedAnswer": {"@type": "Answer", "text": "The three most common causes: Google hasn’t indexed it properly, the site has no content answering what your customers search for, or there are no external signals —such as a Business Profile or links from other sites— telling Google your business is relevant. Google Search Console shows exactly which problem it is, and it’s the first thing we check in the audit."}}, {"@type": "Question", "name": "What is AEO and how do I show up in ChatGPT?", "acceptedAnswer": {"@type": "Answer", "text": "AEO (Answer Engine Optimization) is optimizing for answer engines: assistants like ChatGPT, Gemini or Perplexity that give a direct answer instead of a list of links. For them to mention you, your website has to be readable by their crawlers, explain clearly what you do and where, answer specific questions and include structured data. Nobody can guarantee an assistant will cite you, but a well-built website greatly improves the odds."}}, {"@type": "Question", "name": "What does the website audit include?", "acceptedAnswer": {"@type": "Answer", "text": "We review Google indexing, which searches you appear for and in what position, speed and mobile experience, content, structured data, readability for AI assistants, your Google Business Profile and whether visits turn into inquiries. You get a report with problems ranked by priority and what to do about each one."}}, {"@type": "Question", "name": "How long until I see results?", "acceptedAnswer": {"@type": "Answer", "text": "Technical fixes and Google registration show results in days or weeks. Climbing in competitive searches usually takes months, depending on your trade, your area and how much competition you have. That is why we measure with Search Console from the start: so you see progress in data, not promises."}}, {"@type": "Question", "name": "Do you guarantee the top spot on Google?", "acceptedAnswer": {"@type": "Answer", "text": "No, and be wary of anyone who does: nobody controls Google’s results or AI answers. What we do is fix everything that depends on your website, target the searches that actually bring customers and show you with data how it evolves."}}, {"@type": "Question", "name": "If I have Instagram and Google Maps, do I need a website?", "acceptedAnswer": {"@type": "Answer", "text": "Social media and a Business Profile help, but you don’t control them, and Google and AI assistants read them only partially. Your own website is where you explain in detail what you do and where, and answer your customers’ questions; it’s the source search engines and AI rely on most to decide whom to show."}}, {"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on whether we start from an existing website or from scratch, and how many sections and services it needs to cover. After the assessment we send you a concrete written proposal, with no obligation."}}]}
+]}</script>
+<a class="wa-float" href="https://wa.me/5491140275043" rel="noopener" aria-label="Message us on WhatsApp" title="Message us on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2.5c-5.25 0-9.5 3.9-9.5 8.7 0 2.62 1.27 4.97 3.27 6.57L5 21.5l4.1-2.08c.92.25 1.89.38 2.9.38 5.25 0 9.5-3.9 9.5-8.7S17.25 2.5 12 2.5zm4.3 11.6c-.18.5-1.05.95-1.45 1-.38.05-.86.07-1.38-.09-.32-.1-.73-.23-1.25-.46-2.2-.95-3.64-3.17-3.75-3.32-.11-.15-.9-1.2-.9-2.29s.57-1.62.77-1.85c.2-.22.44-.28.59-.28h.42c.14 0 .32-.05.5.38.18.44.62 1.52.67 1.63.05.11.09.24.02.39-.07.15-.11.24-.22.37l-.33.39c-.11.11-.22.23-.1.45.13.22.57.94 1.22 1.52.84.75 1.55.98 1.77 1.09.22.11.35.09.48-.05.13-.15.55-.64.7-.86.15-.22.29-.18.5-.11.2.07 1.29.61 1.51.72.22.11.37.16.42.25.06.09.06.52-.12 1.02z"/></svg></a>
+</body>
+</html>

@@ -24,7 +24,11 @@ para entrenar modelos, y el cliente elige donde se procesan (on-premise, nube pr
 - Auditoria SEO/AEO y diseno web a medida para pymes e independientes, visible en
   Google, asistentes de IA (ChatGPT, Gemini, Perplexity, Claude) y Google Maps:
   https://delsecurity.com.ar/diseno-web-seo-ia/
-Las tres paginas son HTML estatico: todo el contenido esta en el documento,
+Versiones en ingles:
+  https://delsecurity.com.ar/en/ai-for-business/
+  https://delsecurity.com.ar/en/ai-assistant-for-tradespeople/
+  https://delsecurity.com.ar/en/website-seo-ai-visibility/
+Todas las paginas son HTML estatico: todo el contenido esta en el documento,
 sin requerir ejecucion de JavaScript.
 
 ## Servicios (5)
@@ -68,7 +72,7 @@ necesitan pagar una infraestructura privada para informacion que no es sensible.
 Correo:   info@delsecurity.com.ar
 Telefono: +54 9 11 4027 5043
 WhatsApp: https://wa.me/5491140275043
-Oficina:  Buenos Aires, Argentina
+Ubicacion: Buenos Aires, Argentina (sin oficina de atencion al publico; trabajo remoto y en sitio)
 Horario:  Lunes a viernes, 8 a 18 h (GMT-3)
 
 ## Datos estructurados

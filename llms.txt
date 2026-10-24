@@ -11,6 +11,9 @@ Diferencial: la IA la implementa el mismo equipo que disena y opera la infraestr
 - [Inteligencia artificial para empresas](https://delsecurity.com.ar/inteligencia-artificial-para-empresas/): IA privada, agentes de IA, automatizacion y business intelligence
 - [Asistente virtual con IA para profesionales independientes](https://delsecurity.com.ar/asistente-virtual-ia-profesionales/): presupuestos, respuestas a clientes, agenda de visitas y derivacion de llamadas para oficios
 - [Auditoria SEO/AEO y diseno web](https://delsecurity.com.ar/diseno-web-seo-ia/): webs visibles en Google, en asistentes de IA y en Google Maps
+- [AI for business (English)](https://delsecurity.com.ar/en/ai-for-business/): private AI, AI agents, automation and business intelligence
+- [AI assistant for tradespeople (English)](https://delsecurity.com.ar/en/ai-assistant-for-tradespeople/): quotes, customer replies, visit booking and call escalation
+- [Website SEO and AI visibility (English)](https://delsecurity.com.ar/en/website-seo-ai-visibility/): audits and custom websites visible on Google, AI assistants and Google Maps
 
 ## Servicios
 
