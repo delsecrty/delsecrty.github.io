@@ -273,6 +273,23 @@ form .btn{margin-top:4px;border:0}
 .wa-float:hover{transform:scale(1.07)}
 .wa-float svg{width:28px;height:28px}
 @media print{.wa-float{display:none}}
+
+/* ---------- casos ---------- */
+.cases{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(14px,1.6vw,22px)}
+.case{grid-column:span 2;background:linear-gradient(160deg,var(--s2),var(--s1));border-radius:3px;padding:clamp(24px,2.6vw,34px);display:flex;flex-direction:column}
+.case.big{grid-column:span 3}
+.case-tag{font-family:var(--cnd);font-weight:700;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px}
+.case h3{font-family:var(--cnd);font-weight:700;font-size:clamp(1.15rem,1.6vw,1.35rem);letter-spacing:.02em;line-height:1.18;text-transform:uppercase;margin-bottom:12px}
+.case.big h3{font-size:clamp(1.3rem,2vw,1.6rem)}
+.case p{color:var(--tx2);font-size:.9375rem;line-height:1.7}
+.case .note{font-size:.8125rem;color:var(--tx3);margin-top:12px}
+.case .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:18px}
+.case .tags li{font-family:var(--cnd);font-weight:600;font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan-2);border:1px solid rgba(0,210,255,.26);padding:3px 9px;border-radius:2px;background:rgba(0,210,255,.05)}
+.case-cta{background:linear-gradient(150deg,rgba(0,210,255,.13),rgba(123,47,255,.10) 60%,var(--s2))}
+.case-cta .btn{align-self:flex-start;margin-top:auto}
+.case-cta p{margin-bottom:20px}
+@media(max-width:980px){.cases{grid-template-columns:repeat(2,1fr)}.case,.case.big{grid-column:span 1}}
+@media(max-width:620px){.cases{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -283,6 +300,7 @@ form .btn{margin-top:4px;border:0}
     <ul id="menu">
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#casos">Casos</a></li>
       <li><a href="#porque">Por qué elegirnos</a></li>
       <li><a href="#trayectoria">Trayectoria</a></li>
       <li class="m-only"><a href="#contacto">Contacto</a></li>
@@ -331,6 +349,17 @@ form .btn{margin-top:4px;border:0}
       <p class="lede">Implementamos IA y automatización sobre todo el stack: desde el hardware y la red hasta modelos privados. Cada solución queda documentada, auditable y bajo tu control exclusivo.</p>
     </div>
     <div class="svcs"><article class="card chrome rv"><img src="/assets/cards/ai.jpg" alt="Inteligencia Artificial Aplicada" loading="lazy" width="541" height="617" decoding="async"><div class="in"><h3>Inteligencia Artificial Aplicada</h3><p>Automatización, agentes de IA, modelos privados on-premise y business intelligence para escalar el negocio con resultados medibles.</p><ul class="tags"><li>Agentes</li><li>Automatización</li><li>Modelos privados</li><li>Business intelligence</li></ul><a class="more-link" href="/inteligencia-artificial-para-empresas/">IA para empresas: ver servicio &rarr;</a><br><a class="more-link" href="/asistente-virtual-ia-profesionales/">¿Trabajás por tu cuenta? Asistente IA &rarr;</a></div></article><article class="card chrome rv"><img src="/assets/cards/ciber.jpg" alt="Ciberseguridad" loading="lazy" width="537" height="563" decoding="async"><div class="in"><h3>Ciberseguridad</h3><p>Protección integral de sistemas, redes y datos empresariales. Pentesting, firewalls e IPS/IDS.</p><ul class="tags"><li>Pentesting</li><li>Firewalls</li><li>IPS/IDS</li><li>Respuesta a incidentes</li></ul></div></article><article class="card chrome rv"><img src="/assets/cards/infra.jpg" alt="Infraestructura Física" loading="lazy" width="551" height="622" decoding="async"><div class="in"><h3>Infraestructura Física</h3><p>Diseño, implementación y soporte de data centers y salas de servidores.</p><ul class="tags"><li>Data centers</li><li>Salas de servidores</li><li>Redes</li><li>Soporte</li></ul></div></article><article class="card chrome rv"><img src="/assets/cards/cloud.jpg" alt="Infraestructura Cloud y Virtualización" loading="lazy" width="534" height="608" decoding="async"><div class="in"><h3>Infraestructura Cloud y Virtualización</h3><p>Migración, gestión y optimización de entornos cloud y virtuales.</p><ul class="tags"><li>Migración</li><li>Virtualización</li><li>Híbrido</li><li>Optimización</li></ul></div></article><article class="card chrome rv"><img src="/assets/cards/audit.jpg" alt="Auditoría, Riesgos y Compliance" loading="lazy" width="537" height="558" decoding="async"><div class="in"><h3>Auditoría, Riesgos y Compliance</h3><p>Evaluación integral de controles de TI bajo marcos internacionales — hoy extendida a los modelos de IA que tu empresa empieza a incorporar. Identificamos brechas, gestionamos riesgos y acompañamos el cumplimiento de punta a punta.</p><ul class="tags"><li>Gobierno de IA</li><li>ISO 27001</li><li>Ley 25.326</li><li>Gestión de riesgos</li></ul></div></article><article class="card card-cta chrome rv"><div class="in"><h3>¿No sabés por dónde empezar?</h3><p>Una reunión de diagnóstico, sin cargo y sin compromiso, para entender la situación real antes de proponer nada.</p><div class="cta-row" style="margin-top:22px"><a class="btn" href="#contacto">Agendar</a></div></div></article></div>
+  </div>
+</section>
+
+<section class="sec" id="casos" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Casos</span>
+      <h2 class="h2">Lo que ya resolvimos</h2>
+      <p class="lede">Por confidencialidad no publicamos nombres de clientes. Estos son algunos de los trabajos, contados por rubro.</p>
+    </div>
+    <div class="cases"><article class="case big chrome rv"><span class="case-tag">Industria · Alemania</span><h3>Controles sobre IA privada en un gran grupo industrial</h3><p>Implementamos controles para que cada paso de una IA privada quede auditado, y para que los cálculos y procesos críticos requieran la autorización de una persona en lugar de quedar en manos de decisiones automáticas.</p><p class="note">Proyecto en sitio, bajo acuerdo de confidencialidad.</p><ul class="tags"><li>IA privada</li><li>Gobierno de IA</li><li>Auditoría</li></ul></article><article class="case big chrome rv"><span class="case-tag">Respuesta a incidentes</span><h3>Sitio secuestrado, recuperado en horas</h3><p>Una empresa sufría ataques reiterados de alta complejidad: desviaban el tráfico de su sitio hacia una copia modificada y no lograban frenarlo. En pocas horas de trabajo recuperamos el control y mitigamos el ataque por completo.</p><ul class="tags"><li>Ciberseguridad</li><li>Respuesta a incidentes</li></ul></article><article class="case chrome rv"><span class="case-tag">Construcción</span><h3>ERP a medida para obra, depósito y flota</h3><p>Implementamos y adaptamos un ERP a la operación de una constructora: depósito general, obradores, materiales en tránsito, flota e inventario. También gestionamos su infraestructura, en la nube y on-premise.</p><ul class="tags"><li>ERP</li><li>Cloud</li><li>On-premise</li></ul></article><article class="case chrome rv"><span class="case-tag">Estudios contables y jurídicos</span><h3>Automatizaciones que liberan horas</h3><p>En estudios contables agilizamos el cálculo de impuestos; en estudios jurídicos automatizamos tareas repetitivas similares. El equipo dedica el tiempo al análisis y no a la carga.</p><ul class="tags"><li>Automatización</li><li>IA aplicada</li></ul></article><article class="case chrome rv"><span class="case-tag">Profesionales independientes</span><h3>Asistentes que delegan el día a día</h3><p>Varias implementaciones para profesionales que necesitaban delegar: presupuestar, contestar consultas simples y correos, y analizar sus finanzas para alertar desvíos.</p><ul class="tags"><li>Asistente IA</li><li>Automatización</li></ul></article><article class="case chrome rv"><span class="case-tag">Educación</span><h3>Plataforma completa para un colegio privado</h3><p>Mantenemos su infraestructura en la nube: plataforma de correo, servidores de correo y campus virtual.</p><ul class="tags"><li>Cloud</li><li>Correo</li><li>Campus virtual</li></ul></article><article class="case chrome rv"><span class="case-tag">Call centers</span><h3>Infraestructura que no puede parar</h3><p>Damos soporte a distintos call centers, manteniendo su infraestructura en la nube y on-premise.</p><ul class="tags"><li>Infraestructura</li><li>Cloud</li><li>Soporte</li></ul></article><article class="case case-cta chrome rv"><span class="case-tag">¿Tu caso es parecido?</span><h3>Contanos qué necesitás resolver</h3><p>Una reunión de diagnóstico, sin cargo y sin compromiso.</p><a class="btn" href="#contacto">Hablemos</a></article></div>
   </div>
 </section>
 

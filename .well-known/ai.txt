@@ -59,6 +59,19 @@ Hoy   IA aplicada en produccion sobre infraestructura propia operada por el equi
 - Monitoreo y guardia: 24/7 para clientes con servicio contratado
 - Atencion al publico general: lunes a viernes, 8 a 18 h (GMT-3)
 
+## Casos (sin nombres de clientes, por confidencialidad)
+- Gran grupo industrial en Alemania: controles sobre IA privada con auditoria de cada paso
+  y autorizacion humana obligatoria para calculos y procesos criticos. Proyecto en sitio.
+- Respuesta a incidentes: empresa con ataques reiterados de alta complejidad que desviaban
+  el trafico de su sitio a una copia modificada; control recuperado y ataque mitigado en horas.
+- Constructora: ERP a medida (deposito, obradores, materiales en transito, flota, inventario)
+  e infraestructura en nube y on-premise.
+- Estudios contables y juridicos: automatizacion del calculo de impuestos y tareas repetitivas.
+- Profesionales independientes: asistentes con IA para presupuestar, responder consultas y
+  correos, y analizar finanzas para alertar desvios.
+- Colegio privado: infraestructura en nube con plataforma y servidores de correo y campus virtual.
+- Call centers: soporte de infraestructura en nube y on-premise.
+
 ## Publico
 Empresas de todos los tamanos, de cualquier pais (Argentina, America Latina, Europa
 y el resto del mundo), que necesitan incorporar IA sin exponer datos y sin reemplazar
