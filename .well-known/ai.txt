@@ -62,11 +62,14 @@ Hoy   IA aplicada en produccion sobre infraestructura propia operada por el equi
 ## Casos (sin nombres de clientes, por confidencialidad)
 - Gran grupo industrial en Alemania: controles sobre IA privada con auditoria de cada paso
   y autorizacion humana obligatoria para calculos y procesos criticos. Proyecto en sitio.
-- Respuesta a incidentes: empresa con ataques reiterados de alta complejidad que desviaban
-  el trafico de su sitio a una copia modificada; control recuperado y ataque mitigado en horas.
+- Respuesta a incidentes: ataques reiterados de alta complejidad desviaban el trafico del sitio
+  de una empresa a una copia modificada; otro proveedor no lo freno en una semana. Primer freno
+  en 6 horas y recuperacion total en casi 12 horas de trabajo continuo.
 - Constructora: ERP a medida (deposito, obradores, materiales en transito, flota, inventario)
   e infraestructura en nube y on-premise.
-- Estudios contables y juridicos: automatizacion del calculo de impuestos y tareas repetitivas.
+- Estudio contable: automatizacion del procesamiento de facturas de clientes; mas de 300 horas
+  mensuales liberadas y dos personas reasignadas a tareas mas rentables. Automatizaciones
+  similares en estudios juridicos.
 - Profesionales independientes: asistentes con IA para presupuestar, responder consultas y
   correos, y analizar finanzas para alertar desvios.
 - Colegio privado: infraestructura en nube con plataforma y servidores de correo y campus virtual.
