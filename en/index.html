@@ -86,10 +86,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero h1 span{color:var(--cyan);text-shadow:0 0 44px rgba(0,210,255,.55)}
 .hero .lede{max-width:52ch;margin-bottom:clamp(30px,4vw,44px);font-size:clamp(1.02rem,1.4vw,1.22rem);color:#c8d5ee}
 .cta-row{display:flex;flex-wrap:wrap;gap:14px}
-.scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;font-family:var(--cnd);font-size:.6875rem;letter-spacing:.28em;text-transform:uppercase;color:var(--tx3);display:flex;flex-direction:column;align-items:center;gap:10px}
-.scrollcue i{display:block;width:1px;height:34px;background:linear-gradient(to bottom,var(--cyan),transparent);animation:cue 2.2s var(--ease) infinite}
-@keyframes cue{0%,100%{opacity:.25;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
-@media(max-width:640px){.scrollcue{display:none}}
 
 /* ---------- stats ---------- */
 .stats{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);background:linear-gradient(180deg,var(--s1),var(--void))}
@@ -187,7 +183,6 @@ footer p{font-family:var(--cnd);font-size:.8125rem;letter-spacing:.06em;color:va
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .js-rv .rv,.js-rv .rv.in{opacity:1!important;transform:none!important;transition:none!important}
-  .scrollcue i{animation:none}
   *{transition-duration:.01ms!important}
 }
 
@@ -258,7 +253,6 @@ form .btn{margin-top:4px;border:0}
       <a class="btn btn-g" href="#servicios">See services</a>
     </div>
   </div>
-  <div class="scrollcue"><span>Scroll to explore</span><i></i></div>
 </header>
 
 <section class="stats" aria-label="Years sustaining">
